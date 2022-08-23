@@ -1,0 +1,41 @@
+{
+  "INPUTS": {
+      "FILE_NAME": [
+        "test_data2.csv"
+      ],
+      "SEPARATOR": ",",
+      "DECIMAL": null,
+      "ENCODING": "utf-8",
+      "FLOAT_PRECISION": "high",
+      "INDEXES": [
+        "period_end_date",
+        "translated_when"
+      ],
+      "DATE_COLUMNS": [
+        "period_end_date",
+        "translated_when"
+      ],
+      "DTYPE": {
+        "if_data_corrected": "object",
+        "prod_gr_id": "object",
+        "country_id_n": "object",
+        "delivery_type_id": "object",
+        "freq_id": "object",
+        "retailer_id": "object",
+        "brand_id": "object",
+        "predict_automatch": "object",
+        "class_acctual": "object"
+      },
+      "COLUMNS_WITH_NAN_VALUES": [
+        null
+      ]
+    },
+    "MODEL": [
+      null
+    ],
+  "OUTPUTS": {
+    "NAME": [
+      "output.csv"
+    ]
+  }
+}
