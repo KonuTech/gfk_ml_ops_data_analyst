@@ -272,7 +272,7 @@ def get_AR(data_frame, column_to_count_acctuals, column_to_count_predictions, co
     data.set_index('Class')
 #     print(data)
                 
-    output = counts.merge(data, left_on='prod_gr_id', right_on='Class')
+    output = counts.merge(data, left_on=column_to_group_by, right_on='Class')
     
     return output
 
@@ -289,3 +289,73 @@ def get_DAR(data_frame, column_to_count_acctuals, column_to_count_predictions, c
         ar.append(i[1])
     
     return sorted(set([i - j for i in ar for j in ar if i != j]))
+
+
+
+def get_RR(data_frame, column_to_count_acctuals, column_to_count_predictions, column_to_group_by):
+    
+    counts_total_labels = data_frame.groupby([column_to_group_by]) \
+    .size() \
+    .rename('count_total') \
+    .reset_index() \
+    .sort_values(by=column_to_group_by, ascending=False) \
+    .set_index(column_to_group_by)
+    
+    
+    counts_grouped_acctuals = data_frame.groupby([column_to_group_by, column_to_count_acctuals]) \
+    .size() \
+    .rename('count_grouped_acctuals') \
+    .reset_index() \
+    .sort_values(by=column_to_group_by, ascending=False) \
+    .set_index(column_to_group_by)
+    
+    negative_counts_grouped_acctuals = counts_grouped_acctuals.loc[counts_grouped_acctuals[column_to_count_acctuals] == 0]
+    
+    
+    counts_grouped_predictions = data_frame.groupby([column_to_group_by, column_to_count_predictions]) \
+    .size() \
+    .rename('count_gruped_predictions') \
+    .reset_index() \
+    .sort_values(by=column_to_group_by, ascending=False) \
+    .set_index(column_to_group_by)
+
+    negative_counts_grouped_predictions = counts_grouped_predictions.loc[counts_grouped_predictions[column_to_count_predictions] == 0]
+
+
+    counts = pd.merge(negative_counts_grouped_acctuals, negative_counts_grouped_predictions, left_index=True, right_index=True)
+#     print(counts)
+    
+    data = pd.DataFrame(columns=['Class', 'TN', 'FN', 'FP', 'TP'])
+    
+    for group in data_frame[column_to_group_by].dropna().unique():
+        sample = data_frame.loc[data_frame[column_to_group_by] == group]
+        cm = confusion_matrix(sample[column_to_count_acctuals], sample[column_to_count_predictions].notnull())
+        try:
+            TN, FN, FP, TP = cm[0][0], cm[1][0], cm[0][1], cm[1][1]
+        except:
+            pass
+        else:
+            TN, FN, FP, TP = cm[0][0], cm[1][0], cm[0][1], cm[1][1]
+        
+        data = data.append({'Class': group, 'TN': TN, 'FN': FN, 'FP': FP, 'TP': TP}, ignore_index=True)
+    data.set_index('Class')
+#     print(data)
+                
+    output = counts.merge(data, left_on=column_to_group_by, right_on='Class')
+    
+    return output
+
+
+def get_DRR(data_frame, column_to_count_acctuals, column_to_count_predictions, column_to_group_by):
+    
+    rr = []
+    
+    data = get_AR(data_frame, column_to_count_acctuals, column_to_count_predictions, column_to_group_by)
+    
+    data['RR'] = data['TN'] / data['count_gruped_predictions']
+           
+    for i in data['RR'].iteritems():
+        rr.append(i[1])
+    
+    return sorted(set([i - j for i in rr for j in rr if i != j]))
+
