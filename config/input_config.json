@@ -23,8 +23,8 @@
         "freq_id": "object",
         "retailer_id": "object",
         "brand_id": "object",
-        "predict_automatch": "object",
-        "class_acctual": "object"
+        "predict_automatch": "float",
+        "class_acctual": "float"
       },
       "COLUMNS_WITH_NAN_VALUES": [
         null
