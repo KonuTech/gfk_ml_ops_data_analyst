@@ -1,0 +1,4 @@
+# env windows
+virtualenv --python C:\Users\KonuTech\AppData\Local\Programs\Python\Python39\python.exe venv
+Set-ExecutionPolicy Unrestricted -Scope Process
+.\venv\Scripts\activate
