@@ -92,9 +92,9 @@ def get_CA(data_frame, column_to_group_by, column_to_count_acctuals, column_to_c
 
 
     df = pd.merge(positive_counts_grouped_acctuals, positive_counts_grouped_predictions, left_index=True, right_index=True)
-    df['DCA'] = df['count_grouped_acctuals'] / df['count_gruped_predictions']
+    df['CA'] = df['count_grouped_acctuals'] / df['count_gruped_predictions']
             
-    return df['DCA']
+    return df['CA']
 
 
 def get_DCA(data_frame, column_to_group_by, column_to_count_acctuals, column_to_count_predictions):
@@ -114,3 +114,65 @@ def get_DCA(data_frame, column_to_group_by, column_to_count_acctuals, column_to_
         ca.append(i[1])
             
     return sorted(set([i - j for i in ca for j in ca if i != j]))
+
+
+def get_CR(data_frame, column_to_group_by, column_to_count_acctuals, column_to_count_predictions):
+    """
+    :param data_frame: 
+    :param column_to_group_by: 
+    :param column_to_count_acctuals: 
+    :param column_to_count_predictions: 
+    :return: 
+    """
+    
+    counts_total_labels = data_frame.groupby([column_to_group_by]) \
+    .size() \
+    .rename('count_total') \
+    .reset_index() \
+    .sort_values(by=column_to_group_by, ascending=False) \
+    .set_index(column_to_group_by)
+    
+    
+    counts_grouped_acctuals = data_frame.groupby([column_to_group_by, column_to_count_acctuals]) \
+    .size() \
+    .rename('count_grouped_acctuals') \
+    .reset_index() \
+    .sort_values(by=column_to_group_by, ascending=False) \
+    .set_index(column_to_group_by)
+    
+    negative_counts_grouped_acctuals = counts_grouped_acctuals.loc[counts_grouped_acctuals[column_to_count_acctuals] == '0']
+    
+    
+    counts_grouped_predictions = data_frame.groupby([column_to_group_by, column_to_count_predictions]) \
+    .size() \
+    .rename('count_gruped_predictions') \
+    .reset_index() \
+    .sort_values(by=column_to_group_by, ascending=False) \
+    .set_index(column_to_group_by)
+
+    negative_counts_grouped_predictions= counts_grouped_predictions.loc[counts_grouped_predictions[column_to_count_predictions] == '0']
+
+
+    df = pd.merge(negative_counts_grouped_acctuals, negative_counts_grouped_predictions, left_index=True, right_index=True)
+    df['CR'] = df['count_grouped_acctuals'] / df['count_gruped_predictions']
+            
+    return df['CR']
+
+
+def get_DCR(data_frame, column_to_group_by, column_to_count_acctuals, column_to_count_predictions):
+    """
+    :param data_frame: 
+    :param column_to_group_by: 
+    :param column_to_count_acctuals: 
+    :param column_to_count_predictions: 
+    :return: 
+    """
+    
+    cr = []
+    
+    df = get_CR(data_frame, column_to_group_by, column_to_count_acctuals, column_to_count_predictions)
+    
+    for i in df.iteritems():
+        cr.append(i[1])
+    
+    return sorted(set([i - j for i in cr for j in cr if i != j]))
