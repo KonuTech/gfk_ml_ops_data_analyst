@@ -1,6 +1,7 @@
 
 import numpy as np
 import pandas as pd
+from sklearn.metrics import confusion_matrix
 
 # POST PROCESSING BIAS METRICS FOR THE TRAINED MODEL
 
@@ -178,6 +179,14 @@ def get_DCR(data_frame, column_to_group_by, column_to_count_acctuals, column_to_
     return sorted(set([i - j for i in cr for j in cr if i != j]))
 
 
+def get_cm(data_frame, acctuals, predictions):
+    
+    cm = confusion_matrix(data_frame[acctuals], data_frame[predictions].notnull())
+    TN, FN, FP, TP = cm[0][0], cm[1][0], cm[0][1], cm[1][1]
+    
+    return TN, FN, FP, TP
+
+
 def get_class_cm(data_frame, acctuals, predictions, column_to_group_by):
     
     data = pd.DataFrame(columns=['Class', 'TN', 'FN', 'FP', 'TP'])
@@ -191,3 +200,17 @@ def get_class_cm(data_frame, acctuals, predictions, column_to_group_by):
         data = data.append({'Class': group, 'TN': TN, 'FN': FN, 'FP': FP, 'TP': TP}, ignore_index=True)
         
     return data
+
+
+def get_RD(data_frame, acctuals, predictions, column_to_group_by):
+    
+    r = []
+    
+    data = get_class_cm(data_frame, acctuals, predictions, column_to_group_by)
+    data['Recall'] = (data['TP'] / (data['TP'] + data['FN']))
+    
+        
+    for i in data['Recall'].iteritems():
+        r.append(i[1])
+    
+    return sorted(set([i - j for i in r for j in r if i != j]))
