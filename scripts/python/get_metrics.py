@@ -191,13 +191,22 @@ def get_class_cm(data_frame, acctuals, predictions, column_to_group_by):
     
     data = pd.DataFrame(columns=['Class', 'TN', 'FN', 'FP', 'TP'])
     
-    for group in set(data_frame[column_to_group_by]):
+    for group in data_frame[column_to_group_by].dropna().unique():
         sample = data_frame.loc[data_frame[column_to_group_by] == group]
-    
         cm = confusion_matrix(sample[acctuals], sample[predictions].notnull())
-        TN, FN, FP, TP = cm[0][0], cm[1][0], cm[0][1], cm[1][1]
+        try:
+            TN, FN, FP, TP = cm[0][0], cm[1][0], cm[0][1], cm[1][1]
+        except:
+            pass
+        else:
+            TN, FN, FP, TP = cm[0][0], cm[1][0], cm[0][1], cm[1][1]
         
         data = data.append({'Class': group, 'TN': TN, 'FN': FN, 'FP': FP, 'TP': TP}, ignore_index=True)
+        
+    try:
+        data['Recall'] = (data['TP'] / (data['TP'] + data['FN']))
+    except ZeroDivisionError:
+        data['Recall'] = 0
         
     return data
 
@@ -207,9 +216,7 @@ def get_RD(data_frame, acctuals, predictions, column_to_group_by):
     r = []
     
     data = get_class_cm(data_frame, acctuals, predictions, column_to_group_by)
-    data['Recall'] = (data['TP'] / (data['TP'] + data['FN']))
-    
-        
+           
     for i in data['Recall'].iteritems():
         r.append(i[1])
     
