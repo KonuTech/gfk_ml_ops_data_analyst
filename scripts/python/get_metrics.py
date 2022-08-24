@@ -203,11 +203,6 @@ def get_class_cm(data_frame, acctuals, predictions, column_to_group_by):
         
         data = data.append({'Class': group, 'TN': TN, 'FN': FN, 'FP': FP, 'TP': TP}, ignore_index=True)
         
-    try:
-        data['Recall'] = (data['TP'] / (data['TP'] + data['FN']))
-    except ZeroDivisionError:
-        data['Recall'] = 0
-        
     return data
 
 
@@ -216,6 +211,11 @@ def get_RD(data_frame, acctuals, predictions, column_to_group_by):
     r = []
     
     data = get_class_cm(data_frame, acctuals, predictions, column_to_group_by)
+    
+    try:
+        data['Recall'] = (data['TP'] / (data['TP'] + data['FN']))
+    except ZeroDivisionError:
+        data['Recall'] = 0
            
     for i in data['Recall'].iteritems():
         r.append(i[1])
