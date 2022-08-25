@@ -24,7 +24,7 @@ def get_stacked_bar_chart(data_frame, date_column, column_to_group_by, column_to
         rate['rate'] = 0
 
     rate['group'] = rate['month_year'].astype(str) + " " + rate[column_to_group_by].astype(str)
-    # print(rate)
+    print(rate, '\n', "DF SHAPE: ", rate.shape)
 
     try:
         total['total_rate'] = [i / j * 100 for i, j in zip(total[column_to_count].fillna(0), total[column_to_count].fillna(0))]
@@ -32,7 +32,7 @@ def get_stacked_bar_chart(data_frame, date_column, column_to_group_by, column_to
         total['total_rate'] = 0
 
     total['group'] = total['month_year'].astype(str) + " " + total[column_to_group_by].astype(str)
-    # print(total)
+    print(total, '\n', "DF SHAPE: ", total.shape)
 
     for group in set(total[column_to_group_by]):
 
@@ -43,7 +43,7 @@ def get_stacked_bar_chart(data_frame, date_column, column_to_group_by, column_to
         bottom_bar = mpatches.Patch(color='lightblue', label='Yes')
         plt.legend(handles=[top_bar, bottom_bar])
 
-        print('\n', group)
+        print('\n', "GROUP: ", group)
         bar1 = sns.barplot(x='month_year',  y="total_rate", data=total[total[column_to_group_by] == group], color='darkblue')
         bar2 = sns.barplot(x='month_year',  y="rate", data=rate[rate[column_to_group_by] == group], color='lightblue')
 
