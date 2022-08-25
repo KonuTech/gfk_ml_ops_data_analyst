@@ -1,50 +1,60 @@
+import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import seaborn as sns
 
-def get_stacked_bar_chart(data_frame, date_column, column_to_group_by, column_to_count):
+def get_monthly_stability_chart(col, data_frame, date_column, column_to_group_by, column_to_count):
     """
-    :param data_frame: 
-    :param date_column: 
-    :param column_to_group_by: 
-    :param column_to_count: 
-    :return: 
+    :param data_frame:
+    :param date_column:
+    :param column_to_group_by:
+    :param column_to_count:
+    :return:
     """
 
     data_frame['month_year'] = data_frame[date_column].dt.to_period('M')
     total = data_frame.groupby([data_frame['month_year'], column_to_group_by])[column_to_count].count().reset_index()
-    #     print(total)
 
     rate = data_frame[data_frame[column_to_count] == 1].groupby([data_frame['month_year'], column_to_group_by])[column_to_count].sum().reset_index()
-    #     print(rate)
+    rate['rate'] = [(i / j * 100) if j != 0 else 0 for i, j in zip(rate[column_to_count].fillna(0), total[column_to_count].fillna(0))]
 
-    try:
-        rate['rate'] = [i / j * 100 for i, j in zip(rate[column_to_count].fillna(0), total['predict_automatch'].fillna(0))]
-    except ZeroDivisionError:
-        rate['rate'] = 0
 
     rate['group'] = rate['month_year'].astype(str) + " " + rate[column_to_group_by].astype(str)
-    print(rate, '\n', "DF SHAPE: ", rate.shape)
+    #     print(rate, '\n', "DF SHAPE: ", rate.shape)
 
-    try:
-        total['total_rate'] = [i / j * 100 for i, j in zip(total[column_to_count].fillna(0), total[column_to_count].fillna(0))]
-    except ZeroDivisionError:
-        total['total_rate'] = 0
+    total['total_rate'] = [(i / j * 100) if j !=0 else 0 for i, j in zip(total[column_to_count].fillna(0), total[column_to_count].fillna(0))]
 
     total['group'] = total['month_year'].astype(str) + " " + total[column_to_group_by].astype(str)
-    print(total, '\n', "DF SHAPE: ", total.shape)
+    #     print(total, '\n', "DF SHAPE: ", total.shape)
 
-    for group in set(total[column_to_group_by]):
+    output = pd.merge(total, rate, left_on='group', right_on='group')
+    #     print(output, '\n', "DF SHAPE: ", output.shape)
+
+    for group in set(output[column_to_group_by + '_x']):
 
         plt.figure(figsize=(10, 2))
 
         # legend
-        top_bar = mpatches.Patch(color='darkblue', label='No')
-        bottom_bar = mpatches.Patch(color='lightblue', label='Yes')
+        top_bar = mpatches.Patch(color='darkblue', label='0')
+        bottom_bar = mpatches.Patch(color='lightblue', label='1')
         plt.legend(handles=[top_bar, bottom_bar])
 
-        print('\n', "GROUP: ", group)
-        bar1 = sns.barplot(x='month_year',  y="total_rate", data=total[total[column_to_group_by] == group], color='darkblue')
-        bar2 = sns.barplot(x='month_year',  y="rate", data=rate[rate[column_to_group_by] == group], color='lightblue')
+        print("PRODUCED A CHART OF " + str(column_to_count) + " MONTHLY STABILITY FOR: ", str(col), " VARIABLE CLASS: ", group)
+        bar1 = sns.barplot(
+            x='month_year_x',
+            y="total_rate",
+            data=output[output[column_to_group_by + '_x'] == group],
+            color='darkblue',
+            alpha=0.5
+        )
 
-        plt.show()
+        bar2 = sns.barplot(
+            x='month_year_x',
+            y="rate",
+            data=output[output[column_to_group_by + '_x'] == group],
+            color='lightblue',
+            alpha=0.5
+        )
+
+        plt.savefig("docs/images/monthly_stability/" + str(column_to_count) + "/" + str(col) + "_CLASS_" + str(group) + "_monthly_stability_grouped" + '.jpg')
+        # plt.show()
