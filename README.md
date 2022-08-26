@@ -5,8 +5,6 @@
 
 ## Challenges and assumptions
 
----
-
 > **Explainability**
 > 
 > should be taken into account during each stage of the ML lifecycle,
