@@ -59,4 +59,4 @@ def get_monthly_stability_chart(col, data_frame, date_column, column_to_group_by
             alpha=0.5
         )
 
-        plt.savefig("docs/images/monthly_stability/" + str(column_to_count) + "/" + str(col) + "_CLASS_" + str(group) + "_monthly_stability_grouped" + '.jpg')
+        plt.savefig("docs/images/monthly_stability/" + str(column_to_count) + "/" + str(col) + "/" + "CLASS_" + str(group) + "_monthly_stability_grouped" + '.jpg')
