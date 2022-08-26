@@ -37,7 +37,7 @@ incorrect prediction?”, and “Which features have the largest influence on th
 > that is typically chosen to represent an uninformative or average example in the dataset.
 #### [SOURCE](https://pages.awscloud.com/rs/112-TZM-766/images/Amazon.AI.Fairness.and.Explainability.Whitepaper.pdf)
 
----
+
 > **Bias Metrics**
 >
 > As various bias metrics examine different nuances and ways in which bias may arise,
