@@ -7,7 +7,7 @@
 
 > **Explainability**
 > 
-> should be taken into account during each stage of the ML lifecycle,
+> Explainability should be taken into account during each stage of the ML lifecycle,
 > for example, Problem Formation, Dataset Construction, Algorithm Selection,
 > Model Training Process, Testing Process, Deployment, and Monitoring/Feedback.
 > It is important to have the right tools to do this analysis.
