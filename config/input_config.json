@@ -1,41 +1,57 @@
 {
   "INPUTS": {
-      "FILE_NAME": [
-        "test_data2.csv"
-      ],
-      "SEPARATOR": ",",
-      "DECIMAL": null,
-      "ENCODING": "utf-8",
-      "FLOAT_PRECISION": "high",
-      "INDEXES": [
-        "period_end_date",
-        "translated_when"
-      ],
-      "DATE_COLUMNS": [
-        "period_end_date",
-        "translated_when"
-      ],
-      "DTYPE": {
-        "if_data_corrected": "object",
-        "prod_gr_id": "object",
-        "country_id_n": "object",
-        "delivery_type_id": "object",
-        "freq_id": "object",
-        "retailer_id": "object",
-        "brand_id": "object",
-        "predict_automatch": "float",
-        "class_acctual": "float"
-      },
-      "COLUMNS_WITH_NAN_VALUES": [
-        null
-      ]
-    },
-    "MODEL": [
-      null
+    "FILE_NAME": [
+      "test_data2.csv"
     ],
+    "SEPARATOR": ",",
+    "DECIMAL": null,
+    "ENCODING": "utf-8",
+    "FLOAT_PRECISION": "high",
+    "INDEXES": [
+      "period_end_date",
+      "translated_when"
+    ],
+    "DATE_COLUMNS": [
+      "period_end_date",
+      "translated_when"
+    ],
+    "DTYPE": {
+      "if_data_corrected": "object",
+      "prod_gr_id": "object",
+      "country_id_n": "object",
+      "delivery_type_id": "object",
+      "freq_id": "object",
+      "retailer_id": "object",
+      "brand_id": "object",
+      "predict_automatch": "float",
+      "class_acctual": "float"
+    },
+    "CATEGORICAL_FEATURES": [
+      "country_id_n",
+      "prod_gr_id",
+      "retailer_id",
+      "brand_id",
+      "delivery_type_id",
+      "week_number"
+    ],
+    "COLUMNS_WITH_NAN_VALUES": [
+      null
+    ]
+  },
+  "MODEL": {
+    "TARGET": "class_acctual",
+    "PREDICTION": "predict_automatch",
+    "DATETIME": "translated_when"
+  },
   "OUTPUTS": {
     "NAME": [
-      "output.csv"
-    ]
+      null
+    ],
+    "COLUMNS_TO_EXCLUDE": [
+      "period_end_date",
+      "if_data_corrected",
+      "freq_id"
+    ],
+    "BREAKING_POINT_DT": "2020-11-28 00:00:00+00:00"
   }
 }
