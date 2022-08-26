@@ -7,10 +7,10 @@ from sklearn.metrics import confusion_matrix
 
 def get_PPL(data_frame, column_to_group_by, column_to_count):
     """
-    :param data_frame: 
-    :param column_to_group_by: 
-    :param column_to_count: 
-    :return: 
+    :param data_frame:
+    :param column_to_group_by:
+    :param column_to_count:
+    :return:
     """
     
     ppl = []
@@ -39,10 +39,10 @@ def get_PPL(data_frame, column_to_group_by, column_to_count):
 
 def get_DPPL(data_frame, column_to_group_by, column_to_count):
     """
-    :param data_frame: 
-    :param column_to_group_by: 
-    :param column_to_count: 
-    :return: 
+    :param data_frame:
+    :param column_to_group_by:
+    :param column_to_count:
+    :return:
     """
     
     ppl = []
@@ -57,11 +57,11 @@ def get_DPPL(data_frame, column_to_group_by, column_to_count):
 
 def get_CA(data_frame, column_to_group_by, column_to_count_acctuals, column_to_count_predictions):
     """
-    :param data_frame: 
-    :param column_to_group_by: 
-    :param column_to_count_acctuals: 
-    :param column_to_count_predictions: 
-    :return: 
+    :param data_frame:
+    :param column_to_group_by:
+    :param column_to_count_acctuals:
+    :param column_to_count_predictions:
+    :return:
     """
     
     counts_total_labels = data_frame.groupby([column_to_group_by]) \
@@ -100,11 +100,11 @@ def get_CA(data_frame, column_to_group_by, column_to_count_acctuals, column_to_c
 
 def get_DCA(data_frame, column_to_group_by, column_to_count_acctuals, column_to_count_predictions):
     """
-    :param data_frame: 
-    :param column_to_group_by: 
-    :param column_to_count_acctuals: 
-    :param column_to_count_predictions: 
-    :return: 
+    :param data_frame:
+    :param column_to_group_by:
+    :param column_to_count_acctuals:
+    :param column_to_count_predictions:
+    :return:
     """
     
     ca = []
@@ -119,11 +119,11 @@ def get_DCA(data_frame, column_to_group_by, column_to_count_acctuals, column_to_
 
 def get_CR(data_frame, column_to_group_by, column_to_count_acctuals, column_to_count_predictions):
     """
-    :param data_frame: 
-    :param column_to_group_by: 
-    :param column_to_count_acctuals: 
-    :param column_to_count_predictions: 
-    :return: 
+    :param data_frame:
+    :param column_to_group_by:
+    :param column_to_count_acctuals:
+    :param column_to_count_predictions:
+    :return:
     """
     
     counts_total_labels = data_frame.groupby([column_to_group_by]) \
@@ -162,11 +162,11 @@ def get_CR(data_frame, column_to_group_by, column_to_count_acctuals, column_to_c
 
 def get_DCR(data_frame, column_to_group_by, column_to_count_acctuals, column_to_count_predictions):
     """
-    :param data_frame: 
-    :param column_to_group_by: 
-    :param column_to_count_acctuals: 
-    :param column_to_count_predictions: 
-    :return: 
+    :param data_frame:
+    :param column_to_group_by:
+    :param column_to_count_acctuals:
+    :param column_to_count_predictions:
+    :return:
     """
     
     cr = []
@@ -180,6 +180,12 @@ def get_DCR(data_frame, column_to_group_by, column_to_count_acctuals, column_to_
 
 
 def get_cm(data_frame, acctuals, predictions):
+    """
+    :param data_frame:
+    :param acctuals:
+    :param predictions:
+    :return:
+    """
     
     cm = confusion_matrix(data_frame[acctuals], data_frame[predictions].notnull())
     TN, FN, FP, TP = cm[0][0], cm[1][0], cm[0][1], cm[1][1]
@@ -188,6 +194,13 @@ def get_cm(data_frame, acctuals, predictions):
 
 
 def get_class_cm(data_frame, acctuals, predictions, column_to_group_by):
+    """
+    :param data_frame:
+    :param acctuals:
+    :param predictions:
+    :param column_to_group_by:
+    :return:
+    """
     
     data = pd.DataFrame(columns=['Class', 'TN', 'FN', 'FP', 'TP'])
     
@@ -207,6 +220,13 @@ def get_class_cm(data_frame, acctuals, predictions, column_to_group_by):
 
 
 def get_RD(data_frame, acctuals, predictions, column_to_group_by):
+    """
+    :param data_frame:
+    :param acctuals:
+    :param predictions:
+    :param column_to_group_by:
+    :return:
+    """
     
     r = []
     
@@ -224,6 +244,13 @@ def get_RD(data_frame, acctuals, predictions, column_to_group_by):
 
 
 def get_AR(data_frame, column_to_count_acctuals, column_to_count_predictions, column_to_group_by):
+    """
+    :param data_frame:
+    :param column_to_count_acctuals:
+    :param column_to_count_predictions:
+    :param column_to_group_by:
+    :return:
+    """
     
     counts_total_labels = data_frame.groupby([column_to_group_by]) \
     .size() \
@@ -278,6 +305,13 @@ def get_AR(data_frame, column_to_count_acctuals, column_to_count_predictions, co
 
 
 def get_DAR(data_frame, column_to_count_acctuals, column_to_count_predictions, column_to_group_by):
+    """
+    :param data_frame:
+    :param column_to_count_acctuals:
+    :param column_to_count_predictions:
+    :param column_to_group_by:
+    :return:
+    """
     
     ar = []
     
@@ -293,6 +327,13 @@ def get_DAR(data_frame, column_to_count_acctuals, column_to_count_predictions, c
 
 
 def get_RR(data_frame, column_to_count_acctuals, column_to_count_predictions, column_to_group_by):
+    """
+    :param data_frame:
+    :param column_to_count_acctuals:
+    :param column_to_count_predictions:
+    :param column_to_group_by:
+    :return:
+    """
     
     counts_total_labels = data_frame.groupby([column_to_group_by]) \
     .size() \
@@ -347,6 +388,13 @@ def get_RR(data_frame, column_to_count_acctuals, column_to_count_predictions, co
 
 
 def get_DRR(data_frame, column_to_count_acctuals, column_to_count_predictions, column_to_group_by):
+    """
+    :param data_frame:
+    :param column_to_count_acctuals:
+    :param column_to_count_predictions:
+    :param column_to_group_by:
+    :return:
+    """
     
     rr = []
     
@@ -361,6 +409,13 @@ def get_DRR(data_frame, column_to_count_acctuals, column_to_count_predictions, c
 
 
 def get_A(data_frame, column_to_count_acctuals, column_to_count_predictions, column_to_group_by):
+    """
+    :param data_frame:
+    :param column_to_count_acctuals:
+    :param column_to_count_predictions:
+    :param column_to_group_by:
+    :return:
+    """
     
     counts_total_labels = data_frame.groupby([column_to_group_by]) \
     .size() \
@@ -414,6 +469,13 @@ def get_A(data_frame, column_to_count_acctuals, column_to_count_predictions, col
 
 
 def get_AD(data_frame, column_to_count_acctuals, column_to_count_predictions, column_to_group_by):
+    """
+    :param data_frame:
+    :param column_to_count_acctuals:
+    :param column_to_count_predictions:
+    :param column_to_group_by:
+    :return:
+    """
     
     ar = []
     

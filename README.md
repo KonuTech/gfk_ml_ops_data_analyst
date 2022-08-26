@@ -138,3 +138,8 @@ as follows:
 >  3. Adjust labels on the training dataset and re-train.
 >  4. Adjust cutoffs post-modeling.
 > #### [SOURCE](https://pages.awscloud.com/rs/112-TZM-766/images/Fairness.Measures.for.Machine.Learning.in.Finance.pdf)
+
+
+> **Observations and hypotheses**
+> 
+> TODO:

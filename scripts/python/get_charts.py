@@ -7,6 +7,7 @@ import itertools
 
 def get_monthly_stability_chart(col, data_frame, date_column, column_to_group_by, column_to_count):
     """
+    :param col:
     :param data_frame:
     :param date_column:
     :param column_to_group_by:
@@ -59,4 +60,4 @@ def get_monthly_stability_chart(col, data_frame, date_column, column_to_group_by
             alpha=0.5
         )
 
-        plt.savefig("docs/images/monthly_stability/" + str(column_to_count) + "/" + str(col) + "/" + "CLASS_" + str(group) + "_monthly_stability_grouped" + '.jpg')
+        plt.savefig("output/charts/monthly_stability/" + str(column_to_count) + "/" + str(col) + "/" + "CLASS_" + str(group) + "_monthly_stability_grouped" + '.jpg')
