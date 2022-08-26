@@ -107,17 +107,34 @@ is positive.
 
 > **Post-Trainng Metrics**
 >
-> * Class imbalance (CI)
-> * Difference in positive proportions in observed labels (DPL)
-> * Kullback and Leibler Divergence (KL)
-> * Jensen-Shannon divergence (JS)
-> * Lp norm (LP)
-> * Total variation distance (TVD)
-> * Kolmogorov-Smirnov (KS)
-> * Conditional Demographic Disparity in Labels (CDDL)
->
-> Of the eight pre-training bias metrics, the first two
-can detect negative bias, whereas the next five are agnostic
-to which class is advantaged or disadvantaged. The last one
-is positive.
+> At this stage we have computed the pre-training metrics and 
+> we may also have rebalanced the sample to address any class 
+> imbalances that may exist. After training the ML model, we 
+> then compute the following bias metrics.
+> * Difference in positive proportions in predicted labels (DPPL)
+> * Disparate Impact (DI)
+> * Difference in conditional outcomes (DCO)
+>   * Difference in Conditional Acceptance (DCA):
+>   * Difference in conditional rejection (DCR)
+> * Recall difference (RD)
+> * Accuracy Difference (AD)
+> * Treatment Equality (TE)
+> * Conditional Demographic Disparity of Predicted Labels
+    (CDDPL)
+> * Counterfactual difference (CD)
+> * FlipTest (FT)
+> #### [SOURCE](https://pages.awscloud.com/rs/112-TZM-766/images/Fairness.Measures.for.Machine.Learning.in.Finance.pdf)
+
+
+> **Bias Mitigation**
+> 
+> Some common corrections that may be applied are
+as follows:
+>  1. Removal of the class variable from the feature set.
+> For example, restricted characteristics such as gender, 
+> race/ethnicity, and age.
+>  2. Rebalance the training sample pre-training. This corrects
+> unfairness from differences in base rates.
+>  3. Adjust labels on the training dataset and re-train.
+>  4. Adjust cutoffs post-modeling.
 > #### [SOURCE](https://pages.awscloud.com/rs/112-TZM-766/images/Fairness.Measures.for.Machine.Learning.in.Finance.pdf)
