@@ -15,23 +15,21 @@ def get_monthly_stability_chart(col, data_frame, date_column, column_to_group_by
     """
     from contextlib import redirect_stdout
 
-    rate_longest = pd.DataFrame()
-
     data_frame['month_year'] = data_frame[date_column].dt.to_period('M')
+
     total = data_frame.groupby([data_frame['month_year'], column_to_group_by])[column_to_count].count().reset_index()
     total['group'] = total['month_year'].astype(str) + " " + total[column_to_group_by].astype(str)
 
     rate = data_frame[data_frame[column_to_count] == 1].groupby([data_frame['month_year'], column_to_group_by])[column_to_count].sum().reset_index()
     rate['group'] = rate['month_year'].astype(str) + " " + rate[column_to_group_by].astype(str)
 
-
     output = pd.merge(rate[['group', column_to_count]], total, how='right', left_on='group', right_on='group')
     output.rename(columns={column_to_count + '_x': "predict_1", column_to_count + '_y': "predict_total"}, inplace=True)
     output['rate'] = output['predict_1'] / output['predict_total']
     output['rate_total'] = 1.0
-    print(output, '\n', "DF SHAPE: ", output.shape)
+    # print(output, '\n', "DF SHAPE: ", output.shape)
 
-    with open('out.txt', 'a') as f:
+    with open('output/rates_output.txt', 'a') as f:
         with redirect_stdout(f):
             print(output.to_string())
 
@@ -62,4 +60,3 @@ def get_monthly_stability_chart(col, data_frame, date_column, column_to_group_by
         )
 
         plt.savefig("docs/images/monthly_stability/" + str(column_to_count) + "/" + str(col) + "_CLASS_" + str(group) + "_monthly_stability_grouped" + '.jpg')
-        # plt.show()
