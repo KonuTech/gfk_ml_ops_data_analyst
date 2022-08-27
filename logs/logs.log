@@ -1,22 +1,97 @@
-27-Aug-22 12:16:22 - SETTING GLOBAL VARIABLES
-27-Aug-22 12:16:22 - MAIN FUNCTION STARTED
-27-Aug-22 12:16:22 - CONFIG JSON FOR CSV LOADED
-27-Aug-22 12:16:22 - CSV LOADED
-27-Aug-22 12:16:24 - TARGET DRIFT - produced global report
-27-Aug-22 12:16:39 - TARGET DRIFT - produced weekly reports
-27-Aug-22 12:16:39 - DATA DRIFT - produced global report
-27-Aug-22 12:16:43 - DATA DRIFT - produced weekly reports
-27-Aug-22 12:16:49 - CLASSIFICATION PERFORMANCE - produced global report
-27-Aug-22 12:17:21 - CLASSIFICATION PERFORMANCE - produced weekly reports
-27-Aug-22 12:17:21 - MAIN FUNCTION DONE
-27-Aug-22 12:18:04 - GLOBAL VARIABLES SET UP
-27-Aug-22 12:18:04 - MAIN FUNCTION STARTED
-27-Aug-22 12:18:04 - CONFIG JSON FOR CSV LOADED
-27-Aug-22 12:18:04 - CSV LOADED
-27-Aug-22 12:18:06 - TARGET DRIFT - produced global report
-27-Aug-22 12:18:21 - TARGET DRIFT - produced weekly reports
-27-Aug-22 12:18:21 - DATA DRIFT - produced global report
-27-Aug-22 12:18:25 - DATA DRIFT - produced weekly reports
-27-Aug-22 12:18:31 - CLASSIFICATION PERFORMANCE - produced global report
-27-Aug-22 12:19:04 - CLASSIFICATION PERFORMANCE - produced weekly reports
-27-Aug-22 12:19:04 - MAIN FUNCTION DONE
+27-Aug-22 13:33:36 - ####### MAIN FUNCTION STARTED #######
+27-Aug-22 13:33:36 - config JSON FOR CSV LOADED
+27-Aug-22 13:33:36 - CSV LOADED
+27-Aug-22 13:33:38 - TARGET DRIFT - produced global report
+27-Aug-22 13:33:53 - TARGET DRIFT - produced weekly reports
+27-Aug-22 13:33:53 - DATA DRIFT - produced global report
+27-Aug-22 13:33:57 - DATA DRIFT - produced weekly reports
+27-Aug-22 13:34:03 - CLASSIFICATION PERFORMANCE - produced global report
+27-Aug-22 13:34:35 - CLASSIFICATION PERFORMANCE - produced weekly reports
+27-Aug-22 13:37:05 - ####### MAIN FUNCTION STARTED #######
+27-Aug-22 13:37:05 - config JSON FOR CSV LOADED
+27-Aug-22 13:37:05 - CSV LOADED
+27-Aug-22 13:37:07 - TARGET DRIFT - produced global report
+27-Aug-22 13:37:22 - TARGET DRIFT - produced weekly reports
+27-Aug-22 13:37:22 - DATA DRIFT - produced global report
+27-Aug-22 13:37:26 - DATA DRIFT - produced weekly reports
+27-Aug-22 13:37:32 - CLASSIFICATION PERFORMANCE - produced global report
+27-Aug-22 13:38:04 - CLASSIFICATION PERFORMANCE - produced weekly reports
+27-Aug-22 13:40:08 - ####### MAIN FUNCTION STARTED #######
+27-Aug-22 13:40:09 - config JSON FOR CSV LOADED
+27-Aug-22 13:40:09 - CSV LOADED
+27-Aug-22 13:40:11 - TARGET DRIFT - produced global report
+27-Aug-22 13:40:25 - TARGET DRIFT - produced weekly reports
+27-Aug-22 13:40:26 - DATA DRIFT - produced global report
+27-Aug-22 13:40:29 - DATA DRIFT - produced weekly reports
+27-Aug-22 13:40:36 - CLASSIFICATION PERFORMANCE - produced global report
+27-Aug-22 13:41:07 - CLASSIFICATION PERFORMANCE - produced weekly reports
+27-Aug-22 13:42:57 - ####### MAIN FUNCTION STARTED #######
+27-Aug-22 13:42:57 - config JSON FOR CSV LOADED
+27-Aug-22 13:42:57 - CSV LOADED
+27-Aug-22 13:42:59 - TARGET DRIFT - produced global report
+27-Aug-22 13:43:19 - ####### MAIN FUNCTION STARTED #######
+27-Aug-22 13:43:19 - config JSON FOR CSV LOADED
+27-Aug-22 13:43:19 - CSV LOADED
+27-Aug-22 13:43:21 - TARGET DRIFT - produced global report
+27-Aug-22 13:43:36 - TARGET DRIFT - produced weekly reports
+27-Aug-22 13:43:36 - DATA DRIFT - produced global report
+27-Aug-22 13:43:39 - DATA DRIFT - produced weekly reports
+27-Aug-22 13:43:46 - CLASSIFICATION PERFORMANCE - produced global report
+27-Aug-22 13:44:17 - CLASSIFICATION PERFORMANCE - produced weekly reports
+27-Aug-22 13:45:52 - ####### MAIN FUNCTION STARTED #######
+27-Aug-22 13:45:52 - config JSON FOR CSV LOADED
+27-Aug-22 13:45:52 - CSV LOADED
+27-Aug-22 13:45:54 - TARGET DRIFT - produced global report
+27-Aug-22 13:46:09 - TARGET DRIFT - produced weekly reports
+27-Aug-22 13:46:10 - DATA DRIFT - produced global report
+27-Aug-22 13:46:13 - DATA DRIFT - produced weekly reports
+27-Aug-22 13:46:19 - CLASSIFICATION PERFORMANCE - produced global report
+27-Aug-22 13:46:50 - CLASSIFICATION PERFORMANCE - produced weekly reports
+27-Aug-22 13:47:43 - ####### MAIN FUNCTION STARTED #######
+27-Aug-22 13:47:44 - config JSON FOR CSV LOADED
+27-Aug-22 13:47:44 - CSV LOADED
+27-Aug-22 13:47:46 - TARGET DRIFT - produced global report
+27-Aug-22 13:48:00 - TARGET DRIFT - produced weekly reports
+27-Aug-22 13:48:01 - DATA DRIFT - produced global report
+27-Aug-22 13:48:04 - DATA DRIFT - produced weekly reports
+27-Aug-22 13:48:10 - CLASSIFICATION PERFORMANCE - produced global report
+27-Aug-22 13:48:42 - CLASSIFICATION PERFORMANCE - produced weekly reports
+27-Aug-22 13:52:27 - ####### MAIN FUNCTION STARTED #######
+27-Aug-22 13:52:27 - config JSON FOR CSV LOADED
+27-Aug-22 13:52:27 - CSV LOADED
+27-Aug-22 13:52:29 - TARGET DRIFT - produced global report
+27-Aug-22 13:52:43 - TARGET DRIFT - produced weekly reports
+27-Aug-22 13:52:44 - DATA DRIFT - produced global report
+27-Aug-22 13:52:47 - DATA DRIFT - produced weekly reports
+27-Aug-22 13:52:53 - CLASSIFICATION PERFORMANCE - produced global report
+27-Aug-22 13:53:25 - CLASSIFICATION PERFORMANCE - produced weekly reports
+27-Aug-22 13:56:08 - ####### MAIN FUNCTION STARTED #######
+27-Aug-22 13:56:08 - config JSON FOR CSV LOADED
+27-Aug-22 13:56:08 - CSV LOADED
+27-Aug-22 13:56:08 - CLASSIFICATION PERFORMANCE - produced weekly reports
+27-Aug-22 13:58:24 - ####### MAIN FUNCTION STARTED #######
+27-Aug-22 13:58:24 - config JSON FOR CSV LOADED
+27-Aug-22 13:58:24 - CSV LOADED
+27-Aug-22 13:58:24 - CLASSIFICATION PERFORMANCE - produced weekly reports
+27-Aug-22 13:58:50 - ####### MAIN FUNCTION STARTED #######
+27-Aug-22 13:58:50 - config JSON FOR CSV LOADED
+27-Aug-22 13:58:50 - CSV LOADED
+27-Aug-22 13:58:50 - CLASSIFICATION PERFORMANCE - produced weekly reports
+27-Aug-22 13:59:54 - ####### MAIN FUNCTION STARTED #######
+27-Aug-22 13:59:54 - config JSON FOR CSV LOADED
+27-Aug-22 13:59:54 - CSV LOADED
+27-Aug-22 13:59:54 - CLASSIFICATION PERFORMANCE - produced weekly reports
+27-Aug-22 14:00:20 - ####### MAIN FUNCTION STARTED #######
+27-Aug-22 14:00:20 - config JSON FOR CSV LOADED
+27-Aug-22 14:00:20 - CSV LOADED
+27-Aug-22 14:00:20 - CLASSIFICATION PERFORMANCE - produced weekly reports
+27-Aug-22 14:01:00 - ####### MAIN FUNCTION STARTED #######
+27-Aug-22 14:01:01 - config JSON FOR CSV LOADED
+27-Aug-22 14:01:01 - CSV LOADED
+27-Aug-22 14:01:01 - CLASSIFICATION PERFORMANCE - produced weekly reports
+27-Aug-22 14:02:57 - PREDICT AUTOMATCH MONTHLY STABILITY - produced charts for all classes of variables by month
+27-Aug-22 14:04:56 - CLASS ACCTUAL MONTHLY STABILITY - produced charts for all classes of variables by month
+27-Aug-22 14:05:19 - ####### MAIN FUNCTION STARTED #######
+27-Aug-22 14:05:19 - config JSON FOR CSV LOADED
+27-Aug-22 14:05:19 - CSV LOADED
+27-Aug-22 14:05:19 - CLASSIFICATION PERFORMANCE - produced weekly reports
