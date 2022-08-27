@@ -30,7 +30,7 @@ def get_monthly_stability_chart(col, data_frame, date_column, column_to_group_by
     output['rate_total'] = 1.0
     # print(output, '\n', "DF SHAPE: ", output.shape)
 
-    with open('output/rates_output.txt', 'a') as f:
+    with open('output/rates_output.txt', 'w') as f:
         with redirect_stdout(f):
             print(output.to_string())
 
