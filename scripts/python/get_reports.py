@@ -32,8 +32,10 @@ def get_target_drift_report(data_frame, target, prediction, datetime, \
     data_frame['week_number'] = data_frame[datetime].dt.strftime('%Y%V').astype(int)
 
     reference = data_frame[data_frame[datetime] < breaking_point_dt]
+    reference['week_number'] = reference['week_number'].apply(str)
     # reference.drop('week_number', axis=1, inplace=True)
     current = data_frame[data_frame[datetime] >= breaking_point_dt]
+    current['week_number'] = current['week_number'].apply(str)
     # current.drop('week_number', axis=1, inplace=True)
 
     target_drift_raport.calculate(reference, current, column_mapping=df_column_mapping)
@@ -70,9 +72,11 @@ def get_target_drift_report_weekly(data_frame, target, prediction, datetime, cat
 
     for week in sorted(set(data_frame['week_number']))[2:]:
         reference = data_frame[data_frame['week_number'] == week]
+        reference['week_number'] = reference['week_number'].apply(str)
         # reference.drop('week_number', axis=1, inplace=True)
         print("\n REFERENCE SHAPE: ", reference.shape)
         current =  data_frame[data_frame['week_number'] == (week + 1)]
+        current['week_number'] = current['week_number'].apply(str)
         # current.drop('week_number', axis=1, inplace=True)
         print("\n CURRENT SHAPE: ", current.shape)
 
@@ -111,8 +115,10 @@ def get_data_drift_report(data_frame, target, prediction, datetime, \
     data_frame['week_number'] = data_frame[datetime].dt.strftime('%Y%V').astype(int)
 
     reference = data_frame[data_frame[datetime] < breaking_point_dt]
+    reference['week_number'] = reference['week_number'].apply(str)
     # reference.drop('week_number', axis=1, inplace=True)
     current = data_frame[data_frame[datetime] >= breaking_point_dt]
+    current['week_number'] = current['week_number'].apply(str)
     # current.drop('week_number', axis=1, inplace=True)
 
     data_drift_report.calculate(reference, current, column_mapping=df_column_mapping)
@@ -149,9 +155,11 @@ def get_data_drift_report_weekly(data_frame, target, prediction, datetime, categ
 
     for week in sorted(set(data_frame['week_number']))[2:]:
         reference = data_frame[data_frame['week_number'] == week]
+        reference['week_number'] = reference['week_number'].apply(str)
         # reference.drop('week_number', axis=1, inplace=True)
         print("\n REFERENCE SHAPE: ", reference.shape)
         current =  data_frame[data_frame['week_number'] == (week + 1)]
+        current['week_number'] = current['week_number'].apply(str)
         # current.drop('week_number', axis=1, inplace=True)
         print("\n CURRENT SHAPE: ", current.shape)
 
@@ -190,8 +198,10 @@ def get_classification_performance_report(data_frame, target, prediction, dateti
     data_frame['week_number'] = data_frame[datetime].dt.strftime('%Y%V').astype(int)
 
     reference = data_frame[data_frame[datetime] < breaking_point_dt]
+    reference['week_number'] = reference['week_number'].apply(str)
     # reference.drop('week_number', axis=1, inplace=True)
     current = data_frame[data_frame[datetime] >= breaking_point_dt]
+    current['week_number'] = current['week_number'].apply(str)
     # current.drop('week_number', axis=1, inplace=True)
 
     model_performance_report.calculate(reference, current, column_mapping=df_column_mapping)
@@ -228,9 +238,11 @@ def get_classification_performance_report_weekly(data_frame, target, prediction,
 
     for week in sorted(set(data_frame['week_number']))[2:]:
         reference = data_frame[data_frame['week_number'] == week]
+        reference['week_number'] = reference['week_number'].apply(str)
         # reference.drop('week_number', axis=1, inplace=True)
         print("\n REFERENCE SHAPE: ", reference.shape)
         current =  data_frame[data_frame['week_number'] == (week + 1)]
+        current['week_number'] = current['week_number'].apply(str)
         # current.drop('week_number', axis=1, inplace=True)
         print("\n CURRENT SHAPE: ", current.shape)
 
