@@ -50,7 +50,6 @@ def main():
         dtype=CONFIG['INPUTS']['DTYPE']
     )
 
-
     # TARGET DRIFT - global report
     get_target_drift_report(
         data_frame=df,

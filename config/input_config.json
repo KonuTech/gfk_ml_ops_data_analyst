@@ -31,8 +31,7 @@
       "prod_gr_id",
       "retailer_id",
       "brand_id",
-      "delivery_type_id",
-      "week_number"
+      "delivery_type_id"
     ],
     "COLUMNS_WITH_NAN_VALUES": [
       null
@@ -48,7 +47,6 @@
       null
     ],
     "COLUMNS_TO_EXCLUDE": [
-      "period_end_date",
       "if_data_corrected",
       "freq_id"
     ],
