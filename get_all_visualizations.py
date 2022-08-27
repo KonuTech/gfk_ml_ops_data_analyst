@@ -157,7 +157,7 @@ def main():
     logging.info('class_acctual MONTHLY STABILITY - produced charts for all classes of variables by month')
 
     # PREDICT AUTOMATCH WEEKLY STABILITY - produce charts per each class for every variable by week
-    # COMMENTED FOR NOW DUE TO SOME ERRORS
+    # SOME ERRORS
     # get_weekly_stability_chart(
     #     data_frame=df,
     #     date_column="translated_when",
