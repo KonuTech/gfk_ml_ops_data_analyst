@@ -32,9 +32,9 @@ def get_target_drift_report(data_frame, target, prediction, datetime, \
     data_frame['week_number'] = data_frame[datetime].dt.strftime('%Y%V').astype(int)
 
     reference = data_frame[data_frame[datetime] < breaking_point_dt]
-    reference.drop('week_number', axis=1, inplace=True)
+    # reference.drop('week_number', axis=1, inplace=True)
     current = data_frame[data_frame[datetime] >= breaking_point_dt]
-    current.drop('week_number', axis=1, inplace=True)
+    # current.drop('week_number', axis=1, inplace=True)
 
     target_drift_raport.calculate(reference, current, column_mapping=df_column_mapping)
     target_drift_raport.save("output/reports/target_drift/000000_target_drift_report.html")
@@ -70,10 +70,10 @@ def get_target_drift_report_weekly(data_frame, target, prediction, datetime, cat
 
     for week in sorted(set(data_frame['week_number']))[2:]:
         reference = data_frame[data_frame['week_number'] == week]
-        reference.drop('week_number', axis=1, inplace=True)
+        # reference.drop('week_number', axis=1, inplace=True)
         print("\n REFERENCE SHAPE: ", reference.shape)
         current =  data_frame[data_frame['week_number'] == (week + 1)]
-        current.drop('week_number', axis=1, inplace=True)
+        # current.drop('week_number', axis=1, inplace=True)
         print("\n CURRENT SHAPE: ", current.shape)
 
         if current.shape[0] > 0:
@@ -111,9 +111,9 @@ def get_data_drift_report(data_frame, target, prediction, datetime, \
     data_frame['week_number'] = data_frame[datetime].dt.strftime('%Y%V').astype(int)
 
     reference = data_frame[data_frame[datetime] < breaking_point_dt]
-    reference.drop('week_number', axis=1, inplace=True)
+    # reference.drop('week_number', axis=1, inplace=True)
     current = data_frame[data_frame[datetime] >= breaking_point_dt]
-    current.drop('week_number', axis=1, inplace=True)
+    # current.drop('week_number', axis=1, inplace=True)
 
     data_drift_report.calculate(reference, current, column_mapping=df_column_mapping)
     data_drift_report.save("output/reports/data_drift/000000_data_drift_report.html")
@@ -149,10 +149,10 @@ def get_data_drift_report_weekly(data_frame, target, prediction, datetime, categ
 
     for week in sorted(set(data_frame['week_number']))[2:]:
         reference = data_frame[data_frame['week_number'] == week]
-        reference.drop('week_number', axis=1, inplace=True)
+        # reference.drop('week_number', axis=1, inplace=True)
         print("\n REFERENCE SHAPE: ", reference.shape)
         current =  data_frame[data_frame['week_number'] == (week + 1)]
-        current.drop('week_number', axis=1, inplace=True)
+        # current.drop('week_number', axis=1, inplace=True)
         print("\n CURRENT SHAPE: ", current.shape)
 
         if current.shape[0] > 0:
@@ -190,9 +190,9 @@ def get_classification_performance_report(data_frame, target, prediction, dateti
     data_frame['week_number'] = data_frame[datetime].dt.strftime('%Y%V').astype(int)
 
     reference = data_frame[data_frame[datetime] < breaking_point_dt]
-    reference.drop('week_number', axis=1, inplace=True)
+    # reference.drop('week_number', axis=1, inplace=True)
     current = data_frame[data_frame[datetime] >= breaking_point_dt]
-    current.drop('week_number', axis=1, inplace=True)
+    # current.drop('week_number', axis=1, inplace=True)
 
     model_performance_report.calculate(reference, current, column_mapping=df_column_mapping)
     model_performance_report.save("output/reports/classification_performance/000000_classification_performance_report.html")
@@ -228,10 +228,10 @@ def get_classification_performance_report_weekly(data_frame, target, prediction,
 
     for week in sorted(set(data_frame['week_number']))[2:]:
         reference = data_frame[data_frame['week_number'] == week]
-        reference.drop('week_number', axis=1, inplace=True)
+        # reference.drop('week_number', axis=1, inplace=True)
         print("\n REFERENCE SHAPE: ", reference.shape)
         current =  data_frame[data_frame['week_number'] == (week + 1)]
-        current.drop('week_number', axis=1, inplace=True)
+        # current.drop('week_number', axis=1, inplace=True)
         print("\n CURRENT SHAPE: ", current.shape)
 
         if current.shape[0] > 0:

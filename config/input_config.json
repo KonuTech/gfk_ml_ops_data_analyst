@@ -31,7 +31,8 @@
       "prod_gr_id",
       "retailer_id",
       "brand_id",
-      "delivery_type_id"
+      "delivery_type_id",
+      "week_number"
     ],
     "COLUMNS_WITH_NAN_VALUES": [
       null
