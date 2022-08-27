@@ -3,8 +3,10 @@ import pandas as pd
 from sklearn.metrics import confusion_matrix
 
 
-# POST PROCESSING BIAS METRICS FOR THE TRAINED MODEL
+# POST PROCESSING BIAS METRICS FOR SERVED MODEL
 
+
+# compute positive proportion in predicted labels
 def get_PPL(data_frame, column_to_group_by, column_to_count):
     """
     :param data_frame:
@@ -12,8 +14,6 @@ def get_PPL(data_frame, column_to_group_by, column_to_count):
     :param column_to_count:
     :return:
     """
-
-    ppl = []
 
     counts_total = data_frame.groupby([column_to_group_by]) \
         .size() \
@@ -36,6 +36,7 @@ def get_PPL(data_frame, column_to_group_by, column_to_count):
     return df['PPL']
 
 
+# compute difference in positive proportion in predicted labels
 def get_DPPL(data_frame, column_to_group_by, column_to_count):
     """
     :param data_frame:
@@ -54,6 +55,7 @@ def get_DPPL(data_frame, column_to_group_by, column_to_count):
     return sorted(set([i - j for i in ppl for j in ppl if i != j]))
 
 
+# compute conditional acceptance
 def get_CA(data_frame, column_to_group_by, column_to_count_acctuals, column_to_count_predictions):
     """
     :param data_frame:
@@ -63,12 +65,12 @@ def get_CA(data_frame, column_to_group_by, column_to_count_acctuals, column_to_c
     :return:
     """
 
-    counts_total_labels = data_frame.groupby([column_to_group_by]) \
-        .size() \
-        .rename('count_total') \
-        .reset_index() \
-        .sort_values(by=column_to_group_by, ascending=False) \
-        .set_index(column_to_group_by)
+    # counts_total_labels = data_frame.groupby([column_to_group_by]) \
+    #     .size() \
+    #     .rename('count_total') \
+    #     .reset_index() \
+    #     .sort_values(by=column_to_group_by, ascending=False) \
+    #     .set_index(column_to_group_by)
 
     counts_grouped_acctuals = data_frame.groupby([column_to_group_by, column_to_count_acctuals]) \
         .size() \
@@ -97,6 +99,7 @@ def get_CA(data_frame, column_to_group_by, column_to_count_acctuals, column_to_c
     return df['CA']
 
 
+# compute difference in conditional acceptance
 def get_DCA(data_frame, column_to_group_by, column_to_count_acctuals, column_to_count_predictions):
     """
     :param data_frame:
@@ -116,6 +119,7 @@ def get_DCA(data_frame, column_to_group_by, column_to_count_acctuals, column_to_
     return sorted(set([i - j for i in ca for j in ca if i != j]))
 
 
+# compute condtional rejection
 def get_CR(data_frame, column_to_group_by, column_to_count_acctuals, column_to_count_predictions):
     """
     :param data_frame:
@@ -125,12 +129,12 @@ def get_CR(data_frame, column_to_group_by, column_to_count_acctuals, column_to_c
     :return:
     """
 
-    counts_total_labels = data_frame.groupby([column_to_group_by]) \
-        .size() \
-        .rename('count_total') \
-        .reset_index() \
-        .sort_values(by=column_to_group_by, ascending=False) \
-        .set_index(column_to_group_by)
+    # counts_total_labels = data_frame.groupby([column_to_group_by]) \
+    #     .size() \
+    #     .rename('count_total') \
+    #     .reset_index() \
+    #     .sort_values(by=column_to_group_by, ascending=False) \
+    #     .set_index(column_to_group_by)
 
     counts_grouped_acctuals = data_frame.groupby([column_to_group_by, column_to_count_acctuals]) \
         .size() \
@@ -159,6 +163,7 @@ def get_CR(data_frame, column_to_group_by, column_to_count_acctuals, column_to_c
     return df['CR']
 
 
+# compute difference in conditional rejection
 def get_DCR(data_frame, column_to_group_by, column_to_count_acctuals, column_to_count_predictions):
     """
     :param data_frame:
@@ -178,6 +183,7 @@ def get_DCR(data_frame, column_to_group_by, column_to_count_acctuals, column_to_
     return sorted(set([i - j for i in cr for j in cr if i != j]))
 
 
+# compute confusion matrix
 def get_cm(data_frame, acctuals, predictions):
     """
     :param data_frame:
@@ -192,6 +198,7 @@ def get_cm(data_frame, acctuals, predictions):
     return TN, FN, FP, TP
 
 
+# compute confusion matrix per class
 def get_class_cm(data_frame, acctuals, predictions, column_to_group_by):
     """
     :param data_frame:
@@ -218,6 +225,7 @@ def get_class_cm(data_frame, acctuals, predictions, column_to_group_by):
     return data
 
 
+# compute recall difference
 def get_RD(data_frame, acctuals, predictions, column_to_group_by):
     """
     :param data_frame:
@@ -242,6 +250,7 @@ def get_RD(data_frame, acctuals, predictions, column_to_group_by):
     return sorted(set([i - j for i in r for j in r if i != j]))
 
 
+# compute difference in label rates
 def get_AR(data_frame, column_to_count_acctuals, column_to_count_predictions, column_to_group_by):
     """
     :param data_frame:
@@ -251,12 +260,12 @@ def get_AR(data_frame, column_to_count_acctuals, column_to_count_predictions, co
     :return:
     """
 
-    counts_total_labels = data_frame.groupby([column_to_group_by]) \
-        .size() \
-        .rename('count_total') \
-        .reset_index() \
-        .sort_values(by=column_to_group_by, ascending=False) \
-        .set_index(column_to_group_by)
+    # counts_total_labels = data_frame.groupby([column_to_group_by]) \
+    #     .size() \
+    #     .rename('count_total') \
+    #     .reset_index() \
+    #     .sort_values(by=column_to_group_by, ascending=False) \
+    #     .set_index(column_to_group_by)
 
     counts_grouped_acctuals = data_frame.groupby([column_to_group_by, column_to_count_acctuals]) \
         .size() \
@@ -280,7 +289,6 @@ def get_AR(data_frame, column_to_count_acctuals, column_to_count_predictions, co
 
     counts = pd.merge(positive_counts_grouped_acctuals, positive_counts_grouped_predictions, left_index=True,
                       right_index=True)
-    #     print(counts)
 
     data = pd.DataFrame(columns=['Class', 'TN', 'FN', 'FP', 'TP'])
 
@@ -296,13 +304,13 @@ def get_AR(data_frame, column_to_count_acctuals, column_to_count_predictions, co
 
         data = data.append({'Class': group, 'TN': TN, 'FN': FN, 'FP': FP, 'TP': TP}, ignore_index=True)
     data.set_index('Class')
-    #     print(data)
 
     output = counts.merge(data, left_on=column_to_group_by, right_on='Class')
 
     return output
 
 
+# compute difference in acceptance rates
 def get_DAR(data_frame, column_to_count_acctuals, column_to_count_predictions, column_to_group_by):
     """
     :param data_frame:
@@ -324,6 +332,7 @@ def get_DAR(data_frame, column_to_count_acctuals, column_to_count_predictions, c
     return sorted(set([i - j for i in ar for j in ar if i != j]))
 
 
+# compute rejection rates
 def get_RR(data_frame, column_to_count_acctuals, column_to_count_predictions, column_to_group_by):
     """
     :param data_frame:
@@ -333,12 +342,12 @@ def get_RR(data_frame, column_to_count_acctuals, column_to_count_predictions, co
     :return:
     """
 
-    counts_total_labels = data_frame.groupby([column_to_group_by]) \
-        .size() \
-        .rename('count_total') \
-        .reset_index() \
-        .sort_values(by=column_to_group_by, ascending=False) \
-        .set_index(column_to_group_by)
+    # counts_total_labels = data_frame.groupby([column_to_group_by]) \
+    #     .size() \
+    #     .rename('count_total') \
+    #     .reset_index() \
+    #     .sort_values(by=column_to_group_by, ascending=False) \
+    #     .set_index(column_to_group_by)
 
     counts_grouped_acctuals = data_frame.groupby([column_to_group_by, column_to_count_acctuals]) \
         .size() \
@@ -362,7 +371,6 @@ def get_RR(data_frame, column_to_count_acctuals, column_to_count_predictions, co
 
     counts = pd.merge(negative_counts_grouped_acctuals, negative_counts_grouped_predictions, left_index=True,
                       right_index=True)
-    #     print(counts)
 
     data = pd.DataFrame(columns=['Class', 'TN', 'FN', 'FP', 'TP'])
 
@@ -378,13 +386,13 @@ def get_RR(data_frame, column_to_count_acctuals, column_to_count_predictions, co
 
         data = data.append({'Class': group, 'TN': TN, 'FN': FN, 'FP': FP, 'TP': TP}, ignore_index=True)
     data.set_index('Class')
-    #     print(data)
 
     output = counts.merge(data, left_on=column_to_group_by, right_on='Class')
 
     return output
 
 
+# compute difference in rejection rates
 def get_DRR(data_frame, column_to_count_acctuals, column_to_count_predictions, column_to_group_by):
     """
     :param data_frame:
@@ -406,6 +414,7 @@ def get_DRR(data_frame, column_to_count_acctuals, column_to_count_predictions, c
     return sorted(set([i - j for i in rr for j in rr if i != j]))
 
 
+# compute accuracy
 def get_A(data_frame, column_to_count_acctuals, column_to_count_predictions, column_to_group_by):
     """
     :param data_frame:
@@ -415,12 +424,12 @@ def get_A(data_frame, column_to_count_acctuals, column_to_count_predictions, col
     :return:
     """
 
-    counts_total_labels = data_frame.groupby([column_to_group_by]) \
-        .size() \
-        .rename('count_total') \
-        .reset_index() \
-        .sort_values(by=column_to_group_by, ascending=False) \
-        .set_index(column_to_group_by)
+    # counts_total_labels = data_frame.groupby([column_to_group_by]) \
+    #     .size() \
+    #     .rename('count_total') \
+    #     .reset_index() \
+    #     .sort_values(by=column_to_group_by, ascending=False) \
+    #     .set_index(column_to_group_by)
 
     counts_grouped_acctuals = data_frame.groupby([column_to_group_by, column_to_count_acctuals]) \
         .size() \
@@ -444,7 +453,6 @@ def get_A(data_frame, column_to_count_acctuals, column_to_count_predictions, col
 
     counts = pd.merge(negative_counts_grouped_acctuals, negative_counts_grouped_predictions, left_index=True,
                       right_index=True)
-    #     print(counts)
 
     data = pd.DataFrame(columns=['Class', 'TN', 'FN', 'FP', 'TP'])
 
@@ -461,11 +469,10 @@ def get_A(data_frame, column_to_count_acctuals, column_to_count_predictions, col
         data = data.append({'Class': group, 'TN': TN, 'FN': FN, 'FP': FP, 'TP': TP}, ignore_index=True)
     data.set_index('Class')
 
-    #     output = counts.merge(data, left_on=column_to_group_by, right_on='Class')
-
     return counts.merge(data, left_on=column_to_group_by, right_on='Class')
 
 
+# compute accuracy difference
 def get_AD(data_frame, column_to_count_acctuals, column_to_count_predictions, column_to_group_by):
     """
     :param data_frame:

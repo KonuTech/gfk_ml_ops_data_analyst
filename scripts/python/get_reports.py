@@ -36,10 +36,11 @@ def get_target_drift_report(data_frame, target, prediction, datetime,
 
     reference = data_frame[data_frame[datetime] < breaking_point_dt]
     reference['week_number'] = reference['week_number'].apply(str)
-    # reference.drop('week_number', axis=1, inplace=True)
+    print(f"\n REFERENCE SHAPE: {reference.shape}")
+
     current = data_frame[data_frame[datetime] >= breaking_point_dt]
     current['week_number'] = current['week_number'].apply(str)
-    # current.drop('week_number', axis=1, inplace=True)
+    print(f"\n CURRENT SHAPE: {current.shape}")
 
     target_drift_raport.calculate(reference, current, column_mapping=df_column_mapping)
     target_drift_raport.save("output/reports/target_drift/000000_target_drift_report.html")
@@ -74,18 +75,18 @@ def get_target_drift_report_weekly(data_frame, target, prediction, datetime, cat
     data_frame['week_number'] = data_frame[datetime].dt.strftime('%Y%V').astype(int)
 
     for week in sorted(set(data_frame['week_number']))[2:]:
+
         reference = data_frame[data_frame['week_number'] == week]
         reference['week_number'] = reference['week_number'].apply(str)
-        # reference.drop('week_number', axis=1, inplace=True)
-        print("\n REFERENCE SHAPE: ", reference.shape)
+        print(f"\n REFERENCE SHAPE: {reference.shape}")
+
         current = data_frame[data_frame['week_number'] == (week + 1)]
         current['week_number'] = current['week_number'].apply(str)
-        # current.drop('week_number', axis=1, inplace=True)
-        print("\n CURRENT SHAPE: ", current.shape)
+        print(f"\n CURRENT SHAPE: {current.shape}")
 
         if current.shape[0] > 0:
             target_drift_raport.calculate(reference, current, column_mapping=df_column_mapping)
-            target_drift_raport.save("output/reports/target_drift/" + str(week) + "_target_drift_report.html")
+            target_drift_raport.save(f"output/reports/target_drift/{week}_target_drift_report.html")
             print("PRODUCED A CHART OF TARGET DRIFT WEEKLY FOR WEEK: " + str(week))
 
 
@@ -119,10 +120,11 @@ def get_data_drift_report(data_frame, target, prediction, datetime,
 
     reference = data_frame[data_frame[datetime] < breaking_point_dt]
     reference['week_number'] = reference['week_number'].apply(str)
-    # reference.drop('week_number', axis=1, inplace=True)
+    print(f"\n REFERENCE SHAPE: {reference.shape}")
+
     current = data_frame[data_frame[datetime] >= breaking_point_dt]
     current['week_number'] = current['week_number'].apply(str)
-    # current.drop('week_number', axis=1, inplace=True)
+    print(f"\n CURRENT SHAPE: {current.shape}")
 
     data_drift_report.calculate(reference, current, column_mapping=df_column_mapping)
     data_drift_report.save("output/reports/data_drift/000000_data_drift_report.html")
@@ -157,18 +159,18 @@ def get_data_drift_report_weekly(data_frame, target, prediction, datetime, categ
     data_frame['week_number'] = data_frame[datetime].dt.strftime('%Y%V').astype(int)
 
     for week in sorted(set(data_frame['week_number']))[2:]:
+
         reference = data_frame[data_frame['week_number'] == week]
         reference['week_number'] = reference['week_number'].apply(str)
-        # reference.drop('week_number', axis=1, inplace=True)
-        print("\n REFERENCE SHAPE: ", reference.shape)
+        print(f"\n REFERENCE SHAPE: {reference.shape}")
+
         current = data_frame[data_frame['week_number'] == (week + 1)]
         current['week_number'] = current['week_number'].apply(str)
-        # current.drop('week_number', axis=1, inplace=True)
-        print("\n CURRENT SHAPE: ", current.shape)
+        print(f"\n CURRENT SHAPE: {current.shape}")
 
         if current.shape[0] > 0:
             data_drift_report_weekly.calculate(reference, current, column_mapping=df_column_mapping)
-            data_drift_report_weekly.save("output/reports/data_drift/" + str(week) + "_data_drift_report.html")
+            data_drift_report_weekly.save(f"output/reports/target_drift/{week}_target_drift_report.html")
             print("PRODUCED A CHART OF DATA DRIFT WEEKLY FOR WEEK: " + str(week))
 
 
@@ -202,10 +204,11 @@ def get_classification_performance_report(data_frame, target, prediction, dateti
 
     reference = data_frame[data_frame[datetime] < breaking_point_dt]
     reference['week_number'] = reference['week_number'].apply(str)
-    # reference.drop('week_number', axis=1, inplace=True)
+    print(f"\n REFERENCE SHAPE: {reference.shape}")
+
     current = data_frame[data_frame[datetime] >= breaking_point_dt]
     current['week_number'] = current['week_number'].apply(str)
-    # current.drop('week_number', axis=1, inplace=True)
+    print(f"\n CURRENT SHAPE: {current.shape}")
 
     model_performance_report.calculate(reference, current, column_mapping=df_column_mapping)
     model_performance_report.save(
@@ -241,20 +244,20 @@ def get_classification_performance_report_weekly(data_frame, target, prediction,
     data_frame['week_number'] = data_frame[datetime].dt.strftime('%Y%V').astype(int)
 
     for week in sorted(set(data_frame['week_number']))[2:]:
+
         reference = data_frame[data_frame['week_number'] == week]
         reference['week_number'] = reference['week_number'].apply(str)
-        # reference.drop('week_number', axis=1, inplace=True)
-        print("\n REFERENCE SHAPE: ", reference.shape)
+        print(f"\n REFERENCE SHAPE: {reference.shape}")
+
         current = data_frame[data_frame['week_number'] == (week + 1)]
         current['week_number'] = current['week_number'].apply(str)
-        # current.drop('week_number', axis=1, inplace=True)
-        print("\n CURRENT SHAPE: ", current.shape)
+        print(f"\n CURRENT SHAPE: {current.shape}")
 
         if current.shape[0] > 0:
             try:
                 model_performance_report_weekly.calculate(reference, current, column_mapping=df_column_mapping)
-                model_performance_report_weekly.save("output/reports/classification_performance/" + str(
-                    week) + "_classification_performance_report.html")
+                model_performance_report_weekly.save(
+                    f"output/reports/classification_performance/{week}_classification_performance_report.html")
                 print("PRODUCED A CHART OF CLASSIFICATION PERFORMANCE WEEKLY FOR WEEK: " + str(week))
             except Exception:
                 pass
