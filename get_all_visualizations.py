@@ -128,7 +128,7 @@ def main():
         columns_to_exclude=[
             'period_end_date',
             'translated_when',
-            'month_year',
+            'year_month',
             'predict_automatch',
             'class_acctual',
             'if_data_corrected',
@@ -138,7 +138,7 @@ def main():
 
     logging.info('predict_automatch MONTHLY STABILITY - produced charts for all classes of variables by month')
 
-    # CLASS ACCTUAL MONTHLY STABILITY - produce charts per each class for every variable by month
+    # # CLASS ACCTUAL MONTHLY STABILITY - produce charts per each class for every variable by month
     get_monthly_stability_chart(
         data_frame=df,
         date_column="translated_when",
@@ -146,7 +146,7 @@ def main():
         columns_to_exclude=[
             'period_end_date',
             'translated_when',
-            'month_year',
+            'year_month',
             'predict_automatch',
             'class_acctual',
             'if_data_corrected',
@@ -156,7 +156,7 @@ def main():
 
     logging.info('class_acctual MONTHLY STABILITY - produced charts for all classes of variables by month')
 
-    # PREDICT AUTOMATCH WEEKLY STABILITY - produce charts per each class for every variable by week
+    # # PREDICT AUTOMATCH WEEKLY STABILITY - produce charts per each class for every variable by week
     get_weekly_stability_chart(
         data_frame=df,
         date_column="translated_when",
@@ -164,7 +164,7 @@ def main():
         columns_to_exclude=[
             'period_end_date',
             'translated_when',
-            'month_year',
+            'year_month',
             'predict_automatch',
             'class_acctual',
             'if_data_corrected',
@@ -174,7 +174,7 @@ def main():
 
     logging.info('predict_automatch WEEKLY STABILITY - produced charts for all classes of variables by week')
 
-    # CLASS ACCTUAL WEEKLY STABILITY - produce charts per each class for every variable by week
+    # # CLASS ACCTUAL WEEKLY STABILITY - produce charts per each class for every variable by week
     get_weekly_stability_chart(
         data_frame=df,
         date_column="translated_when",
@@ -182,7 +182,7 @@ def main():
         columns_to_exclude=[
             'period_end_date',
             'translated_when',
-            'month_year',
+            'year_month',
             'predict_automatch',
             'class_acctual',
             'if_data_corrected',

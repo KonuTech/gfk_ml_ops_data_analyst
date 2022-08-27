@@ -20,12 +20,10 @@ def get_monthly_stability_chart(data_frame, date_column, column_to_count, column
 
     from contextlib import redirect_stdout
 
-    data_frame['year_month'] = data_frame[date_column].dt.to_period('M')
-
     for column in data_frame.columns:
         if column not in sorted(set(columns_to_exclude)):
 
-            print(column)
+            data_frame['year_month'] = data_frame[date_column].dt.strftime('%Y-%m')
 
             total = data_frame.groupby([data_frame['year_month'], column])[column_to_count].count().reset_index()
             total['group'] = total['year_month'].astype(str) + " " + total[column].astype(str)
@@ -59,10 +57,8 @@ def get_monthly_stability_chart(data_frame, date_column, column_to_count, column
                         x='year_month',
                         y="rate_total",
                         data=output[output[column] == group],
-                        color='darkblue',
-                        # alpha=0.5
+                        color='darkblue'
                     )
-                    # plt.clf()
 
                     sns.barplot(
                         x='year_month',
@@ -71,7 +67,6 @@ def get_monthly_stability_chart(data_frame, date_column, column_to_count, column
                         color='lightblue',
                         alpha=0.5
                     )
-                    # plt.clf()
 
                     plt.savefig("output/charts/monthly_stability/" + str(column_to_count) + "/" + str(
                         column) + "/" + "CLASS_" + str(group) + "_monthly_stability_grouped" + '.jpg')
@@ -131,8 +126,7 @@ def get_weekly_stability_chart(data_frame, date_column, column_to_count, columns
                     x='week',
                     y="rate_total",
                     data=output[output[column] == group],
-                    color='darkblue',
-                    # alpha=0.5
+                    color='darkblue'
                 )
 
                 sns.barplot(
