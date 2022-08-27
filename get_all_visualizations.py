@@ -138,7 +138,7 @@ def main():
 
     logging.info('predict_automatch MONTHLY STABILITY - produced charts for all classes of variables by month')
 
-    # # CLASS ACCTUAL MONTHLY STABILITY - produce charts per each class for every variable by month
+    # CLASS ACCTUAL MONTHLY STABILITY - produce charts per each class for every variable by month
     get_monthly_stability_chart(
         data_frame=df,
         date_column="translated_when",
@@ -156,25 +156,26 @@ def main():
 
     logging.info('class_acctual MONTHLY STABILITY - produced charts for all classes of variables by month')
 
-    # # PREDICT AUTOMATCH WEEKLY STABILITY - produce charts per each class for every variable by week
-    get_weekly_stability_chart(
-        data_frame=df,
-        date_column="translated_when",
-        column_to_count='predict_automatch',
-        columns_to_exclude=[
-            'period_end_date',
-            'translated_when',
-            'year_month',
-            'predict_automatch',
-            'class_acctual',
-            'if_data_corrected',
-            'freq_id'
-        ]
-    )
+    # PREDICT AUTOMATCH WEEKLY STABILITY - produce charts per each class for every variable by week
+    # COMMENTED FOR NOW DUE TO SOME ERRORS
+    # get_weekly_stability_chart(
+    #     data_frame=df,
+    #     date_column="translated_when",
+    #     column_to_count='predict_automatch',
+    #     columns_to_exclude=[
+    #         'period_end_date',
+    #         'translated_when',
+    #         'year_month',
+    #         'predict_automatch',
+    #         'class_acctual',
+    #         'if_data_corrected',
+    #         'freq_id'
+    #     ]
+    # )
 
-    logging.info('predict_automatch WEEKLY STABILITY - produced charts for all classes of variables by week')
+    # logging.info('predict_automatch WEEKLY STABILITY - produced charts for all variables by class and by month')
 
-    # # CLASS ACCTUAL WEEKLY STABILITY - produce charts per each class for every variable by week
+    # CLASS ACCTUAL WEEKLY STABILITY - produce charts per each class for every variable by week
     get_weekly_stability_chart(
         data_frame=df,
         date_column="translated_when",
@@ -190,7 +191,7 @@ def main():
         ]
     )
 
-    logging.info('class_acctual WEEKLY STABILITY - produced charts for all classes of variables by month')
+    logging.info('class_acctual WEEKLY STABILITY - produced charts for all variables by class and by month')
     logging.info('####### MAIN FUNCTION DONE #######')
 
 

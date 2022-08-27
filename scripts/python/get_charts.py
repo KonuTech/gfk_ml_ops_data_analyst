@@ -94,10 +94,10 @@ def get_weekly_stability_chart(data_frame, date_column, column_to_count, columns
 
             data_frame['week'] = data_frame[date_column].dt.strftime('%Y-%V')
 
-            total = data_frame.groupby([data_frame['week'], column])[column_to_count].count().reset_index()
+            total = data_frame.groupby([data_frame['week'], column], as_index=False)[column_to_count].count()
             total['group'] = total['week'] + " " + total[column]
 
-            rate = data_frame[data_frame[column_to_count] == 1].groupby([data_frame['week'], column])[
+            rate = data_frame[data_frame[column_to_count] == 1].groupby([data_frame['week'], column], as_index=True)[
                 column_to_count].sum().reset_index()
             rate['group'] = rate['week'] + " " + rate[column]
 
@@ -113,7 +113,6 @@ def get_weekly_stability_chart(data_frame, date_column, column_to_count, columns
                     print(output.to_string())
 
             for group in sorted(set(output[column])):
-                print(group)
 
                 plt.figure(figsize=(10, 2))
 
@@ -122,23 +121,27 @@ def get_weekly_stability_chart(data_frame, date_column, column_to_count, columns
                 bottom_bar = mpatches.Patch(color='lightblue', label='1')
                 plt.legend(handles=[top_bar, bottom_bar])
 
-                sns.barplot(
-                    x='week',
-                    y="rate_total",
-                    data=output[output[column] == group],
-                    color='darkblue'
-                )
+                try:
+                    sns.barplot(
+                        x='week',
+                        y="rate_total",
+                        data=output[output[column] == group],
+                        color='darkblue'
+                    )
 
-                sns.barplot(
-                    x='week',
-                    y="rate",
-                    data=output[output[column] == group],
-                    color='lightblue',
-                    alpha=0.5
-                )
+                    sns.barplot(
+                        x='week',
+                        y="rate",
+                        data=output[output[column] == group],
+                        color='lightblue',
+                        alpha=0.5
+                    )
 
-                plt.savefig("output/charts/weekly_stability/" + str(column_to_count) + "/" + str(
-                    column) + "/" + "CLASS_" + str(group) + "_weekly_stability_grouped" + '.jpg')
-                plt.clf()
-                print("PRODUCED A CHART OF " + str(column_to_count) + " WEEKLY STABILITY FOR: ", str(column),
-                      " VARIABLE CLASS: ", group)
+                    plt.savefig("output/charts/weekly_stability/" + str(column_to_count) + "/" + str(
+                        column) + "/" + "CLASS_" + str(group) + "_weekly_stability_grouped" + '.jpg')
+                    plt.clf()
+                    print("PRODUCED A CHART OF " + str(column_to_count) + " WEEKLY STABILITY FOR: ", str(column),
+                          " VARIABLE CLASS: ", group)
+
+                except Exception:
+                    pass
