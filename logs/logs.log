@@ -1,0 +1,20 @@
+27-Aug-22 12:16:22 - SETTING GLOBAL VARIABLES
+27-Aug-22 12:16:22 - MAIN FUNCTION STARTED
+27-Aug-22 12:16:22 - CONFIG JSON FOR CSV LOADED
+27-Aug-22 12:16:22 - CSV LOADED
+27-Aug-22 12:16:24 - TARGET DRIFT - produced global report
+27-Aug-22 12:16:39 - TARGET DRIFT - produced weekly reports
+27-Aug-22 12:16:39 - DATA DRIFT - produced global report
+27-Aug-22 12:16:43 - DATA DRIFT - produced weekly reports
+27-Aug-22 12:16:49 - CLASSIFICATION PERFORMANCE - produced global report
+27-Aug-22 12:17:21 - CLASSIFICATION PERFORMANCE - produced weekly reports
+27-Aug-22 12:17:21 - MAIN FUNCTION DONE
+27-Aug-22 12:18:04 - GLOBAL VARIABLES SET UP
+27-Aug-22 12:18:04 - MAIN FUNCTION STARTED
+27-Aug-22 12:18:04 - CONFIG JSON FOR CSV LOADED
+27-Aug-22 12:18:04 - CSV LOADED
+27-Aug-22 12:18:06 - TARGET DRIFT - produced global report
+27-Aug-22 12:18:21 - TARGET DRIFT - produced weekly reports
+27-Aug-22 12:18:21 - DATA DRIFT - produced global report
+27-Aug-22 12:18:25 - DATA DRIFT - produced weekly reports
+27-Aug-22 12:18:31 - CLASSIFICATION PERFORMANCE - produced global report
