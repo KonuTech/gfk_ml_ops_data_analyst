@@ -1,3 +1,55 @@
+```
+Folder PATH listing
+├───config
+├───docs
+│   └───images
+│       ├───metrics
+│       └───pandas_profiler
+├───input
+├───logs
+├───notebooks
+│   └───.ipynb_checkpoints
+├───output
+│   ├───charts
+│   │   ├───monthly_stability
+│   │   │   ├───class_acctual
+│   │   │   │   ├───brand_id
+│   │   │   │   ├───country_id_n
+│   │   │   │   ├───delivery_type_id
+│   │   │   │   ├───prod_gr_id
+│   │   │   │   └───retailer_id
+│   │   │   └───predict_automatch
+│   │   │       ├───brand_id
+│   │   │       ├───country_id_n
+│   │   │       ├───delivery_type_id
+│   │   │       ├───freq_id
+│   │   │       ├───if_data_corrected
+│   │   │       ├───prod_gr_id
+│   │   │       └───retailer_id
+│   │   └───weekly_stability
+│   │       ├───class_acctual
+│   │       │   ├───brand_id
+│   │       │   ├───country_id_n
+│   │       │   ├───delivery_type_id
+│   │       │   ├───prod_gr_id
+│   │       │   └───retailer_id
+│   │       └───predict_automatch
+│   │           ├───brand_id
+│   │           ├───country_id_n
+│   │           ├───delivery_type_id
+│   │           ├───prod_gr_id
+│   │           └───retailer_id
+│   └───reports
+│       ├───classification_performance
+│       ├───data_drift
+│       └───target_drift
+├───scripts
+    ├───python
+    │   └───__pycache__
+    └───__pycache__
+```
+
+
 # Measurement of served model bias
 
 ---
