@@ -45,78 +45,78 @@ def main():
     logging.info('config JSON FOR CSV LOADED')
     logging.info('CSV LOADED')
 
-    # # TARGET DRIFT - produce global report
-    # get_target_drift_report(
-    #     data_frame=df,
-    #     target=config['MODEL']['TARGET'],
-    #     prediction=config['MODEL']['PREDICTION'],
-    #     datetime=config['MODEL']['DATETIME'],
-    #     categorical_fatures=config['INPUTS']['CATEGORICAL_FEATURES'],
-    #     columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE'],
-    #     breaking_point_dt=config['OUTPUTS']['BREAKING_POINT_DT']
-    # )
-    #
-    # logging.info('TARGET DRIFT - produced global report')
-    #
-    # # TARGET DRIFT - produce weekly reports
-    # get_target_drift_report_weekly(
-    #     data_frame=df,
-    #     target=config['MODEL']['TARGET'],
-    #     prediction=config['MODEL']['PREDICTION'],
-    #     datetime=config['MODEL']['DATETIME'],
-    #     categorical_fatures=config['INPUTS']['CATEGORICAL_FEATURES'],
-    #     columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE']
-    # )
-    #
-    # logging.info('TARGET DRIFT - produced weekly reports')
-    #
-    # # DATA DRIFT - produce global report
-    # get_data_drift_report(
-    #     data_frame=df,
-    #     target=config['MODEL']['TARGET'],
-    #     prediction=config['MODEL']['PREDICTION'],
-    #     datetime=config['MODEL']['DATETIME'],
-    #     categorical_fatures=config['INPUTS']['CATEGORICAL_FEATURES'],
-    #     columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE'],
-    #     breaking_point_dt=config['OUTPUTS']['BREAKING_POINT_DT']
-    # )
-    #
-    # logging.info('DATA DRIFT - produced global report')
-    #
-    # # DATA DRIFT - produce weekly reports
-    # get_data_drift_report_weekly(
-    #     data_frame=df,
-    #     target=config['MODEL']['TARGET'],
-    #     prediction=config['MODEL']['PREDICTION'],
-    #     datetime=config['MODEL']['DATETIME'],
-    #     categorical_fatures=config['INPUTS']['CATEGORICAL_FEATURES'],
-    #     columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE']
-    # )
-    #
-    # logging.info('DATA DRIFT - produced weekly reports')
-    #
-    # # CLASSIFICATION PERFORMANCE - produce global report
-    # get_classification_performance_report(
-    #     data_frame=df,
-    #     target=config['MODEL']['TARGET'],
-    #     prediction=config['MODEL']['PREDICTION'],
-    #     datetime=config['MODEL']['DATETIME'],
-    #     categorical_fatures=config['INPUTS']['CATEGORICAL_FEATURES'],
-    #     columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE'],
-    #     breaking_point_dt=config['OUTPUTS']['BREAKING_POINT_DT']
-    # )
-    #
-    # logging.info('CLASSIFICATION PERFORMANCE - produced global report')
-    #
-    # # CLASSIFICATION PERFORMANCE - produce weekly reports
-    # get_classification_performance_report_weekly(
-    #     data_frame=df,
-    #     target=config['MODEL']['TARGET'],
-    #     prediction=config['MODEL']['PREDICTION'],
-    #     datetime=config['MODEL']['DATETIME'],
-    #     categorical_fatures=config['INPUTS']['CATEGORICAL_FEATURES'],
-    #     columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE']
-    # )
+    # TARGET DRIFT - produce global report
+    get_target_drift_report(
+        data_frame=df,
+        target=config['MODEL']['TARGET'],
+        prediction=config['MODEL']['PREDICTION'],
+        datetime=config['MODEL']['DATETIME'],
+        categorical_fatures=config['INPUTS']['CATEGORICAL_FEATURES'],
+        columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE'],
+        breaking_point_dt=config['OUTPUTS']['BREAKING_POINT_DT']
+    )
+
+    logging.info('TARGET DRIFT - produced global report')
+
+    # TARGET DRIFT - produce weekly reports
+    get_target_drift_report_weekly(
+        data_frame=df,
+        target=config['MODEL']['TARGET'],
+        prediction=config['MODEL']['PREDICTION'],
+        datetime=config['MODEL']['DATETIME'],
+        categorical_fatures=config['INPUTS']['CATEGORICAL_FEATURES'],
+        columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE']
+    )
+
+    logging.info('TARGET DRIFT - produced weekly reports')
+
+    # DATA DRIFT - produce global report
+    get_data_drift_report(
+        data_frame=df,
+        target=config['MODEL']['TARGET'],
+        prediction=config['MODEL']['PREDICTION'],
+        datetime=config['MODEL']['DATETIME'],
+        categorical_fatures=config['INPUTS']['CATEGORICAL_FEATURES'],
+        columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE'],
+        breaking_point_dt=config['OUTPUTS']['BREAKING_POINT_DT']
+    )
+
+    logging.info('DATA DRIFT - produced global report')
+
+    # DATA DRIFT - produce weekly reports
+    get_data_drift_report_weekly(
+        data_frame=df,
+        target=config['MODEL']['TARGET'],
+        prediction=config['MODEL']['PREDICTION'],
+        datetime=config['MODEL']['DATETIME'],
+        categorical_fatures=config['INPUTS']['CATEGORICAL_FEATURES'],
+        columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE']
+    )
+
+    logging.info('DATA DRIFT - produced weekly reports')
+
+    # CLASSIFICATION PERFORMANCE - produce global report
+    get_classification_performance_report(
+        data_frame=df,
+        target=config['MODEL']['TARGET'],
+        prediction=config['MODEL']['PREDICTION'],
+        datetime=config['MODEL']['DATETIME'],
+        categorical_fatures=config['INPUTS']['CATEGORICAL_FEATURES'],
+        columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE'],
+        breaking_point_dt=config['OUTPUTS']['BREAKING_POINT_DT']
+    )
+
+    logging.info('CLASSIFICATION PERFORMANCE - produced global report')
+
+    # CLASSIFICATION PERFORMANCE - produce weekly reports
+    get_classification_performance_report_weekly(
+        data_frame=df,
+        target=config['MODEL']['TARGET'],
+        prediction=config['MODEL']['PREDICTION'],
+        datetime=config['MODEL']['DATETIME'],
+        categorical_fatures=config['INPUTS']['CATEGORICAL_FEATURES'],
+        columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE']
+    )
 
     logging.info('CLASSIFICATION PERFORMANCE - produced weekly reports')
 
@@ -130,11 +130,13 @@ def main():
             'translated_when',
             'month_year',
             'predict_automatch',
-            'class_acctual'
+            'class_acctual',
+            'if_data_corrected',
+            'freq_id'
         ]
     )
 
-    logging.info('PREDICT AUTOMATCH MONTHLY STABILITY - produced charts for all classes of variables by month')
+    logging.info('predict_automatch MONTHLY STABILITY - produced charts for all classes of variables by month')
 
     # CLASS ACCTUAL MONTHLY STABILITY - produce charts per each class for every variable by month
     get_monthly_stability_chart(
@@ -146,11 +148,13 @@ def main():
             'translated_when',
             'month_year',
             'predict_automatch',
-            'class_acctual'
+            'class_acctual',
+            'if_data_corrected',
+            'freq_id'
         ]
     )
 
-    logging.info('CLASS ACCTUAL MONTHLY STABILITY - produced charts for all classes of variables by month')
+    logging.info('class_acctual MONTHLY STABILITY - produced charts for all classes of variables by month')
 
     # PREDICT AUTOMATCH WEEKLY STABILITY - produce charts per each class for every variable by week
     get_weekly_stability_chart(
@@ -162,11 +166,13 @@ def main():
             'translated_when',
             'month_year',
             'predict_automatch',
-            'class_acctual'
+            'class_acctual',
+            'if_data_corrected',
+            'freq_id'
         ]
     )
 
-    logging.info('PREDICT AUTOMATCH WEEKLY STABILITY - produced charts for all classes of variables by week')
+    logging.info('predict_automatch WEEKLY STABILITY - produced charts for all classes of variables by week')
 
     # CLASS ACCTUAL WEEKLY STABILITY - produce charts per each class for every variable by week
     get_weekly_stability_chart(
@@ -178,11 +184,13 @@ def main():
             'translated_when',
             'month_year',
             'predict_automatch',
-            'class_acctual'
+            'class_acctual',
+            'if_data_corrected',
+            'freq_id'
         ]
     )
 
-    logging.info('CLASS ACCTUAL WEEKLY STABILITY - produced charts for all classes of variables by month')
+    logging.info('class_acctual WEEKLY STABILITY - produced charts for all classes of variables by month')
     logging.info('####### MAIN FUNCTION DONE #######')
 
 

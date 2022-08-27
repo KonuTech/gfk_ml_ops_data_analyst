@@ -1,3 +1,4 @@
+from datetime import datetime
 import pandas as pd
 import matplotlib
 import matplotlib.pyplot as plt
@@ -16,23 +17,26 @@ def get_monthly_stability_chart(data_frame, date_column, column_to_count, column
     :param columns_to_exclude:
     :return:
     """
+
     from contextlib import redirect_stdout
 
-    data_frame['month_year'] = data_frame[date_column].dt.to_period('M')
+    data_frame['year_month'] = data_frame[date_column].dt.to_period('M')
 
     for column in data_frame.columns:
-        if column not in set(columns_to_exclude):
+        if column not in sorted(set(columns_to_exclude)):
 
             print(column)
 
-            total = data_frame.groupby([data_frame['month_year'], column])[column_to_count].count().reset_index()
-            total['group'] = total['month_year'].astype(str) + " " + total[column].astype(str)
+            total = data_frame.groupby([data_frame['year_month'], column])[column_to_count].count().reset_index()
+            total['group'] = total['year_month'].astype(str) + " " + total[column].astype(str)
 
-            rate = data_frame[data_frame[column_to_count] == 1].groupby([data_frame['month_year'], column])[column_to_count].sum().reset_index()
-            rate['group'] = rate['month_year'].astype(str) + " " + rate[column].astype(str)
+            rate = data_frame[data_frame[column_to_count] == 1].groupby([data_frame['year_month'], column])[
+                column_to_count].sum().reset_index()
+            rate['group'] = rate['year_month'].astype(str) + " " + rate[column].astype(str)
 
             output = pd.merge(rate[['group', column_to_count]], total, how='right', left_on='group', right_on='group')
-            output.rename(columns={column_to_count + '_x': "predict_1", column_to_count + '_y': "predict_total"}, inplace=True)
+            output.rename(columns={f"{column_to_count}_x": "predict_1", f"{column_to_count}_y": "predict_total"},
+                          inplace=True)
             output['rate'] = output['predict_1'] / output['predict_total']
             output['rate_total'] = 1.0
             # print(output, '\n', "DF SHAPE: ", output.shape)
@@ -41,7 +45,7 @@ def get_monthly_stability_chart(data_frame, date_column, column_to_count, column
                 with redirect_stdout(f):
                     print(output.to_string())
 
-            for group in set(output[column]):
+            for group in sorted(set(output[column])):
 
                 plt.figure(figsize=(10, 2))
 
@@ -52,7 +56,7 @@ def get_monthly_stability_chart(data_frame, date_column, column_to_count, column
 
                 try:
                     sns.barplot(
-                        x='month_year',
+                        x='year_month',
                         y="rate_total",
                         data=output[output[column] == group],
                         color='darkblue',
@@ -61,7 +65,7 @@ def get_monthly_stability_chart(data_frame, date_column, column_to_count, column
                     # plt.clf()
 
                     sns.barplot(
-                        x='month_year',
+                        x='year_month',
                         y="rate",
                         data=output[output[column] == group],
                         color='lightblue',
@@ -69,9 +73,11 @@ def get_monthly_stability_chart(data_frame, date_column, column_to_count, column
                     )
                     # plt.clf()
 
-                    plt.savefig("output/charts/monthly_stability/" + str(column_to_count) + "/" + str(column) + "/" + "CLASS_" + str(group) + "_monthly_stability_grouped" + '.jpg')
+                    plt.savefig("output/charts/monthly_stability/" + str(column_to_count) + "/" + str(
+                        column) + "/" + "CLASS_" + str(group) + "_monthly_stability_grouped" + '.jpg')
                     plt.clf()
-                    print("PRODUCED A CHART OF " + str(column_to_count) + " MONTHLY STABILITY FOR: ", str(column), " VARIABLE CLASS: ", group)
+                    print("PRODUCED A CHART OF " + str(column_to_count) + " MONTHLY STABILITY FOR: ", str(column),
+                          " VARIABLE CLASS: ", group)
 
                 except Exception:
                     pass
@@ -85,21 +91,24 @@ def get_weekly_stability_chart(data_frame, date_column, column_to_count, columns
     :param columns_to_exclude:
     :return:
     """
+
     from contextlib import redirect_stdout
 
     for column in data_frame.columns:
-        if column not in set(columns_to_exclude):
+        if column not in sorted(set(columns_to_exclude)):
 
-            data_frame['week'] = data_frame[date_column].dt.to_period('W')
+            data_frame['week'] = data_frame[date_column].dt.strftime('%Y-%V')
 
             total = data_frame.groupby([data_frame['week'], column])[column_to_count].count().reset_index()
-            total['group'] = total['week'].astype(str) + " " + total[column].astype(str)
+            total['group'] = total['week'] + " " + total[column]
 
-            rate = data_frame[data_frame[column_to_count] == 1].groupby([data_frame['week'], column])[column_to_count].sum().reset_index()
-            rate['group'] = rate['week'].astype(str) + " " + rate[column].astype(str)
+            rate = data_frame[data_frame[column_to_count] == 1].groupby([data_frame['week'], column])[
+                column_to_count].sum().reset_index()
+            rate['group'] = rate['week'] + " " + rate[column]
 
             output = pd.merge(rate[['group', column_to_count]], total, how='right', left_on='group', right_on='group')
-            output.rename(columns={column_to_count + '_x': "predict_1", column_to_count + '_y': "predict_total"}, inplace=True)
+            output.rename(columns={f"{column_to_count}_x": "predict_1", f"{column_to_count}_y": "predict_total"},
+                          inplace=True)
             output['rate'] = output['predict_1'] / output['predict_total']
             output['rate_total'] = 1.0
             # print(output, '\n', "DF SHAPE: ", output.shape)
@@ -108,7 +117,8 @@ def get_weekly_stability_chart(data_frame, date_column, column_to_count, columns
                 with redirect_stdout(f):
                     print(output.to_string())
 
-            for group in set(output[column]):
+            for group in sorted(set(output[column])):
+                print(group)
 
                 plt.figure(figsize=(10, 2))
 
@@ -117,26 +127,24 @@ def get_weekly_stability_chart(data_frame, date_column, column_to_count, columns
                 bottom_bar = mpatches.Patch(color='lightblue', label='1')
                 plt.legend(handles=[top_bar, bottom_bar])
 
-                try:
-                    sns.barplot(
-                        x='week',
-                        y="rate_total",
-                        data=output[output[column] == group],
-                        color='darkblue',
-                        # alpha=0.5
-                    )
+                sns.barplot(
+                    x='week',
+                    y="rate_total",
+                    data=output[output[column] == group],
+                    color='darkblue',
+                    # alpha=0.5
+                )
 
-                    sns.barplot(
-                        x='week',
-                        y="rate",
-                        data=output[output[column] == group],
-                        color='lightblue',
-                        alpha=0.5
-                    )
+                sns.barplot(
+                    x='week',
+                    y="rate",
+                    data=output[output[column] == group],
+                    color='lightblue',
+                    alpha=0.5
+                )
 
-                    plt.savefig("output/charts/weekly_stability/" + str(column_to_count) + "/" + str(column) + "/" + "CLASS_" + str(group) + "_weekly_stability_grouped" + '.jpg')
-                    plt.clf()
-                    print("PRODUCED A CHART OF " + str(column_to_count) + " WEEKLY STABILITY FOR: ", str(column), " VARIABLE CLASS: ", group)
-
-                except Exception:
-                    pass
+                plt.savefig("output/charts/weekly_stability/" + str(column_to_count) + "/" + str(
+                    column) + "/" + "CLASS_" + str(group) + "_weekly_stability_grouped" + '.jpg')
+                plt.clf()
+                print("PRODUCED A CHART OF " + str(column_to_count) + " WEEKLY STABILITY FOR: ", str(column),
+                      " VARIABLE CLASS: ", group)

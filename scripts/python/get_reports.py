@@ -208,7 +208,8 @@ def get_classification_performance_report(data_frame, target, prediction, dateti
     # current.drop('week_number', axis=1, inplace=True)
 
     model_performance_report.calculate(reference, current, column_mapping=df_column_mapping)
-    model_performance_report.save("output/reports/classification_performance/000000_classification_performance_report.html")
+    model_performance_report.save(
+        "output/reports/classification_performance/000000_classification_performance_report.html")
     print("PRODUCED A CHART OF CLASSIFICATION PERFORMANCE GLOBAL")
 
 
@@ -252,7 +253,8 @@ def get_classification_performance_report_weekly(data_frame, target, prediction,
         if current.shape[0] > 0:
             try:
                 model_performance_report_weekly.calculate(reference, current, column_mapping=df_column_mapping)
-                model_performance_report_weekly.save("output/reports/classification_performance/" + str(week) + "_classification_performance_report.html")
+                model_performance_report_weekly.save("output/reports/classification_performance/" + str(
+                    week) + "_classification_performance_report.html")
                 print("PRODUCED A CHART OF CLASSIFICATION PERFORMANCE WEEKLY FOR WEEK: " + str(week))
             except Exception:
                 pass
