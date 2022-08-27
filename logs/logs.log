@@ -581,3 +581,34 @@
 27-Aug-22 17:52:44 - CLASSIFICATION PERFORMANCE - produced weekly reports
 27-Aug-22 17:55:16 - class_acctual WEEKLY STABILITY - produced charts for all variables by class and by month
 27-Aug-22 17:55:16 - ####### MAIN FUNCTION DONE #######
+27-Aug-22 18:01:43 - ####### MAIN FUNCTION STARTED #######
+27-Aug-22 18:01:43 - config JSON FOR CSV LOADED
+27-Aug-22 18:01:43 - CSV LOADED
+27-Aug-22 18:01:45 - TARGET DRIFT - produced global report
+27-Aug-22 18:02:01 - TARGET DRIFT - produced weekly reports
+27-Aug-22 18:02:01 - DATA DRIFT - produced global report
+27-Aug-22 18:02:05 - DATA DRIFT - produced weekly reports
+27-Aug-22 18:02:11 - CLASSIFICATION PERFORMANCE - produced global report
+27-Aug-22 18:02:43 - CLASSIFICATION PERFORMANCE - produced weekly reports
+27-Aug-22 18:05:18 - predict_automatch WEEKLY STABILITY - produced charts for all variables by class and by month
+27-Aug-22 18:06:34 - ####### MAIN FUNCTION STARTED #######
+27-Aug-22 18:06:34 - config JSON FOR CSV LOADED
+27-Aug-22 18:06:34 - CSV LOADED
+27-Aug-22 18:06:37 - TARGET DRIFT - produced global report
+27-Aug-22 18:06:52 - TARGET DRIFT - produced weekly reports
+27-Aug-22 18:06:52 - DATA DRIFT - produced global report
+27-Aug-22 18:06:56 - DATA DRIFT - produced weekly reports
+27-Aug-22 18:07:02 - CLASSIFICATION PERFORMANCE - produced global report
+27-Aug-22 18:07:34 - CLASSIFICATION PERFORMANCE - produced weekly reports
+27-Aug-22 18:10:12 - predict_automatch WEEKLY STABILITY - produced charts for all variables by class and by month
+27-Aug-22 18:15:12 - ####### MAIN FUNCTION STARTED #######
+27-Aug-22 18:15:12 - config JSON FOR CSV LOADED
+27-Aug-22 18:15:12 - CSV LOADED
+27-Aug-22 18:15:14 - TARGET DRIFT - produced global report
+27-Aug-22 18:15:29 - TARGET DRIFT - produced weekly reports
+27-Aug-22 18:15:30 - DATA DRIFT - produced global report
+27-Aug-22 18:15:33 - DATA DRIFT - produced weekly reports
+27-Aug-22 18:15:40 - CLASSIFICATION PERFORMANCE - produced global report
+27-Aug-22 18:16:12 - CLASSIFICATION PERFORMANCE - produced weekly reports
+27-Aug-22 18:18:52 - predict_automatch WEEKLY STABILITY - produced charts for all variables by class and by month
+27-Aug-22 18:18:52 - ####### MAIN FUNCTION DONE #######

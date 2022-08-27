@@ -159,29 +159,10 @@ def main():
     # logging.info('class_acctual MONTHLY STABILITY - produced charts for all classes of variables by month')
 
     # PREDICT AUTOMATCH WEEKLY STABILITY - produce charts per each class for every variable by week
-    # SOME ERRORS
-    # get_weekly_stability_chart(
-    #     data_frame=df,
-    #     date_column="translated_when",
-    #     column_to_count='predict_automatch',
-    #     columns_to_exclude=[
-    #         'period_end_date',
-    #         'translated_when',
-    #         'year_month',
-    #         'predict_automatch',
-    #         'class_acctual',
-    #         'if_data_corrected',
-    #         'freq_id'
-    #     ]
-    # )
-
-    # logging.info('predict_automatch WEEKLY STABILITY - produced charts for all variables by class and by month')
-
-    # CLASS ACCTUAL WEEKLY STABILITY - produce charts per each class for every variable by week
     get_weekly_stability_chart(
         data_frame=df,
         date_column="translated_when",
-        column_to_count='class_acctual',
+        column_to_count='predict_automatch',
         columns_to_exclude=[
             'period_end_date',
             'translated_when',
@@ -193,7 +174,26 @@ def main():
         ]
     )
 
-    logging.info('class_acctual WEEKLY STABILITY - produced charts for all variables by class and by month')
+    logging.info('predict_automatch WEEKLY STABILITY - produced charts for all variables by class and by month')
+
+    # CLASS ACCTUAL WEEKLY STABILITY - produce charts per each class for every variable by week
+    # Not needed for now
+    # get_weekly_stability_chart(
+    #     data_frame=df,
+    #     date_column="translated_when",
+    #     column_to_count='class_acctual',
+    #     columns_to_exclude=[
+    #         'period_end_date',
+    #         'translated_when',
+    #         'year_month',
+    #         'predict_automatch',
+    #         'class_acctual',
+    #         'if_data_corrected',
+    #         'freq_id'
+    #     ]
+    # )
+    #
+    # logging.info('class_acctual WEEKLY STABILITY - produced charts for all variables by class and by month')
     logging.info('####### MAIN FUNCTION DONE #######')
 
 

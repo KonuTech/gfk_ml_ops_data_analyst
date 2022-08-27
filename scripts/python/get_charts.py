@@ -31,7 +31,7 @@ def get_monthly_stability_chart(data_frame, date_column, column_to_count, column
             total = data_frame.groupby([data_frame['year_month'], column])[column_to_count].count().reset_index()
             total['group'] = f"{total['year_month'].astype(str)} {total[column].astype(str)}"
 
-            # agg when prediciton==1
+            # agg when prediction == 1
             rate = data_frame[data_frame[column_to_count] == 1].groupby([data_frame['year_month'], column])[
                 column_to_count].sum().reset_index()
             rate['group'] = f"{rate['year_month'].astype(str)} {rate[column].astype(str)}"
@@ -75,11 +75,6 @@ def get_monthly_stability_chart(data_frame, date_column, column_to_count, column
                         alpha=0.5
                     )
 
-                    output.rename(
-                        columns={f"{column_to_count}_x": "predict_1", f"{column_to_count}_y": "predict_total"},
-                        inplace=True
-                    )
-
                     plt.savefig(
                         f"output/charts/monthly_stability/{column_to_count}/{column}/CLASS_{group}_monthly_stability_grouped.jpg"
                     )
@@ -112,7 +107,7 @@ def get_weekly_stability_chart(data_frame, date_column, column_to_count, columns
             total = data_frame.groupby([data_frame['week'], column], as_index=False)[column_to_count].count()
             total['group'] = total['week'] + " " + total[column]
 
-            # agg when prediciton==1
+            # agg when prediction == 1
             rate = data_frame[data_frame[column_to_count] == 1].groupby([data_frame['week'], column], as_index=True)[
                 column_to_count].sum().reset_index()
             rate['group'] = rate['week'] + " " + rate[column]
