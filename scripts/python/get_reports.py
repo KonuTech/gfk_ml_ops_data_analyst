@@ -1,9 +1,12 @@
+import matplotlib as plt
 from evidently.dashboard import Dashboard
 from evidently.pipeline.column_mapping import ColumnMapping
 from evidently.dashboard.tabs import DataDriftTab, CatTargetDriftTab, ClassificationPerformanceTab
 
+plt.rcParams.update({'figure.max_open_warning': 0})
 
-def get_target_drift_report(data_frame, target, prediction, datetime, \
+
+def get_target_drift_report(data_frame, target, prediction, datetime,
                             categorical_fatures, columns_to_exclude, breaking_point_dt):
     """
     :param data_frame:
@@ -43,7 +46,7 @@ def get_target_drift_report(data_frame, target, prediction, datetime, \
     print("PRODUCED A CHART OF TARGET DRIFT GLOBAL")
 
 
-def get_target_drift_report_weekly(data_frame, target, prediction, datetime, categorical_fatures, \
+def get_target_drift_report_weekly(data_frame, target, prediction, datetime, categorical_fatures,
                                    columns_to_exclude):
     """
     :param data_frame:
@@ -75,7 +78,7 @@ def get_target_drift_report_weekly(data_frame, target, prediction, datetime, cat
         reference['week_number'] = reference['week_number'].apply(str)
         # reference.drop('week_number', axis=1, inplace=True)
         print("\n REFERENCE SHAPE: ", reference.shape)
-        current =  data_frame[data_frame['week_number'] == (week + 1)]
+        current = data_frame[data_frame['week_number'] == (week + 1)]
         current['week_number'] = current['week_number'].apply(str)
         # current.drop('week_number', axis=1, inplace=True)
         print("\n CURRENT SHAPE: ", current.shape)
@@ -86,8 +89,8 @@ def get_target_drift_report_weekly(data_frame, target, prediction, datetime, cat
             print("PRODUCED A CHART OF TARGET DRIFT WEEKLY FOR WEEK: " + str(week))
 
 
-def get_data_drift_report(data_frame, target, prediction, datetime, \
-                            categorical_fatures, columns_to_exclude, breaking_point_dt):
+def get_data_drift_report(data_frame, target, prediction, datetime,
+                          categorical_fatures, columns_to_exclude, breaking_point_dt):
     """
     :param data_frame:
     :param target:
@@ -126,8 +129,8 @@ def get_data_drift_report(data_frame, target, prediction, datetime, \
     print("PRODUCED A CHART OF DATA DRIFT GLOBAL")
 
 
-def get_data_drift_report_weekly(data_frame, target, prediction, datetime, categorical_fatures, \
-                                   columns_to_exclude):
+def get_data_drift_report_weekly(data_frame, target, prediction, datetime, categorical_fatures,
+                                 columns_to_exclude):
     """
     :param data_frame:
     :param target:
@@ -158,7 +161,7 @@ def get_data_drift_report_weekly(data_frame, target, prediction, datetime, categ
         reference['week_number'] = reference['week_number'].apply(str)
         # reference.drop('week_number', axis=1, inplace=True)
         print("\n REFERENCE SHAPE: ", reference.shape)
-        current =  data_frame[data_frame['week_number'] == (week + 1)]
+        current = data_frame[data_frame['week_number'] == (week + 1)]
         current['week_number'] = current['week_number'].apply(str)
         # current.drop('week_number', axis=1, inplace=True)
         print("\n CURRENT SHAPE: ", current.shape)
@@ -169,8 +172,8 @@ def get_data_drift_report_weekly(data_frame, target, prediction, datetime, categ
             print("PRODUCED A CHART OF DATA DRIFT WEEKLY FOR WEEK: " + str(week))
 
 
-def get_classification_performance_report(data_frame, target, prediction, datetime, \
-                          categorical_fatures, columns_to_exclude, breaking_point_dt):
+def get_classification_performance_report(data_frame, target, prediction, datetime,
+                                          categorical_fatures, columns_to_exclude, breaking_point_dt):
     """
     :param data_frame:
     :param target:
@@ -209,8 +212,8 @@ def get_classification_performance_report(data_frame, target, prediction, dateti
     print("PRODUCED A CHART OF CLASSIFICATION PERFORMANCE GLOBAL")
 
 
-def get_classification_performance_report_weekly(data_frame, target, prediction, datetime, categorical_fatures, \
-                                 columns_to_exclude):
+def get_classification_performance_report_weekly(data_frame, target, prediction, datetime, categorical_fatures,
+                                                 columns_to_exclude):
     """
     :param data_frame:
     :param target:
@@ -241,12 +244,15 @@ def get_classification_performance_report_weekly(data_frame, target, prediction,
         reference['week_number'] = reference['week_number'].apply(str)
         # reference.drop('week_number', axis=1, inplace=True)
         print("\n REFERENCE SHAPE: ", reference.shape)
-        current =  data_frame[data_frame['week_number'] == (week + 1)]
+        current = data_frame[data_frame['week_number'] == (week + 1)]
         current['week_number'] = current['week_number'].apply(str)
         # current.drop('week_number', axis=1, inplace=True)
         print("\n CURRENT SHAPE: ", current.shape)
 
         if current.shape[0] > 0:
-            model_performance_report_weekly.calculate(reference, current, column_mapping=df_column_mapping)
-            model_performance_report_weekly.save("output/reports/classification_performance/" + str(week) + "_classification_performance_report.html")
-            print("PRODUCED A CHART OF CLASSIFICATION PERFORMANCE WEEKLY FOR WEEK: " + str(week))
+            try:
+                model_performance_report_weekly.calculate(reference, current, column_mapping=df_column_mapping)
+                model_performance_report_weekly.save("output/reports/classification_performance/" + str(week) + "_classification_performance_report.html")
+                print("PRODUCED A CHART OF CLASSIFICATION PERFORMANCE WEEKLY FOR WEEK: " + str(week))
+            except Exception:
+                pass
