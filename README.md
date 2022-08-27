@@ -8,7 +8,6 @@ Folder PATH listing
 ├───input
 ├───logs
 ├───notebooks
-│   └───.ipynb_checkpoints
 ├───output
 │   ├───charts
 │   │   ├───monthly_stability
@@ -43,13 +42,9 @@ Folder PATH listing
 │       ├───classification_performance
 │       ├───data_drift
 │       └───target_drift
-├───scripts
-    ├───python
-    │   └───__pycache__
-    └───__pycache__
+└───scripts
+    └───python
 ```
-
-
 # Measurement of served model bias
 
 ---
