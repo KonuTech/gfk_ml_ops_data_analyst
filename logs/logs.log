@@ -487,3 +487,8 @@
 27-Aug-22 16:54:49 - config JSON FOR CSV LOADED
 27-Aug-22 16:54:49 - CSV LOADED
 27-Aug-22 16:54:52 - TARGET DRIFT - produced global report
+27-Aug-22 16:55:09 - TARGET DRIFT - produced weekly reports
+27-Aug-22 16:55:09 - DATA DRIFT - produced global report
+27-Aug-22 16:55:13 - DATA DRIFT - produced weekly reports
+27-Aug-22 16:55:20 - CLASSIFICATION PERFORMANCE - produced global report
+27-Aug-22 16:55:57 - CLASSIFICATION PERFORMANCE - produced weekly reports
