@@ -569,3 +569,15 @@
 27-Aug-22 17:45:53 - DATA DRIFT - produced weekly reports
 27-Aug-22 17:46:00 - CLASSIFICATION PERFORMANCE - produced global report
 27-Aug-22 17:46:31 - CLASSIFICATION PERFORMANCE - produced weekly reports
+27-Aug-22 17:48:27 - predict_automatch MONTHLY STABILITY - produced charts for all classes of variables by month
+27-Aug-22 17:51:45 - ####### MAIN FUNCTION STARTED #######
+27-Aug-22 17:51:45 - config JSON FOR CSV LOADED
+27-Aug-22 17:51:45 - CSV LOADED
+27-Aug-22 17:51:47 - TARGET DRIFT - produced global report
+27-Aug-22 17:52:02 - TARGET DRIFT - produced weekly reports
+27-Aug-22 17:52:03 - DATA DRIFT - produced global report
+27-Aug-22 17:52:06 - DATA DRIFT - produced weekly reports
+27-Aug-22 17:52:12 - CLASSIFICATION PERFORMANCE - produced global report
+27-Aug-22 17:52:44 - CLASSIFICATION PERFORMANCE - produced weekly reports
+27-Aug-22 17:55:16 - class_acctual WEEKLY STABILITY - produced charts for all variables by class and by month
+27-Aug-22 17:55:16 - ####### MAIN FUNCTION DONE #######

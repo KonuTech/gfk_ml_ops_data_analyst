@@ -121,40 +121,42 @@ def main():
     logging.info('CLASSIFICATION PERFORMANCE - produced weekly reports')
 
     # PREDICT AUTOMATCH MONTHLY STABILITY - produce charts per each class for every variable by month
-    get_monthly_stability_chart(
-        data_frame=df,
-        date_column="translated_when",
-        column_to_count='predict_automatch',
-        columns_to_exclude=[
-            'period_end_date',
-            'translated_when',
-            'year_month',
-            'predict_automatch',
-            'class_acctual',
-            'if_data_corrected',
-            'freq_id'
-        ]
-    )
+    # Not needed for now
+    # get_monthly_stability_chart(
+    #     data_frame=df,
+    #     date_column="translated_when",
+    #     column_to_count='predict_automatch',
+    #     columns_to_exclude=[
+    #         'period_end_date',
+    #         'translated_when',
+    #         'year_month',
+    #         'predict_automatch',
+    #         'class_acctual',
+    #         'if_data_corrected',
+    #         'freq_id'
+    #     ]
+    # )
 
-    logging.info('predict_automatch MONTHLY STABILITY - produced charts for all classes of variables by month')
+    # logging.info('predict_automatch MONTHLY STABILITY - produced charts for all classes of variables by month')
 
     # CLASS ACCTUAL MONTHLY STABILITY - produce charts per each class for every variable by month
-    get_monthly_stability_chart(
-        data_frame=df,
-        date_column="translated_when",
-        column_to_count='class_acctual',
-        columns_to_exclude=[
-            'period_end_date',
-            'translated_when',
-            'year_month',
-            'predict_automatch',
-            'class_acctual',
-            'if_data_corrected',
-            'freq_id'
-        ]
-    )
+    # Not needed for now
+    # get_monthly_stability_chart(
+    #     data_frame=df,
+    #     date_column="translated_when",
+    #     column_to_count='class_acctual',
+    #     columns_to_exclude=[
+    #         'period_end_date',
+    #         'translated_when',
+    #         'year_month',
+    #         'predict_automatch',
+    #         'class_acctual',
+    #         'if_data_corrected',
+    #         'freq_id'
+    #     ]
+    # )
 
-    logging.info('class_acctual MONTHLY STABILITY - produced charts for all classes of variables by month')
+    # logging.info('class_acctual MONTHLY STABILITY - produced charts for all classes of variables by month')
 
     # PREDICT AUTOMATCH WEEKLY STABILITY - produce charts per each class for every variable by week
     # SOME ERRORS
