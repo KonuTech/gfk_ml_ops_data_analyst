@@ -210,35 +210,34 @@ Folder PATH listing
 
 > * Provided sample of data is related only to three groups of products: [426, 413, 427]
 > ![image info](./docs/images/pandas_profiler/pandas_profiler_prod_gr_id.jpg)
-> * Product groups could have been supplied by multiple retailers: 52
+> * Product groups have been supplied by multiple retailers: 52
 > ![image info](./docs/images/pandas_profiler/pandas_profiler_retailer_id.jpg)
-> * Suppliers could have been originated from multiple countries: 121
+> * Suppliers could have originated from multiple countries: 121
 > ![image info](./docs/images/pandas_profiler/pandas_profiler_country_id_n.jpg)
-> * Variable [brand_id] confirms many different brands being involved in making predictions and (probably)
-    recommendations to the e-mails recipients by productionized/served binary classifier: 199
+> * Many different brands could have been recommended to the recipients of the e-mails (high cardinality): 199
 > ![image info](./docs/images/pandas_profiler/pandas_profiler_brand_id.jpg)
 
-> For the sake of Introduction completness I am showing below total counts of categories for both
-> predicted [predict_automatch] and observed [class_acctual] events.
+> For the sake of Introduction completeness, I am showing below the total counts of categories for both predicted 
+> [predict_automatch] and observed [class_acctual] events.
 > ![image info](./docs/images/pandas_profiler/pandas_profiler_predict_automatch.jpg)
 > ![image info](./docs/images/pandas_profiler/pandas_profiler_class_acctual.jpg)
 
-> The tab called 'Overwiew' of Pandas Data Profiler gives us general feedback on a quality of provided sample data.
+> The tab 'Overview' of Pandas Data Profiler gives us general feedback on the quality of provided data sample.
 > ![image info](./docs/images/pandas_profiler/pandas_profiler_overview.jpg)
 
-> General Alerts related to the Integrity of Data are also provided:
+> Alerts related to the Integrity of Data are also provided:
 > ![image info](./docs/images/pandas_profiler/pandas_profiler_alerts.jpg)
 > High cardinality of [retailer_id] and [brand_id] might encourage to ask if the model served is prone to the phenomenon of 'data leakage' 
 
-> Correlation matrix indicates strong correlation between product group and country.
-> Seems like product groups have a geographical notion, including differences in customer preferences.
+> The correlation matrix indicates a strong correlation between [prod_gr_id] and [country_id_n]. Seems like product
+> groups have a geographical notion, including differences in customer preferences.
 > ![image info](./docs/images/pandas_profiler/pandas_profiler_interactions_heat_map.jpg)
 
-> From quick look into Interactions tab we can loosely assume that served model was developed with a thought to favour more TP
-> over TN.
+> From a quick look into the Interactions tab, we can loosely assume that served model was developed with a thought to
+> favour more TP over TN.
 > ![image info](./docs/images/pandas_profiler/pandas_profiler_correlation_matrix.jpg)
 
-> Other business related possible characteristics of the data set provided are so far unknown.
+> Other business-related characteristics of the data set are so far unknown.
 
 
 
@@ -249,8 +248,7 @@ Folder PATH listing
 
 **Reports**
 
-> Python open source library called 'Evidently AI' was use to produce reports on three major aspects for assessment of
-> bias for served model, namely:
+> Python open source library called 'Evidently AI' was used to produce three types of reports, namely:
 > * Target Drift
 > * Data Drift
 > * Classification Performance
@@ -259,50 +257,55 @@ Folder PATH listing
 
 **Target Drift and Prediction Drift**
 
-> First, I will focuse a bit on analysis of Target Drift, and related Prediction Drift.
-> Below graphs are showing a global (high level) perspective on the matter of Target Drift.
-> The graphs are here to help answer the question if hard cutoff on 28th of November was somehow the right choice
-> to assume. The date sliced the data set into 13 weekly buckets of sa called 'Reference' data set and 12 weekly buckets
-> of so called 'Current' data set.
+> First, I will focus a bit on the analysis of Target Drift, and related Prediction Drift.
+> The below graphs are showing a global (high level) perspective on the matter of Target Drift and Prediction Drift.
+> The graphs are here to help answer the question if the hard cutoff on the 28th of November was somehow the right choice
+> to assume. The cutoff sliced the data set into 13 weekly buckets of the so-called 'Reference' data set and 12 weekly
+> buckets
+> of the so-called 'Current' data set.
 >
 
-#### Predicted events bucketized by week_number
+#### Predicted events bucketed by week_number
 
 ![image info](./docs/images/evidently_ai/000000_target_drift_prediction_week_number.jpg)
 
-#### Observed events bucketized by week_number
+#### Observed events bucketed by week_number
 
 ![image info](./docs/images/evidently_ai/000000_target_drift_target_week_number.jpg)
 
-> From bucketized quantities of above graphs we can loosely assume that the hypotesis about the drop in a size
+> From bucketed quantities of the above graphs, we can loosely assume that the hypotesis about the drop in the size
 > of supplied events related to Black Friday might be True.
-> Hence the drop in over performance of served model. The topic being predicted got "out of fashion".
-> Quite similiar story can happen with Christmass trees.
+> Hence the drop in under-performance of the served model. The topic being predicted got "out of fashion".
+> Quite a similar story can happen with Christmas-related products.
+
 >
-> Now lets look quickly on similar graphs but related to quantities of product groups being under (presumably) Black Fridays
-> promotions.
+> Now let's look quickly at similar graphs but related to quantities of product groups being under (presumably) Black
+> Fridays promotions.
 >
-#### Predicted events bucketized by prod_gr_id
+#### Predicted events bucketed by prod_gr_id
 
 ![image info](./docs/images/evidently_ai/000000_target_drift_prediction_prod_gr_id.jpg)
 
-#### Observed events bucketized by prod_gr_id
+#### Observed events bucketed by prod_gr_id
 
 ![image info](./docs/images/evidently_ai/000000_target_drift_target_prod_gr_id.jpg)
 
-> My guess is that some retailers (probably) extended their e-mail communications due to their stock not being sold completely.
->
-> Having broad (high level) assumptions about the data set let's move now to assessing if there really is any Target
+> My guess is that some retailers (probably) extended their e-mail communications due to their stock not being sold
+> completely.
+> 
+> Having broad (high level) assumptions about the data set let's move now to assess if there is any Target
 > Drift - statistically speaking. Jensen-Shannon distance is used as a tool for judging if the distributions between so
 > called Reference (13 weeks of data) and Current (12 weeks of data) samples are meaningfully different.
-> Below chart exhibits no indication for Target Drift when data set got sliced into two parts with a use of a cutoff on
-> 28th of November 2020. At first that is indeed a bit surprising regarding the drop of events. The reason for lack of
-> alert related to the Target Drift might be related to ratios between Zeros and Ones between both periods.
-> Although it is true that from Counts perspective we have experienced huge drop of events, the ratios from Current
-> period were still similar to the ratios of Zeros and Ones from Reference period.
-> We got here quite nice 'real world' example telling us not to jump into conclusions basing on single source of information.
-> Unfortunately, we have to dig further into data if we want to confirm with a large dose of certainty that the model
-> served should be put offline.
+> The below chart exhibits no indication for Target Drift when the data set got sliced into two parts with use of a cutoff
+> on
+> 28th of November 2020. At first, that is indeed a bit surprising regarding the drop in events. The reason for the lack
+> of
+> alert related to the Target Drift might be related to ratios between Zeros and Ones of both periods.
+> Although it is true that from Counts perspective we have experienced a huge drop in events, the ratios from Current
+> period were still similar to the ratios of Zeros and Ones from the Reference period.
+> We got here quite a nice ' real-world' example of not jumping to conclusions based on a single source of information.
+> Unfortunately, we have to dig further into data if we want to confirm with a larger dose of certainty that the model
+> should have been put offline right after the 27th of November 2020. From now on that will be my goal here.
 
 #### Basing on Jensen-Shannon distance Target Drift and Prediction Drift have not been detected between Current and Reference samples sliced on 28th of November 2020. 
 
@@ -313,7 +316,8 @@ Folder PATH listing
 
 
 
-> For the sake of simplicity of further analysis over the deterioration of served model I am defining three possible combinations of
+> For the sake of simplicity of further analysis over the deterioration of served model I am defining three possible
+> combinations of
 > Reference and Current data samples:
 > * week_number == 202038 vs week_number == 202039
 > * week_number == 202048 vs week_number == 202049
@@ -329,22 +333,22 @@ Folder PATH listing
 #### week_number == 202038 vs week_number == 202039
 
 
-#### Predicted events bucketized by prod_gr_id
+#### Predicted events bucketed by prod_gr_id
 
 ![image info](./docs/images/evidently_ai/202038_target_drift_prediction_week_number.jpg)
 
-#### Observed events bucketized by prod_gr_id
+#### Observed events bucketed by prod_gr_id
 
 ![image info](./docs/images/evidently_ai/202038_target_drift_target_week_number.jpg)
 
 > Here for week_number == 202038 vs week_number == 202039 we can already observe some different quantities in product
 > groups being more likely recommended:
 
-#### Predicted events bucketized by prod_gr_id
+#### Predicted events bucketed by prod_gr_id
 
 ![image info](./docs/images/evidently_ai/202038_target_drift_prediction_prod_gr_id.jpg)
 
-#### Observed events bucketized by prod_gr_id
+#### Observed events bucketed by prod_gr_id
 
 ![image info](./docs/images/evidently_ai/202038_target_drift_target_prod_gr_id.jpg)
 
@@ -352,17 +356,17 @@ Folder PATH listing
 
 > Predictions for country_id_n == 128 are missing:
 
-#### Predicted events bucketized by country_id_n
+#### Predicted events bucketed by country_id_n
 
 ![image info](./docs/images/evidently_ai/202038_target_drift_prediction_country_id_n.jpg)
 
-#### Observed events bucketized by country_id_n
+#### Observed events bucketed by country_id_n
 
 ![image info](./docs/images/evidently_ai/202038_target_drift_target_country_id_n.jpg)
 
 
 
-> Again, no Target Drift and Prediction Drift for week_number == 202038 vs week_number == 202039 basing on
+> Again, no Target Drift and no Prediction Drift for week_number == 202038 vs week_number == 202039, basing on
 > Jensen-Shannon distance:
 
 ![image info](./docs/images/evidently_ai/202038_target_drift.jpg)
@@ -380,21 +384,21 @@ Folder PATH listing
 
 > Huge drop of predicted events after Black Friday:
 
-#### Predicted events bucketized by prod_gr_id
+#### Predicted events bucketed by prod_gr_id
 
 ![image info](./docs/images/evidently_ai/202048_target_drift_prediction_week_number.jpg)
 
-#### Observed events bucketized by prod_gr_id
+#### Observed events bucketed by prod_gr_id
 
 ![image info](./docs/images/evidently_ai/202048_target_drift_target_week_number.jpg)
 
 > Huge drop of predicted events after Black Friday:
 
-#### Predicted events bucketized by prod_gr_id
+#### Predicted events bucketed by prod_gr_id
 
 ![image info](./docs/images/evidently_ai/202048_target_drift_prediction_prod_gr_id.jpg)
 
-#### Observed events bucketized by prod_gr_id
+#### Observed events bucketed by prod_gr_id
 
 ![image info](./docs/images/evidently_ai/202048_target_drift_target_prod_gr_id.jpg)
 
@@ -402,17 +406,17 @@ Folder PATH listing
 
 > Huge drop of predicted events after Black Friday:
 
-#### Predicted events bucketized by country_id_n
+#### Predicted events bucketed by country_id_n
 
 ![image info](./docs/images/evidently_ai/202048_target_drift_prediction_country_id_n.jpg)
 
-#### Observed events bucketized by country_id_n
+#### Observed events bucketed by country_id_n
 
 ![image info](./docs/images/evidently_ai/202048_target_drift_target_country_id_n.jpg)
 
 
 
-> Again, no Target Drift and Prediction Drift for week_number == 202048 vs week_number == 202049 basing on
+> Again, no Target Drift and no Prediction Drift for week_number == 202048 vs week_number == 202049, basing on
 > Jensen-Shannon distance:
 
 ![image info](./docs/images/evidently_ai/202048_target_drift.jpg)
@@ -428,41 +432,43 @@ Folder PATH listing
 #### Target Drift and Prediction Drift
 #### week_number == 202104 vs week_number == 202105
 
-> Although the model seemed to work fine there was only one event meaningful during week 202105. The event turned out to be a
-> TP. The model became obsolete. Black Friday ended around two months earlier.:
+> In general, although the model seemed to work fine, there was only one meaningful
+> event during the whole week of 202105. The event turned out to be a TP. In my opinion, this is the point in time when we
+> can tell from an Operations point of view that the model became obsolete. Black Friday ended around two months earlier.
+> I have no comments on TP, FP, TN or FN. in my opinion model worked fine until Black Friday happen.
 
-#### Predicted events bucketized by prod_gr_id
+#### Predicted events bucketed by prod_gr_id
 
 ![image info](./docs/images/evidently_ai/202104_target_drift_prediction_week_number.jpg)
 
-#### Observed events bucketized by prod_gr_id
+#### Observed events bucketed by prod_gr_id
 
 ![image info](./docs/images/evidently_ai/202104_target_drift_target_week_number.jpg)
 
 > Only one event for week 202105. The event turned out to be a TP:
 
-#### Predicted events bucketized by prod_gr_id
+#### Predicted events bucketed by prod_gr_id
 
 ![image info](./docs/images/evidently_ai/202104_target_drift_prediction_prod_gr_id.jpg)
 
-#### Observed events bucketized by prod_gr_id
+#### Observed events bucketed by prod_gr_id
 
 ![image info](./docs/images/evidently_ai/202104_target_drift_target_prod_gr_id.jpg)
 
-> Only one event for week 202105. The event turned out to be a TP:
+> Only one meaningful event for week 202105. The event turned out to be a TP:
 
-#### Predicted events bucketized by country_id_n
+#### Predicted events bucketed by country_id_n
 
 ![image info](./docs/images/evidently_ai/202104_target_drift_prediction_country_id_n.jpg)
 
-#### Observed events bucketized by country_id_n
+#### Observed events bucketed by country_id_n
 
 ![image info](./docs/images/evidently_ai/202104_target_drift_target_country_id_n.jpg)
 
 
 
-> Again, no Target Drift and Prediction Drift for week_number == 202104 vs week_number == 202105 basing on
-> Jensen-Shannon distance:
+> Again, no Target Drift and no Prediction Drift for week_number == 202104 vs week_number == 202105.
+> Due to a huge drop in events, Z-test was used.:
 
 ![image info](./docs/images/evidently_ai/202104_target_drift.jpg)
 ![image info](./docs/images/evidently_ai/202104_prediction_drift.jpg)
@@ -547,17 +553,17 @@ Folder PATH listing
 > Assuming the need for weekly stability of served model (due to weekly seasonality of data) across its attributes (
 > descriptive features) we can take a look on Weekly stability charts of [brand_id]:
 
-#### Predicted events bucketized by week_number for [brand_id] == 77
+#### Predicted events bucketed by week_number for [brand_id] == 77
 ![image info](output/charts/weekly_stability/predict_automatch/brand_id/CLASS_77_weekly_stability_grouped.jpg)
 
-#### Observed events bucketized by week_number for [brand_id] == 77
+#### Observed events bucketed by week_number for [brand_id] == 77
 ![image info](output/charts/weekly_stability/class_acctual/brand_id/CLASS_77_weekly_stability_grouped.jpg)
 
 
-#### Predicted events bucketized by week_number for [brand_id] == 82
+#### Predicted events bucketed by week_number for [brand_id] == 82
 ![image info](./output/charts/weekly_stability/predict_automatch/brand_id/CLASS_82_weekly_stability_grouped.jpg)
 
-#### Observed events bucketized by week_number for [brand_id] == 82
+#### Observed events bucketed by week_number for [brand_id] == 82
 ![image info](output/charts/weekly_stability/class_acctual/brand_id/CLASS_82_weekly_stability_grouped.jpg)
 
 
@@ -567,7 +573,7 @@ Folder PATH listing
 
 ----
 
-> ### Outputs of bucketized Post-training metrics
+> ### Outputs of bucketed Post-training metrics
 > #### A view on general stability of attributes classes regardless of point in time.
 > Link to the notebook with computations:
 > 
@@ -576,13 +582,13 @@ Folder PATH listing
 > ---
 > #### Difference in positive proportion in predicted labels (DPPL)
 >![image info](./docs/images/metrics/DPPL.png)
-> [DPPL bucketized output](output/DPPL_bucketized.txt)
+> [DPPL bucketed output](output/DPPL_bucketed.txt)
 > #### Conclusions:
 TODO:
 > ---
 > #### Disparate (Adverse) Impact (DI)
 >![image info](./docs/images/metrics/DI.png)
-> [DI bucketized output](output/DI_bucketized.txt)
+> [DI bucketed output](output/DI_bucketed.txt)
 > #### Conclusions:
 TODO:
 > ---
@@ -590,35 +596,35 @@ TODO:
 > Difference in Conditional Acceptance (DCA)
 >![image info](./docs/images/metrics/DCA.jpg)
 >
-> [DCA bucketized output](output/DCA_bucketized.txt)
+> [DCA bucketed output](output/DCA_bucketed.txt)
 > #### Conclusions:
 TODO:
 > #### Difference in Conditional Rejection (DCR)
 > ![image info](./docs/images/metrics/DCR.jpg)
 > 
-> [DCR bucketized output](output/DCR_bucketized.txt)
+> [DCR bucketed output](output/DCR_bucketed.txt)
 > #### Conclusions:
 TODO:
 > 
 > #### Recall Difference (RD)
 > ![image info](./docs/images/metrics/RD.jpg)
 >
-> [RD bucketized output](output/RD_bucketized.txt)
+> [RD bucketed output](output/RD_bucketed.txt)
 > #### Conclusions:
 TODO:
 > #### Difference in label rates (DLR)
 > ![image info](./docs/images/metrics/DAR.png)
 >
-> [DAR bucketized output](output/DAR_bucketized.txt)
+> [DAR bucketed output](output/DAR_bucketed.txt)
 > #### Conclusions:
 TODO:
-> [DRR bucketized output](output/DRR_bucketized.txt)
+> [DRR bucketed output](output/DRR_bucketed.txt)
 > #### Conclusions:
 TODO:
 > #### Accuracy DIfference (AD)
 > ![image info](./docs/images/metrics/AD.jpg)
 > 
-> [AD bucketized output](output/AD_bucketized.txt)
+> [AD bucketed output](output/AD_bucketed.txt)
 > #### Conclusions:
 TODO:
 #### Summary
