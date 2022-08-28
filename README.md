@@ -298,8 +298,7 @@ unfairness from differences in base rates.
 
 ![image info](./docs/images/evidently_ai/000000_target_drift_target_prod_gr_id.jpg)
 
-> My guess is that some retailers (probably) extended their e-mail communications due to their stock not being sold
-> completely.
+> My guess is that some retailers extended marketing actions after the 27th of November 2020 due to their stocks not being sold completely.
 > 
 > Having broad (high level) assumptions about the data set let's move now to assess if there is any Target
 > Drift - statistically speaking. Jensen-Shannon distance is used as a tool for judging if the distributions between so
