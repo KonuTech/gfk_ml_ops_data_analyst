@@ -197,16 +197,16 @@ Folder PATH listing
 
 **Observations and hypotheses about the data set provided (Guessing Game)**
 
-> * Assumption on Business Context of data: retail on-line data.
-> * Assumption on a Meaning of Label: probably the model tries to predict if a person would be interested in a product.
-> * Assumption on Sales Channel: e-mail marketing of online shops.
-> * Assumption on Marketing Context: the data provides is related to Black Friday marketing event.
->   * Black Fridays took place during 48th week of 2020 (on 27th of November 2020).
->     * There is huge drop in events after 48th week of 2020.
+> * The assumption regarding the Business Context of data: retail online data.
+> * The assumption regarding Meaning of Label: probably the model tries to predict if a person would be interested in a product.
+> * The assumption regarding Sales Channel: email marketing of online shops.
+> * The assumption regarding Marketing Context: the data provided related to the Black Friday marketing event
+>   * Black Fridays took place during the 48th week of 2020 (on the 27th of November 2020).
+>     * There is a huge drop in events after the 48th week of 2020.
 >     * Most likely the promotions for product groups ended.
->     * Seems like the context of Black Friday promotions got old (like can happen with Halloween or Christmas).
->     * Since the model was most probably built on larger sample - with many, many more classes involved per each variable -
-        the drop of events had an impact on overall performance of served model right after Black Friday.
+>     * Seems like the context of Black Friday promotions got old (as can happen with Halloween or Christmas related marketing scenarios).
+>     * Since the model was most probably built on the larger sample - with many, many more classes involved per each variable -
+        the drop in events had an impact on the overall performance of served model
 
 > * Provided sample of data is related only to three groups of products: [426, 413, 427]
 > ![image info](./docs/images/pandas_profiler/pandas_profiler_prod_gr_id.jpg)
@@ -577,13 +577,13 @@ Folder PATH listing
 > #### Difference in positive proportion in predicted labels (DPPL)
 >![image info](./docs/images/metrics/DPPL.png)
 > [DPPL bucketized output](output/DPPL_bucketized.txt)
-> #### CONCLUSIONS:
+> #### Conclusions:
 TODO:
 > ---
 > #### Disparate (Adverse) Impact (DI)
 >![image info](./docs/images/metrics/DI.png)
 > [DI bucketized output](output/DI_bucketized.txt)
-> #### CONCLUSIONS:
+> #### Conclusions:
 TODO:
 > ---
 > #### Difference in Conditional Outcome (DCO)
@@ -591,35 +591,35 @@ TODO:
 >![image info](./docs/images/metrics/DCA.jpg)
 >
 > [DCA bucketized output](output/DCA_bucketized.txt)
-> #### CONCLUSIONS:
+> #### Conclusions:
 TODO:
 > #### Difference in Conditional Rejection (DCR)
 > ![image info](./docs/images/metrics/DCR.jpg)
 > 
 > [DCR bucketized output](output/DCR_bucketized.txt)
-> #### CONCLUSIONS:
+> #### Conclusions:
 TODO:
 > 
 > #### Recall Difference (RD)
 > ![image info](./docs/images/metrics/RD.jpg)
 >
 > [RD bucketized output](output/RD_bucketized.txt)
-> #### CONCLUSIONS:
+> #### Conclusions:
 TODO:
 > #### Difference in label rates (DLR)
 > ![image info](./docs/images/metrics/DAR.png)
 >
 > [DAR bucketized output](output/DAR_bucketized.txt)
-> #### CONCLUSIONS:
+> #### Conclusions:
 TODO:
 > [DRR bucketized output](output/DRR_bucketized.txt)
-> #### CONCLUSIONS:
+> #### Conclusions:
 TODO:
 > #### Accuracy DIfference (AD)
 > ![image info](./docs/images/metrics/AD.jpg)
 > 
 > [AD bucketized output](output/AD_bucketized.txt)
-> #### CONCLUSIONS:
+> #### Conclusions:
 TODO:
 #### Summary
 
