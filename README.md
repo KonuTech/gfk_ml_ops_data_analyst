@@ -215,6 +215,11 @@ Folder PATH listing
 > ![image info](./docs/images/evidently_ai/pandas_profiler_brand_id.jpg)
 > * Other business related possible characteristics of data set are so far unknown.
 
+> For the sake of Introduction completness I am showing below total counts of categories for both
+> predicted [predict_automatch] and observed [class_acctual] events.
+> ![image info](./docs/images/evidently_ai/pandas_profiler_predict_automatch.jpg)
+> ![image info](./docs/images/evidently_ai/pandas_profiler_class_acctual.jpg)
+
 
 **Reports**
 
