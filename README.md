@@ -561,20 +561,55 @@ Folder PATH listing
 ![image info](output/charts/weekly_stability/class_acctual/brand_id/CLASS_82_weekly_stability_grouped.jpg)
 
 
-
-
-
 > * Some brands (id == 77) were still recommended after Black Friday. They were less successful products.
-> * In case of Would recommend to experiment with dimensionality reduction technics, e. g. Weight of Evidence
->  
+> * Would recommend to experiment with dimensionality reduction technics, e. g. Weight of Evidence
+
 
 ----
 
-
-
-
-
-
+> ### Outputs of bucketized Post-training metrics
+> Link to the notebook with computations:
+> [post_training_metrics.ipynb](post_training_metrics.ipynb)
+>
+> #### Difference in positive proportion in predicted labels (DPPL)
+>![image info](./docs/images/metrics/DPPL.png)
+> [DPPL bucketized output](output/DPPL_bucketized.txt)
+>
+> ---
+> #### Disparate (Adverse) Impact (DI)
+>![image info](./docs/images/metrics/DI.png)
+> 
+> [DI bucketized output](output/DI_bucketized.txt)
+>
+> ---
+> #### Difference in Conditional Outcome (DCO)
+> Difference in Conditional Acceptance (DCA)
+>![image info](./docs/images/metrics/DCA.jpg)
+>
+> [DCA bucketized output](output/DCA_bucketized.txt)
+> #### Difference in Conditional Rejection (DCR)
+> ![image info](./docs/images/metrics/DCR.jpg)
+> 
+> [DCR bucketized output](output/DCR_bucketized.txt)
+> 
+> 
+> #### Recall Difference (RD)
+> ![image info](./docs/images/metrics/RD.jpg)
+>
+> [RD bucketized output](output/RD_bucketized.txt)
+> 
+> #### Difference in label rates (DLR)
+> ![image info](./docs/images/metrics/DAR.png)
+>
+> [DAR bucketized output](output/DAR_bucketized.txt)
+>
+> [DRR bucketized output](output/DRR_bucketized.txt)
+> 
+> #### Accuracy DIfference (AD)
+> ![image info](./docs/images/metrics/AD.jpg)
+> 
+> [AD bucketized output](output/AD_bucketized.txt)
+> 
 #### Summary
 
 > test
