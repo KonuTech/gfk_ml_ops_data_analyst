@@ -303,8 +303,8 @@ unfairness from differences in base rates.
 > Drift or Prediction Drift. Statistically speaking. Jensen-Shannon distance and Z-test are used as a tools for judging if the distributions between so
 > called Reference data (13 weeks) and Current data (12 weeks) are meaningfully different.
 > 
-> Below charts are exhibiting no indications for Target Drift nor Prediction Drift when the data set got sliced into two parts with use of hard cutoff
-> on 28th of November 2020. At first, that is indeed a bit surprising regarding the drop in events. The reason for the lack
+> Below charts are exhibiting no indications for Target Drift nor Prediction Drift (when the data set got sliced into two parts with use of hard cutoff
+> on 28th of November 2020). At first, that is indeed a bit surprising regarding the drop in events. The reason for the lack
 > of alert related to the Target Drift or Data Drift might be related to ratios between Zeros and Ones of both periods.
 > Although it is true that from Counts perspective we have experienced a huge drop in events, the ratios from Current
 > period were still similar to the ratios of Zeros and Ones from the Reference period.
