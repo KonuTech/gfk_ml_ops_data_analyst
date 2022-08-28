@@ -201,12 +201,13 @@ unfairness from differences in base rates.
 > * The assumption regarding Marketing Context: the data is related to the Black Friday event
 >   * Black Fridays took place during the 48th week of 2020 (on the 27th of November 2020).
 >     * There is a huge drop in events after the 48th week of 2020.
->     * Most likely the promotions for product groups ended.
->     * Seems like the context of Black Friday promotions got old (as can happen with Halloween or Christmas related marketing scenarios).
->     * Since the model was most probably built on the larger sample - with many, many more classes involved per each variable -
-        the drop in events had an impact on the overall performance of served model
+>     * Most likely the ads/promotions ended due to sold products.
+>     * From a data feed perspective, it seems like the context of Black Friday promotions got old (as can happen with Halloween or Christmas related marketing scenarios).
+>     * Since the model was most probably built on larger sample - with many, many more classes involved per each variable -
+        the drop in events had an impact on the overall performance of the served model.
 
-> * Provided sample of data is related only to three groups of products: [426, 413, 427]
+> ### What I know:
+> * Provided sample of data relates to three groups of products: [426, 413, 427]
 > ![image info](./docs/images/pandas_profiler/pandas_profiler_prod_gr_id.jpg)
 > * Product groups have been supplied by multiple retailers: 52
 > ![image info](./docs/images/pandas_profiler/pandas_profiler_retailer_id.jpg)
@@ -217,23 +218,32 @@ unfairness from differences in base rates.
 
 > For the sake of Introduction completeness, I am showing below the total counts of categories for both predicted 
 > [predict_automatch] and observed [class_acctual] events.
+> #### Predicted events
 > ![image info](./docs/images/pandas_profiler/pandas_profiler_predict_automatch.jpg)
+> #### Observed events
 > ![image info](./docs/images/pandas_profiler/pandas_profiler_class_acctual.jpg)
 
 > The tab 'Overview' of Pandas Data Profiler gives us general feedback on the quality of provided data sample.
 > ![image info](./docs/images/pandas_profiler/pandas_profiler_overview.jpg)
 
-> Alerts related to the Integrity of Data are also provided:
+> Alerts tab shows Data Integrity checks:
+> 
 > ![image info](./docs/images/pandas_profiler/pandas_profiler_alerts.jpg)
-> High cardinality of [retailer_id] and [brand_id] might encourage to ask if the model served is prone to the phenomenon of 'data leakage' 
+> 
+> The high cardinality of [retailer_id] and [brand_id] might encourage to ask: is model prone to the phenomenon of 'data leakage'?
 
 > The correlation matrix indicates a strong correlation between [prod_gr_id] and [country_id_n]. Seems like product
-> groups have a geographical notion, including differences in customer preferences.
-> ![image info](./docs/images/pandas_profiler/pandas_profiler_interactions_heat_map.jpg)
-
+> groups have also a geographical meaning, including differences in customer preferences.
+> 
+> ![image info](./docs/images/pandas_profiler/pandas_profiler_correlation_matrix.jpg)
+>
 > From a quick look into the Interactions tab, we can loosely assume that served model was developed with a thought to
 > favour more TP over TN.
-> ![image info](./docs/images/pandas_profiler/pandas_profiler_correlation_matrix.jpg)
+> 
+> ![image info](./docs/images/pandas_profiler/pandas_profiler_interactions_heat_map.jpg)
+
+
+
 
 > Other business-related characteristics of the data set are so far unknown.
 
