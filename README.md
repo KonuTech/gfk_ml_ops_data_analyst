@@ -472,17 +472,23 @@ Folder PATH listing
 #### week_number == 202038 vs week_number == 202039
 > test
 
+![image info](./docs/images/evidently_ai/202038_data_drift.jpg)
+
 ---
 
 #### Data Drift
 #### week_number == 202048 vs week_number == 202049
 > test
 
+![image info](./docs/images/evidently_ai/202048_data_drift.jpg)
+
 ---
 
 #### Data Drift
 #### week_number == 202104 vs week_number == 202105
 > test
+
+![image info](./docs/images/evidently_ai/202104_data_drift.jpg)
 
 ---
 
@@ -512,5 +518,14 @@ Folder PATH listing
 #### Conclusion
 
 > test
+----
 
 
+#### SOURCES:
+[Fairness Measures for Machine Learning in Finance](https://pages.awscloud.com/rs/112-TZM-766/images/Fairness.Measures.for.Machine.Learning.in.Finance.pdf)
+
+[Evidently AI](https://docs.evidentlyai.com/)
+
+[Pandas Profiling](https://pandas-profiling.ydata.ai/docs/master/index.html)
+
+[Jensen-Shannon distance](https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.distance.jensenshannon.html)
