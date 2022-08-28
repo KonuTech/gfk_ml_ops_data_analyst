@@ -186,7 +186,31 @@ as follows:
 >  4. Adjust cutoffs post-modeling.
 > #### [SOURCE](https://pages.awscloud.com/rs/112-TZM-766/images/Fairness.Measures.for.Machine.Learning.in.Finance.pdf)
 
-
-> **Observations and hypotheses**
+> **Observations and hypotheses about the data set provided (guessing game)**
 > 
-> TODO:
+> * retail on-line data
+> * data related to specific three types of products
+> * products can be provided by multiple retailers
+> * data related to Black Friday marketing event
+>   * Black Fridays took place during 48th week of 2020 (on 27th of November 2020)
+>   * there is huge drop in events after 48th week of 2020
+>     * most likely the promotions for products ended
+>     * the context of Black Friday promotions got old (like can happen with Halloween or Christmas)
+> * since the model was most probably built on larger sample - with many, many more classes involved per each variable - the drop of events had an impact on overall performance of served model
+> * other business realted possible characteristics of data set are so far unknown
+
+> **Reports**
+> 
+> Python open source library called 'Evidently AI' was use to produce reports on three major aspects for assessment of bias for served model, namely:
+> * Target Drift
+> * Data Drift
+> * Classification Performance
+> 
+> Next, using mentioned reports I will try to provide some assumptions about served model.
+
+> **Target Drift**
+> 
+> First, I will focuse a bit on analysis of Target Drift.
+> Below graphs are showing a global (high level) perspective on the matter of Target Drift.
+> The graphs are here to help answer the question if hard cutoff on 28th of November was somehow the right choice to assume.  
+> 

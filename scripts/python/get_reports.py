@@ -1,9 +1,21 @@
+import numpy as np
+import pandas as pd
 import matplotlib as plt
+from scipy.spatial import distance
 from evidently.dashboard import Dashboard
+from evidently.options import DataDriftOptions
 from evidently.pipeline.column_mapping import ColumnMapping
 from evidently.dashboard.tabs import DataDriftTab, CatTargetDriftTab, ClassificationPerformanceTab
 
+from evidently.test_suite import TestSuite
+from evidently.tests import *
+from evidently.test_preset import NoTargetPerformance, DataQuality, DataStability, DataDrift
+
 plt.rcParams.update({'figure.max_open_warning': 0})
+
+
+def jensenshannon_stat_test(reference_data: pd.DataFrame, current_data: pd.DataFrame):
+    return distance.cdist(np.array([reference_data, current_data]))
 
 
 def get_target_drift_report(data_frame, target, prediction, datetime,
@@ -170,7 +182,7 @@ def get_data_drift_report_weekly(data_frame, target, prediction, datetime, categ
 
         if current.shape[0] > 0:
             data_drift_report_weekly.calculate(reference, current, column_mapping=df_column_mapping)
-            data_drift_report_weekly.save(f"output/reports/target_drift/{week}_target_drift_report.html")
+            data_drift_report_weekly.save(f"output/reports/data_drift/{week}_data_drift_report.html")
             print("PRODUCED A CHART OF DATA DRIFT WEEKLY FOR WEEK: " + str(week))
 
 
