@@ -570,47 +570,57 @@ Folder PATH listing
 > ### Outputs of bucketized Post-training metrics
 > #### A view on general stability of attributes classes regardless of point in time.
 > Link to the notebook with computations:
+> 
 > [post_training_metrics.ipynb](post_training_metrics.ipynb)
+> 
 > ---
 > #### Difference in positive proportion in predicted labels (DPPL)
 >![image info](./docs/images/metrics/DPPL.png)
 > [DPPL bucketized output](output/DPPL_bucketized.txt)
->
+> #### CONCLUSIONS:
+TODO:
 > ---
 > #### Disparate (Adverse) Impact (DI)
 >![image info](./docs/images/metrics/DI.png)
-> 
 > [DI bucketized output](output/DI_bucketized.txt)
->
+> #### CONCLUSIONS:
+TODO:
 > ---
 > #### Difference in Conditional Outcome (DCO)
 > Difference in Conditional Acceptance (DCA)
 >![image info](./docs/images/metrics/DCA.jpg)
 >
 > [DCA bucketized output](output/DCA_bucketized.txt)
+> #### CONCLUSIONS:
+TODO:
 > #### Difference in Conditional Rejection (DCR)
 > ![image info](./docs/images/metrics/DCR.jpg)
 > 
 > [DCR bucketized output](output/DCR_bucketized.txt)
-> 
+> #### CONCLUSIONS:
+TODO:
 > 
 > #### Recall Difference (RD)
 > ![image info](./docs/images/metrics/RD.jpg)
 >
 > [RD bucketized output](output/RD_bucketized.txt)
-> 
+> #### CONCLUSIONS:
+TODO:
 > #### Difference in label rates (DLR)
 > ![image info](./docs/images/metrics/DAR.png)
 >
 > [DAR bucketized output](output/DAR_bucketized.txt)
->
+> #### CONCLUSIONS:
+TODO:
 > [DRR bucketized output](output/DRR_bucketized.txt)
-> 
+> #### CONCLUSIONS:
+TODO:
 > #### Accuracy DIfference (AD)
 > ![image info](./docs/images/metrics/AD.jpg)
 > 
 > [AD bucketized output](output/AD_bucketized.txt)
-> 
+> #### CONCLUSIONS:
+TODO:
 #### Summary
 
 > test
