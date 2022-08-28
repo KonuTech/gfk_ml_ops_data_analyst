@@ -204,21 +204,33 @@ Folder PATH listing
 >     * Since the model was most probably built on larger sample - with many, many more classes involved per each variable -
         the drop of events had an impact on overall performance of served model right after Black Friday.
 
-> * Provided sample of data is related only to three groups of products [426, 413, 427]
-> ![image info](./docs/images/evidently_ai/pandas_profiler_prod_gr_id.jpg)
+> * Provided sample of data is related only to three groups of products: [426, 413, 427]
+> ![image info](./docs/images/pandas_profiler/pandas_profiler_prod_gr_id.jpg)
 > * Product groups could have been supplied by multiple retailers: 52
-> ![image info](./docs/images/evidently_ai/pandas_profiler_retailer_id.jpg)
+> ![image info](./docs/images/pandas_profiler/pandas_profiler_retailer_id.jpg)
 > * Suppliers could have been originated from multiple countries: 121
-> ![image info](./docs/images/evidently_ai/pandas_profiler_country_id_n.jpg)
+> ![image info](./docs/images/pandas_profiler/pandas_profiler_country_id_n.jpg)
 > * Variable [brand_id] confirms many different brands being involved in making predictions and (probably)
     recommendations to the e-mails recipients by productionized/served binary classifier: 199
-> ![image info](./docs/images/evidently_ai/pandas_profiler_brand_id.jpg)
-> * Other business related possible characteristics of data set are so far unknown.
+> ![image info](./docs/images/pandas_profiler/pandas_profiler_brand_id.jpg)
 
 > For the sake of Introduction completness I am showing below total counts of categories for both
 > predicted [predict_automatch] and observed [class_acctual] events.
-> ![image info](./docs/images/evidently_ai/pandas_profiler_predict_automatch.jpg)
-> ![image info](./docs/images/evidently_ai/pandas_profiler_class_acctual.jpg)
+> ![image info](./docs/images/pandas_profiler/pandas_profiler_predict_automatch.jpg)
+> ![image info](./docs/images/pandas_profiler/pandas_profiler_class_acctual.jpg)
+
+> The tab called 'Overwiew' of Pandas Data Profiler gives us general feedback on a quality of provided sample data.
+> ![image info](./docs/images/pandas_profiler/pandas_profiler_overview.jpg)
+
+> General Alerts related to the Integrity of Data are also provided:
+> ![image info](./docs/images/pandas_profiler/pandas_profiler_alerts.jpg)
+> High cardinality of [retailer_id] and [brand_id] might encourage to ask if the model served is prone to the phenomenon of 'data leakage' 
+
+> Correlation matrix indicates strong correlation between product group and country.
+> Seems like product groups have a geographical notion, including differences in customer preferences.
+> ![image info](./docs/images/pandas_profiler/pandas_profiler_correlation_matrix.jpg)
+
+> Other business related possible characteristics of the data set provided are so far unknown.
 
 
 **Reports**
