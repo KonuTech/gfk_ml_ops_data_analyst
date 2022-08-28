@@ -189,27 +189,31 @@ Folder PATH listing
 >  4. Adjust cutoffs post-modeling.
 > #### [SOURCE](https://pages.awscloud.com/rs/112-TZM-766/images/Fairness.Measures.for.Machine.Learning.in.Finance.pdf)
 
-======================
+---
 
-**Observations and hypotheses about the data set provided (guessing game)**
+**Observations and hypotheses about the data set provided (Guessing Game)**
 
-> * assumption on type of data: retail on-line data
-> * assumption on lable's meaning: probably the model tries to predict if a person would be interested in a product
-> * assumption on sales channel: e-mail marketing of online shops
-> * assumption on marketing context: the data provides is related to Black Friday marketing event
->   * Black Fridays took place during 48th week of 2020 (on 27th of November 2020)
->     * there is huge drop in events after 48th week of 2020
->     * most likely the promotions for product groups ended
->     * seems like the context of Black Friday promotions got old (like can happen with Halloween or Christmas)
->     * since the model was most probably built on larger sample - with many, many more classes involved per each variable -
-        the drop of events had an impact on overall performance of served model right after Black Friday
+> * Assumption on Business Context of data: retail on-line data.
+> * Assumption on a Meaning of Label: probably the model tries to predict if a person would be interested in a product.
+> * Assumption on Sales Channel: e-mail marketing of online shops.
+> * Assumption on Marketing Context: the data provides is related to Black Friday marketing event.
+>   * Black Fridays took place during 48th week of 2020 (on 27th of November 2020).
+>     * There is huge drop in events after 48th week of 2020.
+>     * Most likely the promotions for product groups ended.
+>     * Seems like the context of Black Friday promotions got old (like can happen with Halloween or Christmas).
+>     * Since the model was most probably built on larger sample - with many, many more classes involved per each variable -
+        the drop of events had an impact on overall performance of served model right after Black Friday.
 
-> * provided sample of data is related only to specific three groups of products [426, 413, 427]
+> * Provided sample of data is related only to three groups of products [426, 413, 427]
 > ![image info](./docs/images/evidently_ai/pandas_profiler_prod_gr_id.jpg)
-> * product groups could have been supplied by multiple retailers: 52
+> * Product groups could have been supplied by multiple retailers: 52
 > ![image info](./docs/images/evidently_ai/pandas_profiler_retailer_id.jpg)
-
-> * other business realted possible characteristics of data set are so far unknown
+> * Suppliers could have been originated from multiple countries: 121
+> ![image info](./docs/images/evidently_ai/pandas_profiler_country_id_n.jpg)
+> * Variable [brand_id] confirms many different brands being involved in making predictions and (probably)
+    recommendations to the e-mails recipients by productionized/served binary classifier: 199
+> ![image info](./docs/images/evidently_ai/pandas_profiler_brand_id.jpg)
+> * Other business related possible characteristics of data set are so far unknown.
 
 
 **Reports**
