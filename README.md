@@ -228,6 +228,10 @@ Folder PATH listing
 
 > Correlation matrix indicates strong correlation between product group and country.
 > Seems like product groups have a geographical notion, including differences in customer preferences.
+> ![image info](./docs/images/pandas_profiler/pandas_profiler_interactions_heat_map.jpg)
+
+> From quick look into Interactions tab we can loosely assume that served model was developed with a thought to favour more TP
+> over TN.
 > ![image info](./docs/images/pandas_profiler/pandas_profiler_correlation_matrix.jpg)
 
 > Other business related possible characteristics of the data set provided are so far unknown.
@@ -243,9 +247,9 @@ Folder PATH listing
 >
 > Next, using mentioned reports I will try to provide some assumptions about served model.
 
-**Target Drift**
+**Target Drift and Prediction Drift**
 
-> First, I will focuse a bit on analysis of Target Drift.
+> First, I will focuse a bit on analysis of Target Drift, and related Prediction Drift.
 > Below graphs are showing a global (high level) perspective on the matter of Target Drift.
 > The graphs are here to help answer the question if hard cutoff on 28th of November was somehow the right choice
 > to assume. The date sliced the data set into 13 weekly buckets of sa called 'Reference' data set and 12 weekly buckets
@@ -268,7 +272,7 @@ Folder PATH listing
 > Now lets look quickly on similar graphs but related to quantities of product groups being under (presumably) Black Fridays
 > promotions.
 >
-> #### Prediction bucketized by prod_gr_id
+#### Prediction bucketized by prod_gr_id
 
 ![image info](./docs/images/evidently_ai/000000_target_drift_prediction_prod_gr_id.jpg)
 
@@ -276,7 +280,21 @@ Folder PATH listing
 
 ![image info](./docs/images/evidently_ai/000000_target_drift_target_prod_gr_id.jpg)
 
-> My guess is that some retailers (probably) extended their promotions or did not kept their offers/promotions up to
-> date.
+> My guess is that some retailers (probably) extended their e-mail communications due to their stock not being sold completely.
 >
-> This time let's move to 
+> Having broad (high level) assumptions about the data set let's move now to assessing if there really is any Target
+> Drift - statistically speaking. Jensen-Shannon distance is used as a tool for judging if the distributions between so
+> called Reference (13 weeks of data) and Current (12 weeks of data) samples are meaningfully different.
+> Below chart exhibits no indication for Target Drift when data set got sliced into two parts with a use of a cutoff on
+> 28th of November 2020. At first that is indeed a bit surprising regarding the drop of events. The reason for lack of
+> alert related to the Target Drift might be related to ratios between Zeros and Ones between both periods.
+> Although it is true that from Counts perspective we have experienced huge drop of events, the ratios from Current
+> period were still similar to the ratios of Zeros and Ones from Reference period.
+> We got here quite nice 'real world' example telling us not to jump into conclusions basing on single source of information.
+> Unfortunately, we have to dig further into data if we want to confirm with a large dose of certainty that the model
+> served should be put offline.
+
+#### Basing on Jensen-Shannon distance Target Drift has not been detected between Current and Reference samples
+
+![image info](./docs/images/evidently_ai/000000_target_drift.jpg)
+![image info](./docs/images/evidently_ai/000000_prediction_drift.jpg)
