@@ -322,11 +322,11 @@ Folder PATH listing
 
 
 
+---
 
-### Observed and Predicted behavior by week_number
+#### Target Drift and Prediction Drift
+#### week_number == 202038 vs week_number == 202039
 
-----
-### week_number == 202038 vs week_number == 202039
 
 #### Predicted events bucketized by prod_gr_id
 
@@ -374,7 +374,8 @@ Folder PATH listing
 
 ---
 
-### week_number == 202048 vs week_number == 202049
+#### Target Drift and Prediction Drift
+#### week_number == 202048 vs week_number == 202049
 
 > Huge drop of predicted events after Black Friday:
 
@@ -423,10 +424,11 @@ Folder PATH listing
 
 ---
 
-### week_number == 202104 vs week_number == 202105
+#### Target Drift and Prediction Drift
+#### week_number == 202104 vs week_number == 202105
 
-> Although the model seems to work fine there was only one related event for week 202105. The event turned out to be a
-> TP. Model became obsolete:
+> Although the model seemed to work fine there was only one event meaningful during week 202105. The event turned out to be a
+> TP. The model became obsolete. Black Friday ended around two months earlier.:
 
 #### Predicted events bucketized by prod_gr_id
 
@@ -463,3 +465,52 @@ Folder PATH listing
 
 ![image info](./docs/images/evidently_ai/202104_target_drift.jpg)
 ![image info](./docs/images/evidently_ai/202104_prediction_drift.jpg)
+
+---
+
+#### Data Drift
+#### week_number == 202038 vs week_number == 202039
+> test
+
+---
+
+#### Data Drift
+#### week_number == 202048 vs week_number == 202049
+> test
+
+---
+
+#### Data Drift
+#### week_number == 202104 vs week_number == 202105
+> test
+
+---
+
+#### Classification Performance
+#### week_number == 202038 vs week_number == 202039
+> test
+
+---
+
+#### Classification Performance
+#### week_number == 202048 vs week_number == 202049
+> test
+
+---
+
+#### Classification Performance
+#### week_number == 202104 vs week_number == 202105
+> test
+
+---
+
+#### Selected weekly stability charts by classess
+
+> test
+
+----
+#### Conclusion
+
+> test
+
+
