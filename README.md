@@ -281,9 +281,9 @@ unfairness from differences in base rates.
 
 ![image info](./docs/images/evidently_ai/000000_target_drift_target_week_number.jpg)
 
-> From bucketed quantities of the above graphs, we can loosely assume that the hypotesis about the drop in the size
+> From bucketed events we can loosely assume that the hypothesis about the drop in the size
 > of supplied events related to Black Friday might be True.
-> Hence the drop in under-performance of the served model (or rather over-performance due to sample size). In other words, the topic being predicted by model got "out of fashion".
+> Hence the drop in under-performance of the served model (or rather over-performance due to sample size). In other words, the topic being predicted by the model got "out of fashion".
 > Quite a similar story can happen with Christmas-related products.
 
 >
@@ -349,8 +349,7 @@ unfairness from differences in base rates.
 
 ![image info](./docs/images/evidently_ai/202038_target_drift_target_week_number.jpg)
 
-> Here for week_number == 202038 vs week_number == 202039 we can already observe some different quantities in product
-> groups being more likely recommended:
+> Here for week_number == 202038 vs week_number == 202039 we can observe some changes in quantities of product groups:
 
 #### Predicted events bucketed by prod_gr_id
 
