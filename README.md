@@ -287,8 +287,7 @@ unfairness from differences in base rates.
 > Quite a similar story can happen with Christmas-related products.
 
 >
-> Now let's look quickly at similar graphs but related to quantities of product groups being under (presumably) Black
-> Fridays promotions.
+> Now let's look quickly at similar graphs but related to quantities of product.
 >
 #### Predicted events bucketed by prod_gr_id
 
@@ -298,16 +297,15 @@ unfairness from differences in base rates.
 
 ![image info](./docs/images/evidently_ai/000000_target_drift_target_prod_gr_id.jpg)
 
-> My guess is that some retailers extended marketing actions after the 27th of November 2020 due to their stocks not being sold completely.
+> My guess is that some retailers extended their marketing actions even after the 27th of November 2020 due to their stocks not being sold completely.
 > 
-> Having broad (high level) assumptions about the data set let's move now to assess if there is any Target
-> Drift - statistically speaking. Jensen-Shannon distance is used as a tool for judging if the distributions between so
-> called Reference (13 weeks of data) and Current (12 weeks of data) samples are meaningfully different.
-> The below chart exhibits no indication for Target Drift when the data set got sliced into two parts with use of a cutoff
-> on
-> 28th of November 2020. At first, that is indeed a bit surprising regarding the drop in events. The reason for the lack
-> of
-> alert related to the Target Drift might be related to ratios between Zeros and Ones of both periods.
+> Having broad (high level) assumptions about the data set let's move now to assess if there is really any Target
+> Drift or Prediction Drift. Statistically speaking. Jensen-Shannon distance and Z-test are used as a tools for judging if the distributions between so
+> called Reference data (13 weeks) and Current data (12 weeks) are meaningfully different.
+> 
+> Below charts are exhibiting no indications for Target Drift nor Prediction Drift when the data set got sliced into two parts with use of hard cutoff
+> on 28th of November 2020. At first, that is indeed a bit surprising regarding the drop in events. The reason for the lack
+> of alert related to the Target Drift or Data Drift might be related to ratios between Zeros and Ones of both periods.
 > Although it is true that from Counts perspective we have experienced a huge drop in events, the ratios from Current
 > period were still similar to the ratios of Zeros and Ones from the Reference period.
 > We got here quite a nice ' real-world' example of not jumping to conclusions based on a single source of information.
