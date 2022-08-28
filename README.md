@@ -55,7 +55,7 @@ Folder PATH listing
 
 **Explainability**
 >
-> Explainability should be taken into account during each stage of the ML lifecycle,
+> "Explainability should be taken into account during each stage of the ML lifecycle,
 > for example, Problem Formation, Dataset Construction, Algorithm Selection,
 > Model Training Process, Testing Process, Deployment, and Monitoring/Feedback.
 > It is important to have the right tools to do this analysis.
@@ -82,13 +82,13 @@ Folder PATH listing
 > based on their existing mental model. Note that for the same event X,
 > different people may seek different explanations depending on their point of view or mental model Y.
 > In the context of explainable AI, we can think of X as the example being explained and Y as a “baseline”
-> that is typically chosen to represent an uninformative or average example in the dataset.
+> that is typically chosen to represent an uninformative or average example in the dataset."
 > #### [SOURCE](https://pages.awscloud.com/rs/112-TZM-766/images/Amazon.AI.Fairness.and.Explainability.Whitepaper.pdf)
 
 
 **Sources of Bias**
 
-> As various bias metrics examine different nuances and ways in which bias may arise,
+> "As various bias metrics examine different nuances and ways in which bias may arise,
 > and there is not a single bias metric applicable across all scenarios,
 > it is not always easy to know which ones apply in a particular situation or domain.
 > Bias in a model arises in many ways. We provide a sixcategory taxonomy of sources of bias:
@@ -131,7 +131,7 @@ Folder PATH listing
       > For example, a ML model that takes in vast amounts of macroeconomic data and aims to minimize
       > deficits may well come up with unintended solutions like super-normal tariffs leading to trade wars.
       > This inadmissible solution arises because the solution is not excluded in any of the model constraints.
-      > The model generates untenable answers because it does not have context.
+      > The model generates untenable answers because it does not have context."
 > #### [SOURCE](https://pages.awscloud.com/rs/112-TZM-766/images/Fairness.Measures.for.Machine.Learning.in.Finance.pdf)
 
 
@@ -146,19 +146,19 @@ Folder PATH listing
 > * Kolmogorov-Smirnov (KS)
 > * Conditional Demographic Disparity in Labels (CDDL)
 >
-> Of the eight pre-training bias metrics, the first two
+> "Of the eight pre-training bias metrics, the first two
 > can detect negative bias, whereas the next five are agnostic
 > to which class is advantaged or disadvantaged. The last one
-> is positive.
+> is positive."
 > #### [SOURCE](https://pages.awscloud.com/rs/112-TZM-766/images/Fairness.Measures.for.Machine.Learning.in.Finance.pdf)
 
 
 **Post-Trainng Metrics**
 
-> At this stage we have computed the pre-training metrics and
+> "At this stage we have computed the pre-training metrics and
 > we may also have rebalanced the sample to address any class
 > imbalances that may exist. After training the ML model, we
-> then compute the following bias metrics.
+> then compute the following bias metrics."
 > * Difference in positive proportions in predicted labels (DPPL)
 > * Disparate Impact (DI)
 > * Difference in conditional outcomes (DCO)
@@ -176,7 +176,7 @@ Folder PATH listing
 
 **Bias Mitigation**
 
-> Some common corrections that may be applied are
+> "Some common corrections that may be applied are
 > as follows:
 >  1. Removal of the class variable from the feature set.
       > For example, restricted characteristics such as gender,
@@ -184,7 +184,7 @@ Folder PATH listing
 >  2. Rebalance the training sample pre-training. This corrects
       > unfairness from differences in base rates.
 >  3. Adjust labels on the training dataset and re-train.
->  4. Adjust cutoffs post-modeling.
+>  4. Adjust cutoffs post-modeling."
 > #### [SOURCE](https://pages.awscloud.com/rs/112-TZM-766/images/Fairness.Measures.for.Machine.Learning.in.Finance.pdf)
 
 
@@ -568,9 +568,10 @@ Folder PATH listing
 ----
 
 > ### Outputs of bucketized Post-training metrics
+> #### A view on general stability of attributes classes regardless of point in time.
 > Link to the notebook with computations:
 > [post_training_metrics.ipynb](post_training_metrics.ipynb)
->
+> ---
 > #### Difference in positive proportion in predicted labels (DPPL)
 >![image info](./docs/images/metrics/DPPL.png)
 > [DPPL bucketized output](output/DPPL_bucketized.txt)
