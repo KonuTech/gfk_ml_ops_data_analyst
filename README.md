@@ -223,11 +223,11 @@ Folder PATH listing
 
 #### Prediction bucketized by Week
 
-![](./docs/images/evidently_ai/000000_target_drift_prediction_week_number.jpg)
+![image info](./docs/images/evidently_ai/000000_target_drift_prediction_week_number.jpg)
 
 #### Target bucketized by Week
 
-![](./docs/images/evidently_ai/000000_target_drift_target_week_number.jpg)
+![image info](./docs/images/evidently_ai/000000_target_drift_target_week_number.jpg)
 
 > From bucketized quantities of above graphs we can loosely assume that the hypotesis about the drop in a size
 > of supplied events related to Black Friday might be True.
