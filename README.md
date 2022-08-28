@@ -542,11 +542,31 @@ Folder PATH listing
 
 ---
 
-#### Selected weekly stability charts by classess
+#### Selected weekly stability charts by attributes classess
 
-> test
+> Assuming the need for weekly stability of served model (due to weekly seasonality of data) across its attributes (
+> descriptive features) we can take a look on Weekly stability charts of [brand_id]:
 
-![image info]()
+#### Predicted events bucketized by week_number for [brand_id] == 77
+![image info](output/charts/weekly_stability/predict_automatch/brand_id/CLASS_77_weekly_stability_grouped.jpg)
+
+#### Observed events bucketized by week_number for [brand_id] == 77
+![image info](output/charts/weekly_stability/class_acctual/brand_id/CLASS_77_weekly_stability_grouped.jpg)
+
+
+#### Predicted events bucketized by week_number for [brand_id] == 82
+![image info](./output/charts/weekly_stability/predict_automatch/brand_id/CLASS_82_weekly_stability_grouped.jpg)
+
+#### Observed events bucketized by week_number for [brand_id] == 82
+![image info](output/charts/weekly_stability/class_acctual/brand_id/CLASS_82_weekly_stability_grouped.jpg)
+
+
+
+
+
+> * Some brands (id == 77) were still recommended after Black Friday. They were less successful products.
+> * In case of Would recommend to experiment with dimensionality reduction technics, e. g. Weight of Evidence
+>  
 
 ----
 
@@ -572,3 +592,5 @@ Folder PATH listing
 [Pandas Profiling](https://pandas-profiling.ydata.ai/docs/master/index.html)
 
 [Jensen-Shannon distance](https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.distance.jensenshannon.html)
+
+[Weight of Evidence](https://www.analyticsvidhya.com/blog/2021/06/understand-weight-of-evidence-and-information-value/)
