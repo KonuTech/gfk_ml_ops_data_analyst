@@ -215,4 +215,4 @@ as follows:
 > The graphs are here to help answer the question if hard cutoff on 28th of November was somehow the right choice to assume.  
 > 
 > ![image info](./docs/images/evidently_ai/000000_target_drift_predictions_week_number.jpg)
-> 
+> ![](./docs/images/evidently_ai/000000_target_drift_predictions_week_number.jpg)
