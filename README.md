@@ -579,10 +579,22 @@ Folder PATH listing
 ![image info](output/charts/weekly_stability/class_acctual/brand_id/CLASS_82_weekly_stability_grouped.jpg)
 
 > * With those kinds of charts, we can try to get more insides into FP and FN.
-> * Some brands (id == 77) were still recommended after Black Friday. They were less successful products.
-> * Would recommend to experiment with dimensionality reduction technics, e. g. Weight of Evidence
+> * Some brands (id == 77) were still recommended even though Black Friday was over. from a current perspective we can
+    consider those products as being less successful during Black Friday and some weeks before.
+> * Although the performance of the model in my opinion was totally fine, maybe "dimensionality reduction" technics
+    would improve the generalization capabilities of the analysed classifier, e. g. "Weight of Evidence".
 
+---
+> # SUMMARY
+> 
+> In my opinion developed binary classifier served right it's purpose.
+> From the perspective of general metrics like Recall or F1-Score the model was acting all healthy while reasonably amount of feed was provided.
+> The model started to deteriorate right after Black Friday 2020.
+> It was right decision to put it offline at the beggining of 2021.
 
+---
+> # TODO:
+> #### Will try to assess model attributes with the use of metrics described below.
 ----
 
 > ### Outputs of bucketed Post-training metrics
@@ -610,39 +622,36 @@ TODO:
 >
 > [DCA bucketed output](output/DCA_bucketed.txt)
 > #### Conclusions:
-TODO:
+> TODO:
 > #### Difference in Conditional Rejection (DCR)
 > ![image info](./docs/images/metrics/DCR.jpg)
 > 
 > [DCR bucketed output](output/DCR_bucketed.txt)
 > #### Conclusions:
-TODO:
+> TODO:
 > 
 > #### Recall Difference (RD)
 > ![image info](./docs/images/metrics/RD.jpg)
 >
 > [RD bucketed output](output/RD_bucketed.txt)
 > #### Conclusions:
-TODO:
+> TODO:
 > #### Difference in label rates (DLR)
 > ![image info](./docs/images/metrics/DAR.png)
 >
 > [DAR bucketed output](output/DAR_bucketed.txt)
 > #### Conclusions:
-TODO:
+> TODO:
 > [DRR bucketed output](output/DRR_bucketed.txt)
 > #### Conclusions:
-TODO:
+> TODO:
 > #### Accuracy DIfference (AD)
 > ![image info](./docs/images/metrics/AD.jpg)
 > 
 > [AD bucketed output](output/AD_bucketed.txt)
 > #### Conclusions:
-TODO:
-#### Summary
+> TODO:
 
-> test
-----
 
 
 
