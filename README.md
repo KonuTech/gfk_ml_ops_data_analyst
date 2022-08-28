@@ -155,10 +155,6 @@ The model generates untenable answers because it does not have context."
 
 **Post-Trainng Metrics**
 
-> "At this stage we have computed the pre-training metrics and
-> we may also have rebalanced the sample to address any class
-> imbalances that may exist. After training the ML model, we
-> then compute the following bias metrics."
 > * Difference in positive proportions in predicted labels (DPPL)
 > * Disparate Impact (DI)
 > * Difference in conditional outcomes (DCO)
@@ -198,8 +194,10 @@ unfairness from differences in base rates.
 **Observations and hypotheses about the data set provided (Guessing Game)**
 
 > * The assumption regarding the Business Context of data: retail online data.
-> * The assumption regarding Meaning of Label: probably the model tries to predict if a person would be interested in a product.
-> * The assumption regarding Sales Channel: email marketing of online shops.
+> * The assumption regarding Meaning of Label: probably the model tries to predict if a person would be interested in a product. Recommendation tasks.
+> * The assumption regarding Sales Channel: email, ad, baner marketing.
+> * The assumption regarding provided data: given fields/variables are just model attributes which can be used for exploratory needs.
+>   * I am guessing that those fields are not really model inputs used during its training.
 > * The assumption regarding Marketing Context: the data provided related to the Black Friday marketing event
 >   * Black Fridays took place during the 48th week of 2020 (on the 27th of November 2020).
 >     * There is a huge drop in events after the 48th week of 2020.
