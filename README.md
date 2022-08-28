@@ -466,6 +466,19 @@ Folder PATH listing
 ![image info](./docs/images/evidently_ai/202104_target_drift.jpg)
 ![image info](./docs/images/evidently_ai/202104_prediction_drift.jpg)
 
+
+
+
+
+
+---
+
+#### Data Drift
+#### Global
+> test
+
+![image info](./docs/images/evidently_ai/000000_data_drift.jpg)
+
 ---
 
 #### Data Drift
@@ -492,9 +505,23 @@ Folder PATH listing
 
 ---
 
+
+
+
+
+#### Classification Performance
+#### Global
+> test
+
+![image info](./docs/images/evidently_ai/000000_classification_performance.jpg)
+
+---
+
 #### Classification Performance
 #### week_number == 202038 vs week_number == 202039
 > test
+
+![image info](./docs/images/evidently_ai/202038_classification_performance.jpg)
 
 ---
 
@@ -502,11 +529,15 @@ Folder PATH listing
 #### week_number == 202048 vs week_number == 202049
 > test
 
+![image info](./docs/images/evidently_ai/202048_classification_performance.jpg)
+
 ---
 
 #### Classification Performance
 #### week_number == 202104 vs week_number == 202105
 > test
+
+![image info](./docs/images/evidently_ai/202104_classification_performance.jpg)
 
 ---
 
@@ -514,11 +545,22 @@ Folder PATH listing
 
 > test
 
+![image info]()
+
 ----
+
+
+
+
+
+
 #### Conclusion
 
 > test
 ----
+
+
+
 
 
 #### SOURCES:
