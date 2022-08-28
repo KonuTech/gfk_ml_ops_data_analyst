@@ -46,7 +46,7 @@ Folder PATH listing
     └───python
 ```
 
-# Measurement of served model bias
+# Measurement of served model bias - Theory
 
 ---
 
@@ -161,10 +161,7 @@ Folder PATH listing
 > * Difference in positive proportions in predicted labels (DPPL)
 > * Disparate Impact (DI)
 > * Difference in conditional outcomes (DCO)
-    >
-
-* Difference in Conditional Acceptance (DCA):
-
+> * Difference in Conditional Acceptance (DCA):
 > * Difference in conditional rejection (DCR)
 > * Recall difference (RD)
 > * Accuracy Difference (AD)
@@ -189,7 +186,7 @@ Folder PATH listing
 >  4. Adjust cutoffs post-modeling.
 > #### [SOURCE](https://pages.awscloud.com/rs/112-TZM-766/images/Fairness.Measures.for.Machine.Learning.in.Finance.pdf)
 
----
+# Measurement of served model bias - Practice
 
 **Observations and hypotheses about the data set provided (Guessing Game)**
 
@@ -256,11 +253,11 @@ Folder PATH listing
 > of so called 'Current' data set.
 >
 
-#### Prediction bucketized by week_number
+#### Predicted events bucketized by week_number
 
 ![image info](./docs/images/evidently_ai/000000_target_drift_prediction_week_number.jpg)
 
-#### Target bucketized by week_number
+#### Observed events bucketized by week_number
 
 ![image info](./docs/images/evidently_ai/000000_target_drift_target_week_number.jpg)
 
@@ -272,11 +269,11 @@ Folder PATH listing
 > Now lets look quickly on similar graphs but related to quantities of product groups being under (presumably) Black Fridays
 > promotions.
 >
-#### Prediction bucketized by prod_gr_id
+#### Predicted events bucketized by prod_gr_id
 
 ![image info](./docs/images/evidently_ai/000000_target_drift_prediction_prod_gr_id.jpg)
 
-#### Target bucketized by prod_gr_id
+#### Observed events bucketized by prod_gr_id
 
 ![image info](./docs/images/evidently_ai/000000_target_drift_target_prod_gr_id.jpg)
 
@@ -298,3 +295,51 @@ Folder PATH listing
 
 ![image info](./docs/images/evidently_ai/000000_target_drift.jpg)
 ![image info](./docs/images/evidently_ai/000000_prediction_drift.jpg)
+
+
+> For the sake of simplicity of further analysis over the deterioration of served model I am defining three possible combinations of
+> Reference and Current data samples:
+> * week_number == 202038 vs week_number == 202039
+> * week_number == 202048 vs week_number == 202049
+> * week_number == 202101 vs week_number == 202102
+
+### Observed and Predicted behavior by week_number
+
+> week_number == 202038 vs week_number == 202039
+
+#### Predicted events bucketized by prod_gr_id
+
+![image info](./docs/images/evidently_ai/202038_target_drift_prediction_week_number.jpg)
+
+#### Observed events bucketized by prod_gr_id
+
+![image info](./docs/images/evidently_ai/202038_target_drift_target_week_number.jpg)
+
+#### Predicted events bucketized by prod_gr_id
+
+![image info](./docs/images/evidently_ai/202038_target_drift_prediction_prod_gr_id.jpg)
+
+#### Observed events bucketized by prod_gr_id
+
+![image info](./docs/images/evidently_ai/202038_target_drift_target_week_prod_gr_id.jpg)
+
+> Here for [week_number == 202038 vs week_number == 202039] we can already observe some different quantities in product
+> groups being more likely recommended.
+
+> Predictions for country_id_n == 128 are missing
+
+#### Predicted events bucketized by country_id_n
+
+![image info](./docs/images/evidently_ai/202038_target_drift_prediction_country_id_n.jpg)
+
+#### Observed events bucketized by country_id_n
+
+![image info](./docs/images/evidently_ai/202038_target_drift_target_country_id_n.jpg)
+
+
+
+> No Target Drift and Prediction Drift for week_number == 202038 vs week_number == 202039 basing on Jensen-Shannon distance 
+
+![image info](./docs/images/evidently_ai/202038_target_drift.jpg)
+![image info](./docs/images/evidently_ai/202038_prediction_drift.jpg)
+
