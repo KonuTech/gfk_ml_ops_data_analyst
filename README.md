@@ -482,7 +482,8 @@ Folder PATH listing
 
 #### Data Drift
 #### Global
-> test
+> If we use the 28th of November as the cutoff, the Data Drift report tries to inform us about indications of drifts. 
+> Since we are looking here at attributes (not real features/inputs used during training) of the trained/served model, we can only use them for data exploration purposes.
 
 ![image info](./docs/images/evidently_ai/000000_data_drift.jpg)
 
@@ -490,7 +491,9 @@ Folder PATH listing
 
 #### Data Drift
 #### week_number == 202038 vs week_number == 202039
-> test
+> Predicted and Observed distributions are not indicating data drift between week 202038 and week 202039.
+> 
+> [prod_gr_id] does not exhibit data drift between week 202038 and week 202039.
 
 ![image info](./docs/images/evidently_ai/202038_data_drift.jpg)
 
@@ -498,7 +501,8 @@ Folder PATH listing
 
 #### Data Drift
 #### week_number == 202048 vs week_number == 202049
-> test
+> Predicted and Observed distributions are not indicating data drift between week 202048 and week 202049
+> 48 week was the week of Black Friday. This time any indications of drift should be considered and analysed further.
 
 ![image info](./docs/images/evidently_ai/202048_data_drift.jpg)
 
@@ -506,7 +510,7 @@ Folder PATH listing
 
 #### Data Drift
 #### week_number == 202104 vs week_number == 202105
-> test
+> Counts and related distributions went down. Time to put the model offline.
 
 ![image info](./docs/images/evidently_ai/202104_data_drift.jpg)
 
@@ -518,7 +522,10 @@ Folder PATH listing
 
 #### Classification Performance
 #### Global
-> test
+> General characteristics for model performance when we use the hard cutoff on the 28th of November to slice the data in half are more than decent.
+> Due to business requirements, the model favours more TP rather than TN. What can be clearly seen by the high level of Recall and F1-Score.
+> Moreover, Recall and F1-Score are quite similar between Reference and Current samples. What indicates a stable model.
+> The model seems to be all healthy and happy.
 
 ![image info](./docs/images/evidently_ai/000000_classification_performance.jpg)
 
