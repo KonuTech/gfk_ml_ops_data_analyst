@@ -186,6 +186,12 @@ Folder PATH listing
 >  4. Adjust cutoffs post-modeling.
 > #### [SOURCE](https://pages.awscloud.com/rs/112-TZM-766/images/Fairness.Measures.for.Machine.Learning.in.Finance.pdf)
 
+
+
+
+
+
+
 # Measurement of served model bias - Practice
 
 **Observations and hypotheses about the data set provided (Guessing Game)**
@@ -232,6 +238,12 @@ Folder PATH listing
 > ![image info](./docs/images/pandas_profiler/pandas_profiler_correlation_matrix.jpg)
 
 > Other business related possible characteristics of the data set provided are so far unknown.
+
+
+
+
+
+
 
 
 **Reports**
@@ -297,15 +309,24 @@ Folder PATH listing
 ![image info](./docs/images/evidently_ai/000000_prediction_drift.jpg)
 
 
+
+
+
 > For the sake of simplicity of further analysis over the deterioration of served model I am defining three possible combinations of
 > Reference and Current data samples:
 > * week_number == 202038 vs week_number == 202039
 > * week_number == 202048 vs week_number == 202049
 > * week_number == 202101 vs week_number == 202102
 
+
+
+
+
+
 ### Observed and Predicted behavior by week_number
 
-> week_number == 202038 vs week_number == 202039
+----
+### week_number == 202038 vs week_number == 202039
 
 #### Predicted events bucketized by prod_gr_id
 
@@ -315,18 +336,20 @@ Folder PATH listing
 
 ![image info](./docs/images/evidently_ai/202038_target_drift_target_week_number.jpg)
 
+> Here for week_number == 202038 vs week_number == 202039 we can already observe some different quantities in product
+> groups being more likely recommended:
+
 #### Predicted events bucketized by prod_gr_id
 
 ![image info](./docs/images/evidently_ai/202038_target_drift_prediction_prod_gr_id.jpg)
 
 #### Observed events bucketized by prod_gr_id
 
-![image info](./docs/images/evidently_ai/202038_target_drift_target_week_prod_gr_id.jpg)
+![image info](./docs/images/evidently_ai/202038_target_drift_target_prod_gr_id.jpg)
 
-> Here for [week_number == 202038 vs week_number == 202039] we can already observe some different quantities in product
-> groups being more likely recommended.
 
-> Predictions for country_id_n == 128 are missing
+
+> Predictions for country_id_n == 128 are missing:
 
 #### Predicted events bucketized by country_id_n
 
@@ -338,8 +361,105 @@ Folder PATH listing
 
 
 
-> No Target Drift and Prediction Drift for week_number == 202038 vs week_number == 202039 basing on Jensen-Shannon distance 
+> Again, no Target Drift and Prediction Drift for week_number == 202038 vs week_number == 202039 basing on
+> Jensen-Shannon distance:
 
 ![image info](./docs/images/evidently_ai/202038_target_drift.jpg)
 ![image info](./docs/images/evidently_ai/202038_prediction_drift.jpg)
 
+
+
+
+
+
+---
+
+### week_number == 202048 vs week_number == 202049
+
+> Huge drop of predicted events after Black Friday:
+
+#### Predicted events bucketized by prod_gr_id
+
+![image info](./docs/images/evidently_ai/202048_target_drift_prediction_week_number.jpg)
+
+#### Observed events bucketized by prod_gr_id
+
+![image info](./docs/images/evidently_ai/202048_target_drift_target_week_number.jpg)
+
+> Huge drop of predicted events after Black Friday:
+
+#### Predicted events bucketized by prod_gr_id
+
+![image info](./docs/images/evidently_ai/202048_target_drift_prediction_prod_gr_id.jpg)
+
+#### Observed events bucketized by prod_gr_id
+
+![image info](./docs/images/evidently_ai/202048_target_drift_target_prod_gr_id.jpg)
+
+
+
+> Huge drop of predicted events after Black Friday:
+
+#### Predicted events bucketized by country_id_n
+
+![image info](./docs/images/evidently_ai/202048_target_drift_prediction_country_id_n.jpg)
+
+#### Observed events bucketized by country_id_n
+
+![image info](./docs/images/evidently_ai/202048_target_drift_target_country_id_n.jpg)
+
+
+
+> Again, no Target Drift and Prediction Drift for week_number == 202048 vs week_number == 202049 basing on
+> Jensen-Shannon distance:
+
+![image info](./docs/images/evidently_ai/202048_target_drift.jpg)
+![image info](./docs/images/evidently_ai/202048_prediction_drift.jpg)
+
+
+
+
+
+
+---
+
+### week_number == 202104 vs week_number == 202105
+
+> Although the model seems to work fine there was only one related event for week 202105. The event turned out to be a
+> TP. Model became obsolete:
+
+#### Predicted events bucketized by prod_gr_id
+
+![image info](./docs/images/evidently_ai/202104_target_drift_prediction_week_number.jpg)
+
+#### Observed events bucketized by prod_gr_id
+
+![image info](./docs/images/evidently_ai/202104_target_drift_target_week_number.jpg)
+
+> Only one event for week 202105. The event turned out to be a TP:
+
+#### Predicted events bucketized by prod_gr_id
+
+![image info](./docs/images/evidently_ai/202104_target_drift_prediction_prod_gr_id.jpg)
+
+#### Observed events bucketized by prod_gr_id
+
+![image info](./docs/images/evidently_ai/202104_target_drift_target_prod_gr_id.jpg)
+
+> Only one event for week 202105. The event turned out to be a TP:
+
+#### Predicted events bucketized by country_id_n
+
+![image info](./docs/images/evidently_ai/202104_target_drift_prediction_country_id_n.jpg)
+
+#### Observed events bucketized by country_id_n
+
+![image info](./docs/images/evidently_ai/202104_target_drift_target_country_id_n.jpg)
+
+
+
+> Again, no Target Drift and Prediction Drift for week_number == 202104 vs week_number == 202105 basing on
+> Jensen-Shannon distance:
+
+![image info](./docs/images/evidently_ai/202104_target_drift.jpg)
+![image info](./docs/images/evidently_ai/202104_prediction_drift.jpg)
