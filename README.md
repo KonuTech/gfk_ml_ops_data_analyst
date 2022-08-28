@@ -52,7 +52,7 @@ Folder PATH listing
 
 ## Challenges and assumptions
 
-> **Explainability**
+**Explainability**
 >
 > Explainability should be taken into account during each stage of the ML lifecycle,
 > for example, Problem Formation, Dataset Construction, Algorithm Selection,
@@ -85,8 +85,8 @@ Folder PATH listing
 > #### [SOURCE](https://pages.awscloud.com/rs/112-TZM-766/images/Amazon.AI.Fairness.and.Explainability.Whitepaper.pdf)
 
 
-> **Sources of Bias**
->
+**Sources of Bias**
+
 > As various bias metrics examine different nuances and ways in which bias may arise,
 > and there is not a single bias metric applicable across all scenarios,
 > it is not always easy to know which ones apply in a particular situation or domain.
@@ -135,7 +135,7 @@ Folder PATH listing
 
 
 > **Pre-Trainng Metrics**
->
+
 > * Class imbalance (CI)
 > * Difference in positive proportions in observed labels (DPL)
 > * Kullback and Leibler Divergence (KL)
@@ -152,8 +152,8 @@ Folder PATH listing
 > #### [SOURCE](https://pages.awscloud.com/rs/112-TZM-766/images/Fairness.Measures.for.Machine.Learning.in.Finance.pdf)
 
 
-> **Post-Trainng Metrics**
->
+**Post-Trainng Metrics**
+
 > At this stage we have computed the pre-training metrics and
 > we may also have rebalanced the sample to address any class
 > imbalances that may exist. After training the ML model, we
@@ -174,8 +174,8 @@ Folder PATH listing
 > #### [SOURCE](https://pages.awscloud.com/rs/112-TZM-766/images/Fairness.Measures.for.Machine.Learning.in.Finance.pdf)
 
 
-> **Bias Mitigation**
->
+**Bias Mitigation**
+
 > Some common corrections that may be applied are
 > as follows:
 >  1. Removal of the class variable from the feature set.
@@ -187,8 +187,8 @@ Folder PATH listing
 >  4. Adjust cutoffs post-modeling.
 > #### [SOURCE](https://pages.awscloud.com/rs/112-TZM-766/images/Fairness.Measures.for.Machine.Learning.in.Finance.pdf)
 
-> **Observations and hypotheses about the data set provided (guessing game)**
->
+**Observations and hypotheses about the data set provided (guessing game)**
+
 > * retail on-line data
 > * data related to specific three types of products
 > * products can be provided by multiple retailers
@@ -203,8 +203,8 @@ Folder PATH listing
     the drop of events had an impact on overall performance of served model
 > * other business realted possible characteristics of data set are so far unknown
 
-> **Reports**
->
+**Reports**
+
 > Python open source library called 'Evidently AI' was use to produce reports on three major aspects for assessment of
 > bias for served model, namely:
 > * Target Drift
@@ -213,8 +213,8 @@ Folder PATH listing
 >
 > Next, using mentioned reports I will try to provide some assumptions about served model.
 
-> **Target Drift**
->
+**Target Drift**
+
 > First, I will focuse a bit on analysis of Target Drift.
 > Below graphs are showing a global (high level) perspective on the matter of Target Drift.
 > The graphs are here to help answer the question if hard cutoff on 28th of November was somehow the right choice
