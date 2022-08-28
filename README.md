@@ -533,7 +533,9 @@ Folder PATH listing
 
 #### Classification Performance
 #### week_number == 202038 vs week_number == 202039
-> test
+
+> Recall and F1-Score for week 202039 increased in a relation to week 202038. That might have been related to an increase in events.
+> There was a rising trend in the number of events per week before Black Friday happened. A more accurate assessment needs further analysis.
 
 ![image info](./docs/images/evidently_ai/202038_classification_performance.jpg)
 
@@ -541,7 +543,8 @@ Folder PATH listing
 
 #### Classification Performance
 #### week_number == 202048 vs week_number == 202049
-> test
+> Interestingly, a drop in events for week 202049 increased Recall and F1-Score. What might be counterintuitive at first.
+> It seems like any case of too large increase or too large drop for either Recall or F1-Score should be monitored by automated processes.
 
 ![image info](./docs/images/evidently_ai/202048_classification_performance.jpg)
 
