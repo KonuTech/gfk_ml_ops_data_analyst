@@ -95,43 +95,43 @@ Folder PATH listing
 >
 >
 > 1. Biased labels. This arises from human biases and accumulates in datasets.
-     > It is particularly prevalent in public datasets with multiple labelers, like police data,
-     > public opinion datasets, etc., see Wauthier and Jordan (2011)
+It is particularly prevalent in public datasets with multiple labelers, like police data,
+ public opinion datasets, etc., see Wauthier and Jordan (2011)
 >
 >
 > 2. Biased features, also known as “curation” bias. Here, bias arises from selecting some features and dropping
-     > others and can occur directly or indirectly. For example, in lending,
-     > a modeler may choose features that are more likely to disadvantage one group and leave out features
-     > that would favor that group. While this may be deliberate,
-     > it is also possible to have these be done as part of an unconscious process.
-     > O’Neil (2016) gives a great example where her model for why children love eating their vegetables
-     > was an outcome of culinary curation, where they seem to eat all their vegetables
-     > given no servings of pizza, potatoes, meat, etc.
+others and can occur directly or indirectly. For example, in lending,
+a modeler may choose features that are more likely to disadvantage one group and leave out features
+that would favor that group. While this may be deliberate,
+it is also possible to have these be done as part of an unconscious process.
+O’Neil (2016) gives a great example where her model for why children love eating their vegetables
+was an outcome of culinary curation, where they seem to eat all their vegetables
+given no servings of pizza, potatoes, meat, etc.
 >
 >
 > 3. Objective function bias, noted by Menestrel and Wassenhove (2016).
-     > One case in which this occurs is when the loss function may be overly focused on outliers
-     > and if outliers are of specific types in the dataset, the modeler may inject bias.
+One case in which this occurs is when the loss function may be overly focused on outliers
+and if outliers are of specific types in the dataset, the modeler may inject bias.
 >
 >
 > 4. Homogenization bias, where machines generate the data to train later models, perpetuating bias.
-     > In these settings, future outcomes are biased, which create a feedback loop through the models,
-     > making future models, decisions, and data even more biased.
+In these settings, future outcomes are biased, which create a feedback loop through the models,
+making future models, decisions, and data even more biased.
 >
 >
 > 5. Active bias. Here the data is simply made up and results in biases in people’s inferences,
-     > opinions, and decisions. Fake news is the prime example. Such bias may be managed by considering the source,
-     > by reading beyond the headline, checking authorship, running fact checks, verifying dates,
-     > making sure that it is really a fact and not a joke, satire, or comedy.
-     > More importantly, carefully consider expert credentials, and carefully check for confirmation bias.
+opinions, and decisions. Fake news is the prime example. Such bias may be managed by considering the source,
+by reading beyond the headline, checking authorship, running fact checks, verifying dates,
+making sure that it is really a fact and not a joke, satire, or comedy.
+More importantly, carefully consider expert credentials, and carefully check for confirmation bias.
 >
 >
 >  6. Unanticipated machine decisions. Untrammeled machine-learning often arrives at optimal solutions
-      > that lack context, which cannot be injected into the model objective or constraints.
-      > For example, a ML model that takes in vast amounts of macroeconomic data and aims to minimize
-      > deficits may well come up with unintended solutions like super-normal tariffs leading to trade wars.
-      > This inadmissible solution arises because the solution is not excluded in any of the model constraints.
-      > The model generates untenable answers because it does not have context."
+that lack context, which cannot be injected into the model objective or constraints.
+For example, a ML model that takes in vast amounts of macroeconomic data and aims to minimize
+deficits may well come up with unintended solutions like super-normal tariffs leading to trade wars.
+This inadmissible solution arises because the solution is not excluded in any of the model constraints.
+The model generates untenable answers because it does not have context."
 > #### [SOURCE](https://pages.awscloud.com/rs/112-TZM-766/images/Fairness.Measures.for.Machine.Learning.in.Finance.pdf)
 
 
@@ -179,10 +179,10 @@ Folder PATH listing
 > "Some common corrections that may be applied are
 > as follows:
 >  1. Removal of the class variable from the feature set.
-      > For example, restricted characteristics such as gender,
-      > race/ethnicity, and age.
+For example, restricted characteristics such as gender,
+race/ethnicity, and age.
 >  2. Rebalance the training sample pre-training. This corrects
-      > unfairness from differences in base rates.
+unfairness from differences in base rates.
 >  3. Adjust labels on the training dataset and re-train.
 >  4. Adjust cutoffs post-modeling."
 > #### [SOURCE](https://pages.awscloud.com/rs/112-TZM-766/images/Fairness.Measures.for.Machine.Learning.in.Finance.pdf)
@@ -594,7 +594,7 @@ Folder PATH listing
 
 ---
 > # TODO:
-> #### Will try to assess model attributes with the use of metrics described below.
+> #### Will try to assess model attributes with the use of post-training metrics described below.
 ----
 
 > ### Outputs of bucketed Post-training metrics
