@@ -162,8 +162,10 @@ Folder PATH listing
 > * Disparate Impact (DI)
 > * Difference in conditional outcomes (DCO)
     >
+
 * Difference in Conditional Acceptance (DCA):
->   * Difference in conditional rejection (DCR)
+
+> * Difference in conditional rejection (DCR)
 > * Recall difference (RD)
 > * Accuracy Difference (AD)
 > * Treatment Equality (TE)
@@ -187,21 +189,28 @@ Folder PATH listing
 >  4. Adjust cutoffs post-modeling.
 > #### [SOURCE](https://pages.awscloud.com/rs/112-TZM-766/images/Fairness.Measures.for.Machine.Learning.in.Finance.pdf)
 
+======================
+
 **Observations and hypotheses about the data set provided (guessing game)**
 
-> * retail on-line data
-> * data related to specific three types of products
-> * products can be provided by multiple retailers
-> * data related to Black Friday marketing event
-    >
-* Black Fridays took place during 48th week of 2020 (on 27th of November 2020)
->   * there is huge drop in events after 48th week of 2020
-      >
-* most likely the promotions for products ended
->     * the context of Black Friday promotions got old (like can happen with Halloween or Christmas)
-> * since the model was most probably built on larger sample - with many, many more classes involved per each variable -
-    the drop of events had an impact on overall performance of served model
+> * assumption on type of data: retail on-line data
+> * assumption on lable's meaning: probably the model tries to predict if a person would be interested in a product
+> * assumption on sales channel: e-mail marketing of online shops
+> * assumption on marketing context: the data provides is related to Black Friday marketing event
+>   * Black Fridays took place during 48th week of 2020 (on 27th of November 2020)
+>     * there is huge drop in events after 48th week of 2020
+>     * most likely the promotions for product groups ended
+>     * seems like the context of Black Friday promotions got old (like can happen with Halloween or Christmas)
+>     * since the model was most probably built on larger sample - with many, many more classes involved per each variable -
+        the drop of events had an impact on overall performance of served model right after Black Friday
+
+> * provided sample of data is related only to specific three groups of products [426, 413, 427]
+> ![image info](./docs/images/evidently_ai/pandas_profiler_prod_gr_id.jpg)
+> * product groups could have been supplied by multiple retailers: 52
+> ![image info](./docs/images/evidently_ai/pandas_profiler_retailer_id.jpg)
+
 > * other business realted possible characteristics of data set are so far unknown
+
 
 **Reports**
 
@@ -218,19 +227,35 @@ Folder PATH listing
 > First, I will focuse a bit on analysis of Target Drift.
 > Below graphs are showing a global (high level) perspective on the matter of Target Drift.
 > The graphs are here to help answer the question if hard cutoff on 28th of November was somehow the right choice
-> to assume.
+> to assume. The date sliced the data set into 13 weekly buckets of sa called 'Reference' data set and 12 weekly buckets
+> of so called 'Current' data set.
 >
 
-#### Prediction bucketized by Week
+#### Prediction bucketized by week_number
 
 ![image info](./docs/images/evidently_ai/000000_target_drift_prediction_week_number.jpg)
 
-#### Target bucketized by Week
+#### Target bucketized by week_number
 
 ![image info](./docs/images/evidently_ai/000000_target_drift_target_week_number.jpg)
 
 > From bucketized quantities of above graphs we can loosely assume that the hypotesis about the drop in a size
 > of supplied events related to Black Friday might be True.
-> Hence the drop in over performance of served model. The topic of model being predicted got "out of fashion".
+> Hence the drop in over performance of served model. The topic being predicted got "out of fashion".
 > Quite similiar story can happen with Christmass trees.
-> 
+>
+> Now lets look quickly on similar graphs but related to quantities of product groups being under (presumably) Black Fridays
+> promotions.
+>
+> #### Prediction bucketized by prod_gr_id
+
+![image info](./docs/images/evidently_ai/000000_target_drift_prediction_prod_gr_id.jpg)
+
+#### Target bucketized by prod_gr_id
+
+![image info](./docs/images/evidently_ai/000000_target_drift_target_prod_gr_id.jpg)
+
+> My guess is that some retailers (probably) extended their promotions or did not kept their offers/promotions up to
+> date.
+>
+> This time let's move to 
