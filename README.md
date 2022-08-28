@@ -294,7 +294,7 @@ Folder PATH listing
 > Unfortunately, we have to dig further into data if we want to confirm with a large dose of certainty that the model
 > served should be put offline.
 
-#### Basing on Jensen-Shannon distance Target Drift has not been detected between Current and Reference samples
+#### Basing on Jensen-Shannon distance Target Drift and Prediction Drift have not been detected between Current and Reference samples sliced on 28th of November 2020. 
 
 ![image info](./docs/images/evidently_ai/000000_target_drift.jpg)
 ![image info](./docs/images/evidently_ai/000000_prediction_drift.jpg)
