@@ -266,7 +266,7 @@ unfairness from differences in base rates.
 **Target Drift and Prediction Drift**
 
 > First, I will focus a bit on the analysis of Target Drift, and related Prediction Drift.
-> The below graphs are showing a global (high level) perspective on the matter of Target Drift and Prediction Drift.
+> Below graphs are showing a global (high level) perspective on the matter of Target Drift and Prediction Drift.
 > The graphs are here to help answer the question if the hard cutoff on the 28th of November was somehow the right choice
 > to assume. The cutoff sliced the data set into 13 weekly buckets of the so-called 'Reference' data set and 12 weekly
 > buckets
@@ -283,7 +283,7 @@ unfairness from differences in base rates.
 
 > From bucketed quantities of the above graphs, we can loosely assume that the hypotesis about the drop in the size
 > of supplied events related to Black Friday might be True.
-> Hence the drop in under-performance of the served model. The topic being predicted got "out of fashion".
+> Hence the drop in under-performance of the served model (or rather over-performance due to sample size). In other words, the topic being predicted by model got "out of fashion".
 > Quite a similar story can happen with Christmas-related products.
 
 >
