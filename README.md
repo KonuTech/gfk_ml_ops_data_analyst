@@ -536,6 +536,7 @@ Folder PATH listing
 
 > Recall and F1-Score for week 202039 increased in a relation to week 202038. That might have been related to an increase in events.
 > There was a rising trend in the number of events per week before Black Friday happened. A more accurate assessment needs further analysis.
+> The model seems to be all healthy and happy.
 
 ![image info](./docs/images/evidently_ai/202038_classification_performance.jpg)
 
@@ -545,6 +546,7 @@ Folder PATH listing
 #### week_number == 202048 vs week_number == 202049
 > Interestingly, a drop in events for week 202049 increased Recall and F1-Score. What might be counterintuitive at first.
 > It seems like any case of too large increase or too large drop for either Recall or F1-Score should be monitored by automated processes.
+> Vigilance is advised.
 
 ![image info](./docs/images/evidently_ai/202048_classification_performance.jpg)
 
@@ -552,7 +554,7 @@ Folder PATH listing
 
 #### Classification Performance
 #### week_number == 202104 vs week_number == 202105
-> test
+> Due to the drop in events, Recall and F1-Score increased even more. Definitely, it is time to put the model offline.
 
 ![image info](./docs/images/evidently_ai/202104_classification_performance.jpg)
 
@@ -560,8 +562,8 @@ Folder PATH listing
 
 #### Selected weekly stability charts by attributes classess
 
-> Assuming the need for weekly stability of served model (due to weekly seasonality of data) across its attributes (
-> descriptive features) we can take a look on Weekly stability charts of [brand_id]:
+> Assuming the need for monitoring weekly stability of served model (also due to weekly seasonality of the data) across
+> its attributes (descriptive features) we can take a quick look at weekly stability charts of [brand_id]:
 
 #### Predicted events bucketed by week_number for [brand_id] == 77
 ![image info](output/charts/weekly_stability/predict_automatch/brand_id/CLASS_77_weekly_stability_grouped.jpg)
@@ -576,7 +578,7 @@ Folder PATH listing
 #### Observed events bucketed by week_number for [brand_id] == 82
 ![image info](output/charts/weekly_stability/class_acctual/brand_id/CLASS_82_weekly_stability_grouped.jpg)
 
-
+> * With those kinds of charts, we can try to get more insides into FP and FN.
 > * Some brands (id == 77) were still recommended after Black Friday. They were less successful products.
 > * Would recommend to experiment with dimensionality reduction technics, e. g. Weight of Evidence
 
