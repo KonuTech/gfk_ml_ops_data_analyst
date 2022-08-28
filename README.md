@@ -195,10 +195,10 @@ unfairness from differences in base rates.
 
 > * The assumption regarding the Business Context of data: retail online data.
 > * The assumption regarding Meaning of Label: probably the model tries to predict if a person would be interested in a product. Recommendation tasks.
-> * The assumption regarding Sales Channel: email, ad, baner marketing.
+> * The assumption regarding Sales Channel: email, ad, baner, sms marketing.
 > * The assumption regarding provided data: given fields/variables are just model attributes which can be used for exploratory needs.
->   * I am guessing that those fields are not really model inputs used during its training.
-> * The assumption regarding Marketing Context: the data provided related to the Black Friday marketing event
+>   * In other words, I am guessing that those fields are not really model inputs used during the training phase.
+> * The assumption regarding Marketing Context: the data is related to the Black Friday event
 >   * Black Fridays took place during the 48th week of 2020 (on the 27th of November 2020).
 >     * There is a huge drop in events after the 48th week of 2020.
 >     * Most likely the promotions for product groups ended.
