@@ -304,13 +304,13 @@ unfairness from differences in base rates.
 > called Reference data (13 weeks) and Current data (12 weeks) are meaningfully different.
 > 
 > Below charts are exhibiting no indications for Target Drift nor Prediction Drift (when the data set got sliced into two parts with use of hard cutoff
-> on 28th of November 2020). At first, that is indeed a bit surprising regarding the drop in events. The reason for the lack
-> of alert related to the Target Drift or Data Drift might be related to ratios between Zeros and Ones of both periods.
+> on 28th of November 2020). At first, that is indeed a bit surprising regarding the drop in events for Current period. The reason for the lack
+> of alert related to the Target Drift or Data Drift for Current period might be related to ratios between Zeros and Ones of both periods.
 > Although it is true that from Counts perspective we have experienced a huge drop in events, the ratios from Current
 > period were still similar to the ratios of Zeros and Ones from the Reference period.
-> We got here quite a nice ' real-world' example of not jumping to conclusions based on a single source of information.
+> We got here quite a nice ' real-world' example of not jumping into conclusions, basing on a single source of information.
 > Unfortunately, we have to dig further into data if we want to confirm with a larger dose of certainty that the model
-> should have been put offline right after the 27th of November 2020. From now on that will be my goal here.
+> should have been put offline right after the 27th of November 2020.
 
 #### Basing on Jensen-Shannon distance Target Drift and Prediction Drift have not been detected between Current and Reference samples sliced on 28th of November 2020. 
 
@@ -346,7 +346,8 @@ unfairness from differences in base rates.
 
 ![image info](./docs/images/evidently_ai/202038_target_drift_target_week_number.jpg)
 
-> Here for week_number == 202038 vs week_number == 202039 we can observe some changes in quantities of product groups:
+> Interestingly, for week_number == 202038 vs week_number == 202039 we can observe some novelities from operational point of view.
+> There was a change in the number of product groups being fed to the model. Group 413 was less likely recommended.:
 
 #### Predicted events bucketed by prod_gr_id
 
@@ -358,7 +359,7 @@ unfairness from differences in base rates.
 
 
 
-> Predictions for country_id_n == 128 are missing:
+> In case of week 202039, predictions for country_id_n == 128 are missing:
 
 #### Predicted events bucketed by country_id_n
 
@@ -388,15 +389,17 @@ unfairness from differences in base rates.
 
 > Huge drop of predicted events after Black Friday:
 
-#### Predicted events bucketed by prod_gr_id
+#### Predicted events bucketed by week_numbeer
 
 ![image info](./docs/images/evidently_ai/202048_target_drift_prediction_week_number.jpg)
 
-#### Observed events bucketed by prod_gr_id
+#### Observed events bucketed by week_numbeer
 
 ![image info](./docs/images/evidently_ai/202048_target_drift_target_week_number.jpg)
 
-> Huge drop of predicted events after Black Friday:
+> Huge drop of predicted events after Black Friday.
+> 
+> During week 202048 product group 413 was almost as often recommended as product group 426.
 
 #### Predicted events bucketed by prod_gr_id
 
@@ -409,6 +412,8 @@ unfairness from differences in base rates.
 
 
 > Huge drop of predicted events after Black Friday:
+> 
+> Many retailers have stopped being involved.
 
 #### Predicted events bucketed by country_id_n
 
@@ -438,28 +443,20 @@ unfairness from differences in base rates.
 
 > In general, although the model seemed to work fine, there was only one meaningful
 > event during the whole week of 202105. The event turned out to be a TP. In my opinion, this is the point in time when we
-> can tell from an Operations point of view that the model became obsolete. Black Friday ended around two months earlier.
-> I have no comments on TP, FP, TN or FN. in my opinion model worked fine until Black Friday happen.
+> can tell from an Operations point of view that the model became obsolete. Black Friday ended two months earlier.
+> I have no comments on TP, FP, TN or FN. In my opinion the model worked fine till Black Friday. I believe that was his operational purpose.
+> 
+> Only few meaningful events during weeks 202104 and 202105:
 
-#### Predicted events bucketed by prod_gr_id
+#### Predicted events bucketed by week_number
 
 ![image info](./docs/images/evidently_ai/202104_target_drift_prediction_week_number.jpg)
 
-#### Observed events bucketed by prod_gr_id
+#### Observed events bucketed by week_number
 
 ![image info](./docs/images/evidently_ai/202104_target_drift_target_week_number.jpg)
 
 > Only one event for week 202105. The event turned out to be a TP:
-
-#### Predicted events bucketed by prod_gr_id
-
-![image info](./docs/images/evidently_ai/202104_target_drift_prediction_prod_gr_id.jpg)
-
-#### Observed events bucketed by prod_gr_id
-
-![image info](./docs/images/evidently_ai/202104_target_drift_target_prod_gr_id.jpg)
-
-> Only one meaningful event for week 202105. The event turned out to be a TP:
 
 #### Predicted events bucketed by country_id_n
 
@@ -472,7 +469,8 @@ unfairness from differences in base rates.
 
 
 > Again, no Target Drift and no Prediction Drift for week_number == 202104 vs week_number == 202105.
-> Due to a huge drop in events, Z-test was used.:
+>
+> Due to low number of events,this time Z-test was used.:
 
 ![image info](./docs/images/evidently_ai/202104_target_drift.jpg)
 ![image info](./docs/images/evidently_ai/202104_prediction_drift.jpg)
@@ -486,8 +484,9 @@ unfairness from differences in base rates.
 
 #### Data Drift
 #### Global
-> If we use the 28th of November as the cutoff, the Data Drift report tries to inform us about indications of drifts. 
-> Since we are looking here at attributes (not real features/inputs used during training) of the trained/served model, we can only use them for data exploration purposes.
+> If we use the 28th of November as the cutoff, the Data Drift report tries to inform us about some data drifts indications.
+> That is not the case for Predicted and Observed distributions. They look fine.
+> Since in my opinion we are looking here at attributes (not exactly features/inputs used during model training), we can only use them for data exploration purposes.
 
 ![image info](./docs/images/evidently_ai/000000_data_drift.jpg)
 
@@ -505,8 +504,8 @@ unfairness from differences in base rates.
 
 #### Data Drift
 #### week_number == 202048 vs week_number == 202049
-> Predicted and Observed distributions are not indicating data drift between week 202048 and week 202049
-> 48 week was the week of Black Friday. This time any indications of drift should be considered and analysed further.
+> Predicted and Observed distributions are not indicating data drift between week 202048 and week 202049.
+> The 48th week of 2020 was the week when Black Friday happen. This time any indications of data drift should be considered carefully and analysed further.
 
 ![image info](./docs/images/evidently_ai/202048_data_drift.jpg)
 
@@ -514,7 +513,7 @@ unfairness from differences in base rates.
 
 #### Data Drift
 #### week_number == 202104 vs week_number == 202105
-> Counts and related distributions went down. Time to put the model offline.
+> Due to the drop in events, the overall counts and related distributions were also impacted. It is time to put the model offline.
 
 ![image info](./docs/images/evidently_ai/202104_data_drift.jpg)
 
@@ -528,7 +527,7 @@ unfairness from differences in base rates.
 #### Global
 > General characteristics for model performance when we use the hard cutoff on the 28th of November to slice the data in half are more than decent.
 > Due to business requirements, the model favours more TP rather than TN. What can be clearly seen by the high level of Recall and F1-Score.
-> Moreover, Recall and F1-Score are quite similar between Reference and Current samples. What indicates a stable model.
+> Moreover, Recall and F1-Score are quite similar between Reference and Current samples. What in my opinion indicates a stable model.
 > The model seems to be all healthy and happy.
 
 ![image info](./docs/images/evidently_ai/000000_classification_performance.jpg)
@@ -582,23 +581,30 @@ unfairness from differences in base rates.
 #### Observed events bucketed by week_number for [brand_id] == 82
 ![image info](output/charts/weekly_stability/class_acctual/brand_id/CLASS_82_weekly_stability_grouped.jpg)
 
-> * With those kinds of charts, we can try to get more insides into FP and FN.
-> * Some brands (id == 77) were still recommended even though Black Friday was over. from a current perspective we can
-    consider those products as being less successful during Black Friday and some weeks before.
-> * Although the performance of the model in my opinion was totally fine, maybe "dimensionality reduction" technics
-    would improve the generalization capabilities of the analysed classifier, e. g. "Weight of Evidence".
+#### TP, FP, TN, FN for [brand_id] == 82
+![image info](./docs/images/evidently_ai/000000_brand_id_label_0.jpg)
+
+#### TP, FP, TN, FN for [brand_id] == 82
+![image info](./docs/images/evidently_ai/000000_brand_id_label_1.jpg)
+
+> * With the help of these kinds of charts, we can try to get more information on FP and FN. Depending on our cost function definition.
+> * Some brands (id == 77) were still recommended even though Black Friday was over. From a current perspective we can
+    consider those products as being less successful during Black Friday.
+> * Although the performance of the model in my opinion was fine through first part of it's life, maybe "dimensionality reduction" technics
+    would improve the generalization capabilities of the classifier even further, e. g. "Weight of Evidence".
+> * Or a change in cutoff used to classify probabilities could improve the size of TPs.
 
 ---
 > # SUMMARY
 > 
-> In my opinion developed binary classifier served right it's purpose.
-> From the perspective of general metrics like Recall or F1-Score the model was acting all healthy while reasonably amount of feed was provided.
+> In my opinion, the binary classifier served it's purpose right until it become obsolite due to its yearly seasonality.
+> From the perspective of general metrics like Recall or F1-Score the model was acting all healthy until reasonably amount of feed dropped.
 > The model started to deteriorate right after Black Friday 2020.
-> It was right decision to put it offline at the beggining of 2021.
+> It was right decision to put it offline at the beginning of 2021.
 
 ---
 > # TODO:
-> #### Will try to assess model attributes with the use of post-training metrics described below.
+> #### Try to assess model attributes with the use of post-training metrics described below:
 ----
 
 > ### Outputs of bucketed Post-training metrics
@@ -611,23 +617,29 @@ unfairness from differences in base rates.
 > #### Difference in positive proportion in predicted labels (DPPL)
 >![image info](./docs/images/metrics/DPPL.png)
 > [DPPL bucketed output](output/DPPL_bucketed.txt)
+> 
 > #### Conclusions:
 TODO:
 > ---
 > #### Disparate (Adverse) Impact (DI)
+> 
 >![image info](./docs/images/metrics/DI.png)
+> 
 > [DI bucketed output](output/DI_bucketed.txt)
 > #### Conclusions:
 TODO:
 > ---
 > #### Difference in Conditional Outcome (DCO)
+> 
 > Difference in Conditional Acceptance (DCA)
+> 
 >![image info](./docs/images/metrics/DCA.jpg)
 >
 > [DCA bucketed output](output/DCA_bucketed.txt)
 > #### Conclusions:
 > TODO:
 > #### Difference in Conditional Rejection (DCR)
+> 
 > ![image info](./docs/images/metrics/DCR.jpg)
 > 
 > [DCR bucketed output](output/DCR_bucketed.txt)
@@ -635,19 +647,23 @@ TODO:
 > TODO:
 > 
 > #### Recall Difference (RD)
+> 
 > ![image info](./docs/images/metrics/RD.jpg)
 >
 > [RD bucketed output](output/RD_bucketed.txt)
 > #### Conclusions:
 > TODO:
 > #### Difference in label rates (DLR)
+> 
 > ![image info](./docs/images/metrics/DAR.png)
 >
 > [DAR bucketed output](output/DAR_bucketed.txt)
 > #### Conclusions:
+> 
 > TODO:
 > [DRR bucketed output](output/DRR_bucketed.txt)
 > #### Conclusions:
+> 
 > TODO:
 > #### Accuracy DIfference (AD)
 > ![image info](./docs/images/metrics/AD.jpg)
