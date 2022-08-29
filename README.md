@@ -582,9 +582,6 @@ unfairness from differences in base rates.
 ![image info](output/charts/weekly_stability/class_acctual/brand_id/CLASS_82_weekly_stability_grouped.jpg)
 
 #### TP, FP, TN, FN for [brand_id] == 82
-![image info](./docs/images/evidently_ai/000000_brand_id_label_0.jpg)
-
-#### TP, FP, TN, FN for [brand_id] == 82
 ![image info](./docs/images/evidently_ai/000000_brand_id_label_1.jpg)
 
 > * With the help of these kinds of charts, we can try to get more information on FP and FN. Depending on our cost function definition.

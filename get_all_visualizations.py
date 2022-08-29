@@ -45,55 +45,161 @@ def main():
     logging.info('config JSON FOR CSV LOADED')
     logging.info('CSV LOADED')
 
-    # TARGET DRIFT - produce global report
-    get_target_drift_report(
+    # # TARGET DRIFT - produce global report
+    # get_target_drift_report(
+    #     data_frame=df,
+    #     target=config['MODEL']['TARGET'],
+    #     prediction=config['MODEL']['PREDICTION'],
+    #     datetime=config['MODEL']['DATETIME'],
+    #     categorical_fatures=config['INPUTS']['CATEGORICAL_FEATURES'],
+    #     columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE'],
+    #     breaking_point_dt=config['OUTPUTS']['BREAKING_POINT_DT']
+    # )
+    #
+    # logging.info('TARGET DRIFT - produced global report')
+    #
+    # # TARGET DRIFT - produce weekly reports
+    # get_target_drift_report_weekly(
+    #     data_frame=df,
+    #     target=config['MODEL']['TARGET'],
+    #     prediction=config['MODEL']['PREDICTION'],
+    #     datetime=config['MODEL']['DATETIME'],
+    #     categorical_fatures=config['INPUTS']['CATEGORICAL_FEATURES'],
+    #     columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE']
+    # )
+    #
+    # logging.info('TARGET DRIFT - produced weekly reports')
+
+    # TARGET DRIFT - produce global report prod_gr_id=413'
+    get_target_drift_report_custom(
         data_frame=df,
         target=config['MODEL']['TARGET'],
         prediction=config['MODEL']['PREDICTION'],
         datetime=config['MODEL']['DATETIME'],
         categorical_fatures=config['INPUTS']['CATEGORICAL_FEATURES'],
         columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE'],
-        breaking_point_dt=config['OUTPUTS']['BREAKING_POINT_DT']
+        date_from=datetime.date(2020, 9, 14),
+        date_to=datetime.date(2020, 11, 27),
+        breaking_point_dt=datetime.date(2020, 10, 19),
+        prod_gr_id=413
     )
 
-    logging.info('TARGET DRIFT - produced global report')
+    logging.info('TARGET DRIFT - produced custom report prod_gr_id=413')
 
-    # TARGET DRIFT - produce weekly reports
-    get_target_drift_report_weekly(
-        data_frame=df,
-        target=config['MODEL']['TARGET'],
-        prediction=config['MODEL']['PREDICTION'],
-        datetime=config['MODEL']['DATETIME'],
-        categorical_fatures=config['INPUTS']['CATEGORICAL_FEATURES'],
-        columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE']
-    )
 
-    logging.info('TARGET DRIFT - produced weekly reports')
-
-    # DATA DRIFT - produce global report
-    get_data_drift_report(
+    # TARGET DRIFT - produce global report prod_gr_id=426'
+    get_target_drift_report_custom(
         data_frame=df,
         target=config['MODEL']['TARGET'],
         prediction=config['MODEL']['PREDICTION'],
         datetime=config['MODEL']['DATETIME'],
         categorical_fatures=config['INPUTS']['CATEGORICAL_FEATURES'],
         columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE'],
-        breaking_point_dt=config['OUTPUTS']['BREAKING_POINT_DT']
+        date_from=datetime.date(2020, 9, 14),
+        date_to=datetime.date(2020, 11, 27),
+        breaking_point_dt=datetime.date(2020, 10, 19),
+        prod_gr_id=426
     )
 
-    logging.info('DATA DRIFT - produced global report')
+    logging.info('TARGET DRIFT - produced custom report prod_gr_id=426')
 
-    # DATA DRIFT - produce weekly reports
-    get_data_drift_report_weekly(
+
+    # TARGET DRIFT - produce global report prod_gr_id=427'
+    get_target_drift_report_custom(
         data_frame=df,
         target=config['MODEL']['TARGET'],
         prediction=config['MODEL']['PREDICTION'],
         datetime=config['MODEL']['DATETIME'],
         categorical_fatures=config['INPUTS']['CATEGORICAL_FEATURES'],
-        columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE']
+        columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE'],
+        date_from=datetime.date(2020, 9, 14),
+        date_to=datetime.date(2020, 11, 27),
+        breaking_point_dt=datetime.date(2020, 10, 19),
+        prod_gr_id=427
     )
 
-    logging.info('DATA DRIFT - produced weekly reports')
+    logging.info('TARGET DRIFT - produced custom report prod_gr_id=427')
+
+
+
+    # # DATA DRIFT - produce global report
+    # get_data_drift_report(
+    #     data_frame=df,
+    #     target=config['MODEL']['TARGET'],
+    #     prediction=config['MODEL']['PREDICTION'],
+    #     datetime=config['MODEL']['DATETIME'],
+    #     categorical_fatures=config['INPUTS']['CATEGORICAL_FEATURES'],
+    #     columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE'],
+    #     breaking_point_dt=config['OUTPUTS']['BREAKING_POINT_DT']
+    # )
+    #
+    # logging.info('DATA DRIFT - produced global report')
+    #
+    # # DATA DRIFT - produce weekly reports
+    # get_data_drift_report_weekly(
+    #     data_frame=df,
+    #     target=config['MODEL']['TARGET'],
+    #     prediction=config['MODEL']['PREDICTION'],
+    #     datetime=config['MODEL']['DATETIME'],
+    #     categorical_fatures=config['INPUTS']['CATEGORICAL_FEATURES'],
+    #     columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE']
+    # )
+    #
+    # logging.info('DATA DRIFT - produced weekly reports')
+
+
+    # DATA DRIFT - produce custom report prod_gr_id=413
+    get_data_drift_report_custom(
+        data_frame=df,
+        target=config['MODEL']['TARGET'],
+        prediction=config['MODEL']['PREDICTION'],
+        datetime=config['MODEL']['DATETIME'],
+        categorical_fatures=config['INPUTS']['CATEGORICAL_FEATURES'],
+        columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE'],
+        date_from=datetime.date(2020, 9, 14),
+        date_to=datetime.date(2020, 11, 27),
+        breaking_point_dt=datetime.date(2020, 10, 19),
+        prod_gr_id=413
+    )
+
+
+    logging.info('DATA DRIFT - produced custom report prod_gr_id=413')
+
+
+    # DATA DRIFT - produce custom report prod_gr_id=426
+    get_data_drift_report_custom(
+        data_frame=df,
+        target=config['MODEL']['TARGET'],
+        prediction=config['MODEL']['PREDICTION'],
+        datetime=config['MODEL']['DATETIME'],
+        categorical_fatures=config['INPUTS']['CATEGORICAL_FEATURES'],
+        columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE'],
+        date_from=datetime.date(2020, 9, 14),
+        date_to=datetime.date(2020, 11, 27),
+        breaking_point_dt=datetime.date(2020, 10, 19),
+        prod_gr_id=426
+    )
+
+
+    logging.info('DATA DRIFT - produced custom report prod_gr_id=426')
+
+
+    # DATA DRIFT - produce custom report prod_gr_id=427
+    get_data_drift_report_custom(
+        data_frame=df,
+        target=config['MODEL']['TARGET'],
+        prediction=config['MODEL']['PREDICTION'],
+        datetime=config['MODEL']['DATETIME'],
+        categorical_fatures=config['INPUTS']['CATEGORICAL_FEATURES'],
+        columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE'],
+        date_from=datetime.date(2020, 9, 14),
+        date_to=datetime.date(2020, 11, 27),
+        breaking_point_dt=datetime.date(2020, 10, 19),
+        prod_gr_id=427
+    )
+
+    logging.info('DATA DRIFT - produced custom report prod_gr_id=427')
+
 
     # CLASSIFICATION PERFORMANCE - produce global report
     get_classification_performance_report(
@@ -109,16 +215,68 @@ def main():
     logging.info('CLASSIFICATION PERFORMANCE - produced global report')
 
     # CLASSIFICATION PERFORMANCE - produce weekly reports
-    get_classification_performance_report_weekly(
+    # get_classification_performance_report_weekly(
+    #     data_frame=df,
+    #     target=config['MODEL']['TARGET'],
+    #     prediction=config['MODEL']['PREDICTION'],
+    #     datetime=config['MODEL']['DATETIME'],
+    #     categorical_fatures=config['INPUTS']['CATEGORICAL_FEATURES'],
+    #     columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE']
+    # )
+    #
+    # logging.info('CLASSIFICATION PERFORMANCE - produced weekly reports')
+
+    # CLASSIFICATION PERFORMANCE - produce custom report prod_gr_id=413
+    get_classification_performance_report_custom(
         data_frame=df,
         target=config['MODEL']['TARGET'],
         prediction=config['MODEL']['PREDICTION'],
         datetime=config['MODEL']['DATETIME'],
         categorical_fatures=config['INPUTS']['CATEGORICAL_FEATURES'],
-        columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE']
+        columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE'],
+        date_from=datetime.date(2020, 9, 14),
+        date_to=datetime.date(2020, 11, 27),
+        breaking_point_dt=datetime.date(2020, 10, 19),
+        prod_gr_id=413
     )
 
-    logging.info('CLASSIFICATION PERFORMANCE - produced weekly reports')
+    logging.info('CLASSIFICATION PERFORMANCE - produced custom report prod_gr_id=413')
+
+
+    # CLASSIFICATION PERFORMANCE - produce custom report prod_gr_id=426
+    get_classification_performance_report_custom(
+        data_frame=df,
+        target=config['MODEL']['TARGET'],
+        prediction=config['MODEL']['PREDICTION'],
+        datetime=config['MODEL']['DATETIME'],
+        categorical_fatures=config['INPUTS']['CATEGORICAL_FEATURES'],
+        columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE'],
+        date_from=datetime.date(2020, 9, 14),
+        date_to=datetime.date(2020, 11, 27),
+        breaking_point_dt=datetime.date(2020, 10, 19),
+        prod_gr_id=426
+    )
+
+    logging.info('CLASSIFICATION PERFORMANCE - produced custom report prod_gr_id=426')
+
+
+    # CLASSIFICATION PERFORMANCE - produce custom report prod_gr_id=427
+    get_classification_performance_report_custom(
+        data_frame=df,
+        target=config['MODEL']['TARGET'],
+        prediction=config['MODEL']['PREDICTION'],
+        datetime=config['MODEL']['DATETIME'],
+        categorical_fatures=config['INPUTS']['CATEGORICAL_FEATURES'],
+        columns_to_exclude=config['OUTPUTS']['COLUMNS_TO_EXCLUDE'],
+        date_from=datetime.date(2020, 9, 14),
+        date_to=datetime.date(2020, 11, 27),
+        breaking_point_dt=datetime.date(2020, 10, 19),
+        prod_gr_id=427
+    )
+
+    logging.info('CLASSIFICATION PERFORMANCE - produced custom report prod_gr_id=427')
+
+
 
     # PREDICT AUTOMATCH MONTHLY STABILITY - produce charts per each class for every variable by month
     # Not needed for now
@@ -159,22 +317,22 @@ def main():
     # logging.info('class_acctual MONTHLY STABILITY - produced charts for all classes of variables by month')
 
     # PREDICT AUTOMATCH WEEKLY STABILITY - produce charts per each class for every variable by week
-    get_weekly_stability_chart(
-        data_frame=df,
-        date_column="translated_when",
-        column_to_count='predict_automatch',
-        columns_to_exclude=[
-            'period_end_date',
-            'translated_when',
-            'year_month',
-            'predict_automatch',
-            'class_acctual',
-            'if_data_corrected',
-            'freq_id'
-        ]
-    )
-
-    logging.info('predict_automatch WEEKLY STABILITY - produced charts for all variables by class and by month')
+    # get_weekly_stability_chart(
+    #     data_frame=df,
+    #     date_column="translated_when",
+    #     column_to_count='predict_automatch',
+    #     columns_to_exclude=[
+    #         'period_end_date',
+    #         'translated_when',
+    #         'year_month',
+    #         'predict_automatch',
+    #         'class_acctual',
+    #         'if_data_corrected',
+    #         'freq_id'
+    #     ]
+    # )
+    #
+    # logging.info('predict_automatch WEEKLY STABILITY - produced charts for all variables by class and by month')
 
     # CLASS ACCTUAL WEEKLY STABILITY - produce charts per each class for every variable by week
     # Not needed for now
