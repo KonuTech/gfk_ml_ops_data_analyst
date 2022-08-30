@@ -598,6 +598,8 @@ unfairness from differences in base rates.
 > From the perspective of general metrics like Recall or F1-Score the model was acting all healthy until reasonably amount of feed dropped.
 > The model started to deteriorate right after Black Friday 2020.
 > It was right decision to put it offline at the beginning of 2021.
+> 
+> Summary presentation: [./docs/false_negatives.pptx](./docs/false_negatives.pptx)
 
 ---
 > # TODO:
