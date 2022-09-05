@@ -193,25 +193,23 @@ unfairness from differences in base rates.
 
 **Observations and hypotheses about the data set provided (Guessing Game)**
 
-> * The assumption regarding the Business Context of data: retail online data.
-> * The assumption regarding Meaning of Label: probably the model tries to predict if a person would be interested in a product. Recommendation tasks.
-> * The assumption regarding Sales Channel: email, ad, baner, sms marketing.
-> * The assumption regarding provided data: given fields/variables are just model attributes which can be used for exploratory needs.
+> * The assumption regarding the Business Context of the data given: retail online and/or point-of-sales data.
+> * The assumption regarding Meaning of Label: probably the model tries to predict if particular person would be interested in a product. Recommendation tasks.
+> * The assumption regarding Communication Channel : email, ad, baner, direct marketing.
+> * The assumption regarding provided data: given fields/variables are just model attributes which can be used only for exploratory needs.
 >   * In other words, I am guessing that those fields are not really model inputs used during the training phase.
 > * The assumption regarding Marketing Context: the data is related to the Black Friday event
 >   * Black Fridays took place during the 48th week of 2020 (on the 27th of November 2020).
 >     * There is a huge drop in events after the 48th week of 2020.
 >     * Most likely the ads/promotions ended due to sold products.
 >     * From a data feed perspective, it seems like the context of Black Friday promotions got old (as can happen with Halloween or Christmas related marketing scenarios).
->     * Since the model was most probably built on larger sample - with many, many more classes involved per each variable -
-        the drop in events had an impact on the overall performance of the served model.
 
 > ### What I know:
 > * Provided sample of data relates to three groups of products: [426, 413, 427]
 > ![image info](./docs/images/pandas_profiler/pandas_profiler_prod_gr_id.jpg)
 > * Product groups have been supplied by multiple retailers: 52
 > ![image info](./docs/images/pandas_profiler/pandas_profiler_retailer_id.jpg)
-> * Suppliers could have originated from multiple countries: 121
+> * Suppliers could have originated from multiple countries: 34
 > ![image info](./docs/images/pandas_profiler/pandas_profiler_country_id_n.jpg)
 > * Many different brands could have been recommended to the recipients of the e-mails (high cardinality): 199
 > ![image info](./docs/images/pandas_profiler/pandas_profiler_brand_id.jpg)
