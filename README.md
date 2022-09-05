@@ -261,6 +261,17 @@ unfairness from differences in base rates.
 >
 > Next, using mentioned reports I will try to provide some assumptions about served model.
 
+# How to choose a performance metric
+![How to choose a performance metric](https://machinelearningmastery.com/wp-content/uploads/2019/12/How-to-Choose-a-Metric-for-Imbalanced-Classification-latest.png)
+
+# Precision and Recall
+
+![Precision and Recall 1](https://miro.medium.com/max/782/1*5V5OEP51o26FzwuEgqHojw.png)
+
+![Precision and Recall 2](https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Precisionrecall.svg/1200px-Precisionrecall.svg.png)
+
+
+
 **Target Drift and Prediction Drift**
 
 > First, I will focus a bit on the analysis of Target Drift, and related Prediction Drift.
