@@ -193,7 +193,7 @@ unfairness from differences in base rates.
 
 **Observations and hypotheses about the data set provided (Guessing Game)**
 
-> * The assumption regarding the Business Context of data: retail online data (probably from point-of-sales equipment).
+> * The assumption regarding the Business Context of data: retail online and/or point-of-sales data.
 > * The assumption regarding Meaning of Label: probably the model tries to predict if a person would be interested in a product. Recommendation tasks.
 > * The assumption regarding Sales Channel: email, ad, baner, sms marketing.
 > * The assumption regarding provided data: given fields/variables are just model attributes which can be used for exploratory needs.
