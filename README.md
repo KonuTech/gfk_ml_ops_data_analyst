@@ -209,7 +209,7 @@ unfairness from differences in base rates.
 > ![image info](./docs/images/pandas_profiler/pandas_profiler_prod_gr_id.jpg)
 > * Product groups have been supplied by multiple retailers: 52
 > ![image info](./docs/images/pandas_profiler/pandas_profiler_retailer_id.jpg)
-> * Suppliers could have originated from multiple countries: 121
+> * Suppliers could have originated from multiple countries: 34
 > ![image info](./docs/images/pandas_profiler/pandas_profiler_country_id_n.jpg)
 > * Many different brands could have been recommended to the recipients of the e-mails (high cardinality): 199
 > ![image info](./docs/images/pandas_profiler/pandas_profiler_brand_id.jpg)
