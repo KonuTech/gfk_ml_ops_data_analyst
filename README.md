@@ -230,11 +230,6 @@ unfairness from differences in base rates.
 > 
 > The high cardinality of [retailer_id] and [brand_id] columns might encourage to ask: is the model prone to the phenomenon of 'data leakage'?
 
-> The correlation matrix indicates a strong correlation between [prod_gr_id] and [country_id_n]. Seems like product
-> groups have also a geographical meaning, including differences in customer preferences.
-> 
-> ![image info](./docs/images/pandas_profiler/pandas_profiler_correlation_matrix.jpg)
->
 > From a quick look into the Interactions tab, we can loosely assume that served model was developed with a thought to
 > favour more TP over TN.
 > 
